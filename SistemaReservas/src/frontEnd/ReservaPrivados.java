@@ -16,6 +16,8 @@ public class ReservaPrivados extends javax.swing.JFrame {
      */
     public ReservaPrivados() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
