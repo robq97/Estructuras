@@ -11,22 +11,19 @@ package backEnd;
  */
 public class VueloPublico {
 
-    private String origen, destino, modeloAvion, idVuelo, privacidad;
-    private int mesSalida, diaSalida, mesEntrada, diaEntrada, paxPriClase, paxEcon;
+    private String origen, destino, modeloAvion, idVuelo, tipo, estado;
+    private int fechaSalida, fechaEntrada, paxPriClase, paxEcon;
     private double costoPaxPriClase, costoPaxEcon;
 
-    public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, 
-            String privacidad, int mesSalida, int diaSalida, int mesEntrada, int diaEntrada, 
-            int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
+    public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado, int fechaSalida, int fechaEntrada, int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
         this.origen = origen;
         this.destino = destino;
         this.modeloAvion = modeloAvion;
         this.idVuelo = idVuelo;
-        this.privacidad = privacidad;
-        this.mesSalida = mesSalida;
-        this.diaSalida = diaSalida;
-        this.mesEntrada = mesEntrada;
-        this.diaEntrada = diaEntrada;
+        this.tipo = tipo;
+        this.estado = estado;
+        this.fechaSalida = fechaSalida;
+        this.fechaEntrada = fechaEntrada;
         this.paxPriClase = paxPriClase;
         this.paxEcon = paxEcon;
         this.costoPaxPriClase = costoPaxPriClase;
@@ -65,36 +62,36 @@ public class VueloPublico {
         this.idVuelo = idVuelo;
     }
 
-    public int getMesSalida() {
-        return mesSalida;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setMesSalida(int mesSalida) {
-        this.mesSalida = mesSalida;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public int getDiaSalida() {
-        return diaSalida;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setDiaSalida(int diaSalida) {
-        this.diaSalida = diaSalida;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public int getMesEntrada() {
-        return mesEntrada;
+    public int getFechaSalida() {
+        return fechaSalida;
     }
 
-    public void setMesEntrada(int mesEntrada) {
-        this.mesEntrada = mesEntrada;
+    public void setFechaSalida(int fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
 
-    public int getDiaEntrada() {
-        return diaEntrada;
+    public int getFechaEntrada() {
+        return fechaEntrada;
     }
 
-    public void setDiaEntrada(int diaEntrada) {
-        this.diaEntrada = diaEntrada;
+    public void setFechaEntrada(int fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
     }
 
     public int getPaxPriClase() {
@@ -129,20 +126,10 @@ public class VueloPublico {
         this.costoPaxEcon = costoPaxEcon;
     }
 
-    public String getPrivacidad() {
-        return privacidad;
-    }
-
-    public void setPrivacidad(String privacidad) {
-        this.privacidad = privacidad;
-    }
-
-    @Override
     public String toString() {
         return "Origen: " + origen + ", Destino: " + destino + ", Modelo del Avion: " + modeloAvion
-                + ", ID del Vuelo: " + idVuelo + ", Mes de Salida: " + mesSalida + ", Dia de Salida: "
-                + diaSalida + ", Mes de Entrada: " + mesEntrada + ", Dia de Entrada: " + diaEntrada
-                + ", Campos Primera Clase: " + paxPriClase + ", Campos Economicos: " + paxEcon
+                + ", ID del Vuelo: " + idVuelo + ", Fecha de Salida: " + fechaSalida + ", Fecha de Entrada: "
+                + fechaEntrada + ", Campos Primera Clase: " + paxPriClase + ", Campos Economicos: " + paxEcon
                 + ", Precio Primera Clase: " + costoPaxPriClase + ", Precio Clase Economica: " + costoPaxEcon;
     }
 }
