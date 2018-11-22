@@ -16,6 +16,8 @@ public class ReservaAsientos extends javax.swing.JFrame {
      */
     public ReservaAsientos() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
