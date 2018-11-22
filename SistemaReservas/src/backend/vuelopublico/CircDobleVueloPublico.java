@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backEnd;
+package backend.vuelopublico;
 
+import backend.vuelopublico.NodoVueloPublico;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,36 +16,36 @@ public class CircDobleVueloPublico {
 
     private NodoVueloPublico cabeza, ultimo;
 
-    public void insertar(VueloPublico v) {
-        if (cabeza == null) {
-            cabeza = new NodoVueloPublico(v);
-            ultimo = cabeza;
-        } else {
-            if (v.getDiaSalida() <= cabeza.getDato().getDiaSalida()) {
-                cabeza.setBack(new NodoVueloPublico(v)); //no se crea auxiliar por que se tiene puntero que indica que esta antes de cabeza
-                cabeza.getBack().setNext(cabeza);
-                cabeza = cabeza.getBack();
-            } else {
-                if (v.getDiaSalida() >= ultimo.getDato().getDiaSalida()) {
-                    ultimo.setNext(new NodoVueloPublico(v));
-                    ultimo.getNext().setBack(ultimo);
-                    ultimo = ultimo.getNext();
-                } else {
-                    NodoVueloPublico aux = cabeza;
-                    while (v.getDiaSalida() > aux.getNext().getDato().getDiaSalida()) {
-                        aux = aux.getNext();
-                    }
-                    NodoVueloPublico temp = new NodoVueloPublico(v);
-                    temp.setNext(aux.getNext());
-                    temp.setBack(aux);
-                    aux.setNext(temp);
-                    temp.getNext().setBack(temp);
-                }
-            }
-        }
-        ultimo.setNext(cabeza); //se crea puntero para senalar hacia el siguiente
-        cabeza.setBack(ultimo); //se crea puntero para senalar el de atras
-    }
+//    public void insertar(VueloPublico v) {
+//        if (cabeza == null) {
+//            cabeza = new NodoVueloPublico(v);
+//            ultimo = cabeza;
+//        } else {
+//            if (v.getDiaSalida() <= cabeza.getDato().getDiaSalida()) {
+//                cabeza.setBack(new NodoVueloPublico(v)); //no se crea auxiliar por que se tiene puntero que indica que esta antes de cabeza
+//                cabeza.getBack().setNext(cabeza);
+//                cabeza = cabeza.getBack();
+//            } else {
+//                if (v.getDiaSalida() >= ultimo.getDato().getDiaSalida()) {
+//                    ultimo.setNext(new NodoVueloPublico(v));
+//                    ultimo.getNext().setBack(ultimo);
+//                    ultimo = ultimo.getNext();
+//                } else {
+//                    NodoVueloPublico aux = cabeza;
+//                    while (v.getDiaSalida() > aux.getNext().getDato().getDiaSalida()) {
+//                        aux = aux.getNext();
+//                    }
+//                    NodoVueloPublico temp = new NodoVueloPublico(v);
+//                    temp.setNext(aux.getNext());
+//                    temp.setBack(aux);
+//                    aux.setNext(temp);
+//                    temp.getNext().setBack(temp);
+//                }
+//            }
+//        }
+//        ultimo.setNext(cabeza); //se crea puntero para senalar hacia el siguiente
+//        cabeza.setBack(ultimo); //se crea puntero para senalar el de atras
+//    }
 
     public String toString() {
         NodoVueloPublico aux = cabeza;
