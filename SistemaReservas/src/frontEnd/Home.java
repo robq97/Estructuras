@@ -34,7 +34,7 @@ public class Home extends javax.swing.JFrame {
         btnAdmin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHome = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +70,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHome.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,7 +81,7 @@ public class Home extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHome);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +135,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
-        AdminHome window = new AdminHome();
+        InicioSesion window = new InicioSesion();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAdminActionPerformed
@@ -187,6 +187,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnReservaAviones;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblHome;
     // End of variables declaration//GEN-END:variables
 }
