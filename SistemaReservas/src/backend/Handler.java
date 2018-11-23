@@ -7,6 +7,7 @@ package backend;
 
 import backend.admin.Admin;
 import backend.admin.ArbolAdmin;
+import backend.clientes.Cliente;
 import backend.clientes.ListaOrdenadaCliente;
 import backend.vueloprivado.ColaVueloPrivado;
 import backend.vueloprivado.VueloPrivado;
@@ -40,11 +41,11 @@ public class Handler {
     }
 
     public void addVuelosSolicitudesExistentes() {
-        pub.insertar(new VueloPublico("San Jose, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "305", "solicitud", "disponible", 1810032230, 1810052300, 2, 3, 515, 265));
-        pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "A320", "310", "solicitud", "disponible", 1810070100, 1810120100, 2, 5, 770, 400));
-        pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "315", "solicitud", "disponible", 1811040830, 1811090830, 0, 2, 520, 285));
+        pub.insertar(new VueloPublico("San Jose, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "305", "solicitud", "disponible", 1810032230, 1810052300, 3, 10, 515, 265));
+        pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "A320", "310", "solicitud", "disponible", 1810070100, 1810120100, 0, 7, 770, 400));
+        pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "315", "solicitud", "disponible", 1811040830, 1811090830, 3, 8, 520, 285));
         pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "San Jose, Costa Rica", "A320", "320", "solicitud", "disponible", 1811030430, 1811070430, 7, 10, 500, 240));
-        pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Miami, USA", "B737-800", "325", "solicitud", "disponible", 1812061900, 1812151900, 0, 4, 820, 410));
+        pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Miami, USA", "B737-800", "325", "solicitud", "disponible", 1812061900, 1812151900, 0, 12, 820, 410));
     }
 
     public void addVuelosPrivadosExistentes() { //origen, destino, modelo, ID vuelo, fechaSalida, fechaEntrada, pax, precioTotal.
@@ -53,6 +54,19 @@ public class Handler {
         priv.encola(new VueloPrivado("Ciudad de Panama, Panama", "Dubai, EAU", "Phenom 100EV", "VP130", 1811301820, 1812051700, 2, priv.calcTotal(1811301820, 1812051700)));
         priv.encola(new VueloPrivado("San Jose, Costa Rica", "Sao Paulo, Brazil", "Challenger 300", "VP135", 1812020400, 1812072200, 4, priv.calcTotal(1812020400, 1812072200)));
         priv.encola(new VueloPrivado("Ciudad de Panama, Panama", "Moscu, Russia", "G650", "VP140", 1812021115, 1812081445, 7, priv.calcTotal(1812021115, 1812081445)));
+    }
+
+    public void addClientesExistentes() {//nombre, cel, email, clase, # de asientos, cedula, id de vuelo, costo por medio del metodo
+        cliente.insertar(new Cliente("Daniela", "8712-6443", "daniela@gmail.com", "primera", 1, 116840022, "240", pub.reservaExistentes("primera", 1, "240")));
+        cliente.insertar(new Cliente("Bryan", "5643-6566", "bryan@ulacit.com", "economica", 10, 113443443, "245", pub.reservaExistentes("economica", 10, "245")));
+        cliente.insertar(new Cliente("Irene", "6654-1128", "irene@yahoo.com", "economica", 8, 13328422, "240", pub.reservaExistentes("economica", 8, "240")));
+        cliente.insertar(new Cliente("Andres", "7832-0935", "andres@hotmail.com", "primera", 3, 198624434, "275", pub.reservaExistentes("primera", 3, "275")));
+        cliente.insertar(new Cliente("Marco", "7637-8834", "marco@gmail.com", "economica", 3, 116435342, "280", pub.reservaExistentes("economica", 3, "280")));
+        cliente.insertar(new Cliente("Sofia", "8276-7654", "sofia@outlook.com", "primera", 2, 119543444, "290", pub.reservaExistentes("primera", 2, "290")));
+        cliente.insertar(new Cliente("Alejandro", "5453-3223", "alejandro@destinos.com", "economica", 7, 116300734, "255", pub.reservaExistentes("economica", 7, "255")));
+        cliente.insertar(new Cliente("Gloriana", "2956-5543", "gloriana@hotmail.com", "economica", 4, 12309454, "295", pub.reservaExistentes("economica", 4, "295")));
+        cliente.insertar(new Cliente("Brandon", "4523-6575", "brandon@yahoo.com", "economica", 6, 112454695, "265", pub.reservaExistentes("economica", 6, "265")));
+
     }
 
     public void addAdminsExistentes() { //Usuario, password, privilegios (0 tiene todos los privilegios)

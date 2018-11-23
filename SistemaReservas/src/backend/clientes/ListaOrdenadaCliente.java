@@ -17,7 +17,7 @@ public class ListaOrdenadaCliente {
         if (cabeza == null) {                                                   //En caso de que la cabeza sea nula, el dato sera el primero de la lista.
             cabeza = new NodoCliente(c);
         } else {
-            if (c.getId() <= cabeza.getDato().getId()) {                        //Con ayuda de la condicion "if" y "else" de abajo, se orden los datos por califcacion,
+            if (c.getCedula() <= cabeza.getDato().getCedula()) {                        //Con ayuda de la condicion "if" y "else" de abajo, se orden los datos por califcacion,
                 NodoCliente aux = new NodoCliente(c);                           //de menor a mayor.
                 aux.setNext(cabeza);
                 cabeza = aux;
@@ -26,7 +26,7 @@ public class ListaOrdenadaCliente {
                     cabeza.setNext(new NodoCliente(c));
                 } else {
                     NodoCliente aux = cabeza;
-                    while (aux.getNext() != null && c.getId() > aux.getNext().getDato().getId()) {
+                    while (aux.getNext() != null && c.getCedula() > aux.getNext().getDato().getCedula()) {
                         aux = aux.getNext();
                     }
                     NodoCliente temp = new NodoCliente(c);
@@ -48,11 +48,11 @@ public class ListaOrdenadaCliente {
         return s;
     }
 
-    public void eliminarCliente(int id) {
+    public void eliminarCliente(int cedula) {
         NodoCliente aux = cabeza;                                               //Se crea una copia del nodo frente, para no alterar el original.
         NodoCliente temp = aux;                                                 //Se crea una copia del nodo aux (frente), nos ayudara a eliminar el dato que necesitemos.
         while (aux != null) {                                                   //Ciclo que con la ayuda de aux = aux.getAtras(), nos permite recorrer todos los datos de la estructura. 
-            if (aux.getDato().getId() == id) {                                  //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
+            if (aux.getDato().getCedula() == cedula) {                                  //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
                 temp.setNext(aux.getNext());                                    //Se brinca el dato con el match de aux y se le asigna como dato siguiente al nodo temp.
             }
             temp = aux;                                                         //Se guarda temporalmente el dato actual de aux antes de pasar al siguiente de aux.

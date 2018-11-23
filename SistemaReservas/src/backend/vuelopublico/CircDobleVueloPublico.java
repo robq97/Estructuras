@@ -78,10 +78,55 @@ public class CircDobleVueloPublico {
             }
         }
     }
-    private int conseguirHora(int fecha){
-        int hora = (fecha%10000);
+
+    private int conseguirHora(int fecha) {
+        int hora = (fecha % 10000);
         return hora;
     }
-    
 
+    public boolean isLleno(int idVuelo) {
+        NodoVueloPublico aux = cabeza;
+        boolean status = false;
+        while (true) {
+            if (aux.getDato().getIdVuelo().equals(idVuelo)) {
+                if (aux.getDato().getPaxPriClase() <= 5 && aux.getDato().getPaxEcon() <= 5) {
+                    status = true;
+                }
+            }
+            aux = aux.getNext();                                                //Nos permite pasar al siguiente dato de la lista.
+            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+                break;
+            }
+        }
+        return status;
+    }
+
+    public double reservaExistentes(String categoria, int espacios, String idVuelo) { //Unicamente para clientes ya existentes.
+        NodoVueloPublico aux = cabeza;
+        double total = 0;
+        while (true) {
+            if (aux.getDato().getIdVuelo().equals(idVuelo)) {
+                if (categoria.equals("primera")) {
+                    if (aux.getDato().getPaxPriClase() >= espacios) {
+                        total = aux.getDato().getCostoPaxPriClase() * espacios;
+                        int cantActual = aux.getDato().getPaxPriClase() - espacios;
+                        aux.getDato().setPaxPriClase(cantActual);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay espacios suficientes.");
+                    }
+                } else if (categoria.equals("economica")) {
+                    if (aux.getDato().getPaxEcon() >= espacios) {
+                        int cantActual = aux.getDato().getPaxEcon() - espacios;
+                        aux.getDato().setPaxEcon(cantActual);
+                        total = aux.getDato().getCostoPaxEcon() * espacios;
+                    }
+                }
+            }
+            aux = aux.getNext();                                                //Nos permite pasar al siguiente dato de la lista.
+            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+                break;
+            }
+        }
+        return total;
+    }
 }

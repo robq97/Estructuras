@@ -11,17 +11,18 @@ package backend.clientes;
  */
 public class Cliente {
 
-    private String nombre, telefono, email, categoria;
-    private int espacios, id;
+    private String nombre, telefono, email, categoria, idVuelo;
+    private int espacios, cedula;
     private double total;
 
-    public Cliente(String nombre, String telefono, String email, String categoria, int espacios, int id, double total) {
+    public Cliente(String nombre, String telefono, String email, String categoria, int espacios, int cedula, String idVuelo, double total) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
         this.categoria = categoria;
         this.espacios = espacios;
         this.total = total;
+        this.cedula = cedula;
     }
 
     public String getNombre() {
@@ -72,18 +73,25 @@ public class Cliente {
         this.total = total;
     }
 
-    public int getId() {
-        return id;
+    public int getCedula() {
+        return cedula;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
-    
+
+    public String getIdVuelo() {
+        return idVuelo;
+    }
+
+    public void setIdVuelo(String idVuelo) {
+        this.idVuelo = idVuelo;
+    }
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + nombre + ", Telefono: " + telefono + ", Email: " + email + ", Categoria: "
+        return "Vuelo: " + idVuelo + ", Cedula: " + cedula + ", Nombre: " + nombre + ", Telefono: " + telefono + ", Email: " + email + ", Categoria: "
                 + categoria + ", Espacios: " + espacios + ", Total: " + total;
     }
 
