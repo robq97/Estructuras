@@ -5,7 +5,6 @@
  */
 package backend.vuelopublico;
 
-import backend.vuelopublico.VueloPublico;
 
 /**
  *

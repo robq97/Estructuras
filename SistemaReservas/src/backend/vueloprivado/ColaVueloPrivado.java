@@ -5,9 +5,6 @@
  */
 package backend.vueloprivado;
 
-import backend.vueloprivado.VueloPrivado;
-import backend.vueloprivado.NodoVueloPrivado;
-
 /**
  *
  * @author robq9
@@ -55,11 +52,44 @@ public class ColaVueloPrivado {
         NodoVueloPrivado aux = frente;                                          //Se crea una copia del nodo frente, para no alterar el original.
         NodoVueloPrivado temp = aux;                                            //Se crea una copia del nodo aux (frente), nos ayudara a eliminar el dato que necesitemos.
         while (aux != null) {                                                   //Ciclo que con la ayuda de aux = aux.getAtras(), nos permite recorrer todos los datos de la estructura. 
-            if (id.contains(aux.getDato().getIdVuelo())) {                 //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
+            if (id.contains(aux.getDato().getIdVuelo())) {                      //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
                 temp.setAtras(aux.getAtras());                                  //Se brinca el dato con el match de aux y se le asigna como dato siguiente al nodo temp.
             }
             temp = aux;                                                         //Se guarda temporalmente el dato actual de aux antes de pasar al siguiente de aux.
             aux = aux.getAtras();
         }
+    }
+
+    public double calcTotal(int fechaSalida, int fechaLlegada) {
+        double precioPorDia = 2500;
+        double total = 0;
+
+        int mesSalida = conseguirMes(fechaSalida);
+        int mesLlegada = conseguirMes(fechaLlegada);
+        int diaSalida = conseguirDia(fechaSalida);
+        int diaLlegada = conseguirDia(fechaLlegada);
+
+        if (mesSalida == mesLlegada) {
+            if (diaSalida == diaLlegada) {
+                total = precioPorDia;
+            } else {
+                total = (diaLlegada - diaSalida) * precioPorDia;
+            }
+        } else if (mesSalida < mesLlegada) {
+            total = ((30 - diaSalida) + diaLlegada) * precioPorDia;
+        }
+        return total;
+    }
+
+    private int conseguirMes(int fecha) {
+        int mes = (fecha % 100000000);
+        mes = (mes / 1000000);
+        return mes;
+    }
+
+    private int conseguirDia(int fecha) {
+        int dia = (fecha % 1000000);
+        dia = (dia / 10000);
+        return dia;
     }
 }

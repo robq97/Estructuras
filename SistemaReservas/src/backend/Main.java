@@ -8,5 +8,10 @@ public class Main {
         Home window = new Home();
         window.setVisible(true);
 
+        Handler handler = new Handler();
+        handler.addVuelosFijosExistentes();
+        handler.addVuelosPrivadosExistentes();
+        handler.addAdminsExistentes();
+        handler.test();
     }
 }

@@ -52,6 +52,30 @@ public class ArbolAdmin {
     }
 
     public void imprimeNivel(int n) {                                           //Imprime el valor encontrado en el metodo recursivo de nodos por nivel.
-        System.out.print("Adminstradores del nivel " + n + ":\n" + imprimeNivelRec(raiz, n) + ".\n");
+        System.out.print("Adminstradores del nivel " + n + ":\n" + imprimeNivelRec(raiz, n));
+    }
+
+    private int getAlturaRec(NodoAdmin n) {                                     //Metodo recursivo para obtener el numero de niveles o altura del arbol . 
+        int total = -1;                                                         //El nivel 0 es el primero, por eso al final se le resta 1, de lo contrario los niveles comenzarian desde el 1.
+        if (n != null) {
+            int ladoIzqTotal = getAlturaRec(n.getHijoIzq());                    //A ambos lados (izquierdo y derecho) se les asigna un numero
+            int ladoDerTotal = getAlturaRec(n.getHijoDer());
+            if (ladoIzqTotal > ladoDerTotal) {
+                return ladoIzqTotal + 1;                                        //Dependiendo de cual sea mayor, es el que se va a retornar, y se le suma 1 cada vez que se retorno un nodo  
+            } else {                                                            //y asi poder llevar la cuenta del numero de niveles recorridos.
+                return ladoDerTotal + 1;
+            }
+        }
+        return total;
+    }
+
+    public void getAltura() {                                                   //Imprime el valor encontrado en el metodo recursivo para mostrar la altura del arbol.
+        System.out.println("\nLa altura es de " + getAlturaRec(raiz) + " niveles. (Contando el 0 como primer nivel)");
+    }
+
+    public void imprimeTodos() {
+        for (int i = 0; i <= getAlturaRec(raiz); i++) {
+            imprimeNivel(i);
+        }
     }
 }

@@ -12,7 +12,7 @@ package backend.vuelopublico;
 public class VueloPublico {
 
     private String origen, destino, modeloAvion, idVuelo, tipo, estado;
-    private int fechaSalida, fechaEntrada, paxPriClase, paxEcon;
+    private int fechaSalida, fechaEntrada, disponiblePriClase, disponibleEcon;
     private double costoPaxPriClase, costoPaxEcon;
 
     public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado, int fechaSalida, int fechaEntrada, int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
@@ -24,8 +24,8 @@ public class VueloPublico {
         this.estado = estado;
         this.fechaSalida = fechaSalida;
         this.fechaEntrada = fechaEntrada;
-        this.paxPriClase = paxPriClase;
-        this.paxEcon = paxEcon;
+        this.disponiblePriClase = paxPriClase;
+        this.disponibleEcon = paxEcon;
         this.costoPaxPriClase = costoPaxPriClase;
         this.costoPaxEcon = costoPaxEcon;
     }
@@ -95,19 +95,19 @@ public class VueloPublico {
     }
 
     public int getPaxPriClase() {
-        return paxPriClase;
+        return disponiblePriClase;
     }
 
     public void setPaxPriClase(int paxPriClase) {
-        this.paxPriClase = paxPriClase;
+        this.disponiblePriClase = paxPriClase;
     }
 
     public int getPaxEcon() {
-        return paxEcon;
+        return disponibleEcon;
     }
 
     public void setPaxEcon(int paxEcon) {
-        this.paxEcon = paxEcon;
+        this.disponibleEcon = paxEcon;
     }
 
     public double getCostoPaxPriClase() {
@@ -129,7 +129,7 @@ public class VueloPublico {
     public String toString() {
         return "Origen: " + origen + ", Destino: " + destino + ", Modelo del Avion: " + modeloAvion
                 + ", ID del Vuelo: " + idVuelo + ", Fecha de Salida: " + fechaSalida + ", Fecha de Entrada: "
-                + fechaEntrada + ", Campos Primera Clase: " + paxPriClase + ", Campos Economicos: " + paxEcon
-                + ", Precio Primera Clase: " + costoPaxPriClase + ", Precio Clase Economica: " + costoPaxEcon;
+                + fechaEntrada + ", Disponible Primera Clase: " + disponiblePriClase + ", Disponible Economicos: " + disponibleEcon
+                + ", Precio Primera Clase: " + costoPaxPriClase + ", Precio Clase Economica: " + costoPaxEcon + "\n";
     }
 }

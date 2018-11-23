@@ -12,18 +12,16 @@ package backend.vueloprivado;
 public class VueloPrivado {
 
     private String modeloAvion, origen, destino, idVuelo;
-    private int mesSalida, mesLlegada, diaSalida, diaEntrada, pax;
+    private int fechaSalida, fechaLlegada, pax;
     private double costo;
 
-    public VueloPrivado(String modeloAvion, String origen, String destino, String idVuelo, int mesSalida, int mesLlegada, int diaSalida, int diaEntrada, int pax, double costo) {
+    public VueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaLlegada, int pax, double costo) {
         this.modeloAvion = modeloAvion;
         this.origen = origen;
         this.destino = destino;
         this.idVuelo = idVuelo;
-        this.mesSalida = mesSalida;
-        this.mesLlegada = mesLlegada;
-        this.diaSalida = diaSalida;
-        this.diaEntrada = diaEntrada;
+        this.fechaSalida = fechaSalida;
+        this.fechaLlegada = fechaLlegada;
         this.pax = pax;
         this.costo = costo;
     }
@@ -52,36 +50,28 @@ public class VueloPrivado {
         this.destino = destino;
     }
 
-    public int getMesSalida() {
-        return mesSalida;
+    public String getIdVuelo() {
+        return idVuelo;
     }
 
-    public void setMesSalida(int mesSalida) {
-        this.mesSalida = mesSalida;
+    public void setIdVuelo(String idVuelo) {
+        this.idVuelo = idVuelo;
     }
 
-    public int getMesLlegada() {
-        return mesLlegada;
+    public int getFechaSalida() {
+        return fechaSalida;
     }
 
-    public void setMesLlegada(int mesLlegada) {
-        this.mesLlegada = mesLlegada;
+    public void setFechaSalida(int fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
 
-    public int getDiaSalida() {
-        return diaSalida;
+    public int getFechaLlegada() {
+        return fechaLlegada;
     }
 
-    public void setDiaSalida(int diaSalida) {
-        this.diaSalida = diaSalida;
-    }
-
-    public int getDiaEntrada() {
-        return diaEntrada;
-    }
-
-    public void setDiaEntrada(int diaEntrada) {
-        this.diaEntrada = diaEntrada;
+    public void setFechaLlegada(int fechaLlegada) {
+        this.fechaLlegada = fechaLlegada;
     }
 
     public int getPax() {
@@ -100,19 +90,10 @@ public class VueloPrivado {
         this.costo = costo;
     }
 
-    public String getIdVuelo() {
-        return idVuelo;
-    }
-
-    public void setIdVuelo(String idVuelo) {
-        this.idVuelo = idVuelo;
-    }
-
     @Override
     public String toString() {
-        return "Modelo de Avion" + modeloAvion + ", Origen: " + origen + ", Destino: "
-                + destino + ", Mes de Salida: " + mesSalida + ", Mes de Llegada: "
-                + mesLlegada + ", Dia de Salida: " + diaSalida + ", Dia de Entrada: "
-                + diaEntrada + ", Cantidad de pasajeros: " + pax + ", Costo: " + costo + ", Vuelo: " + idVuelo;
+        return "Vuelo: " + idVuelo + ", Modelo de Avion: " + modeloAvion + ", Origen: " + origen + ", Destino: "
+                + destino + ", Fecha de Salida: " + fechaSalida + ", Fecha de Llegada: "
+                + fechaLlegada + ", Cantidad de pasajeros: " + pax + ", Costo: " + costo;
     }
 }
