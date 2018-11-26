@@ -23,6 +23,7 @@ public class Cliente {
         this.espacios = espacios;
         this.total = total;
         this.cedula = cedula;
+        this.idVuelo = idVuelo;
     }
 
     public String getNombre() {

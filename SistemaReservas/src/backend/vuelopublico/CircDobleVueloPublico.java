@@ -84,7 +84,7 @@ public class CircDobleVueloPublico {
         return hora;
     }
 
-    public boolean isLleno(int idVuelo) {
+    public boolean isLleno(String idVuelo) {
         NodoVueloPublico aux = cabeza;
         boolean status = false;
         while (true) {
@@ -101,7 +101,7 @@ public class CircDobleVueloPublico {
         return status;
     }
 
-    public double reservaExistentes(String categoria, int espacios, String idVuelo) { //Unicamente para clientes ya existentes.
+    public double reservaVueloPublico(String categoria, int espacios, String idVuelo, boolean tipo) { //el booblean para clientes no existentes tiene que ser TRUE.
         NodoVueloPublico aux = cabeza;
         double total = 0;
         while (true) {
@@ -109,16 +109,47 @@ public class CircDobleVueloPublico {
                 if (categoria.equals("primera")) {
                     if (aux.getDato().getPaxPriClase() >= espacios) {
                         total = aux.getDato().getCostoPaxPriClase() * espacios;
-                        int cantActual = aux.getDato().getPaxPriClase() - espacios;
-                        aux.getDato().setPaxPriClase(cantActual);
+                        if (tipo == true) {
+                            int decision = JOptionPane.showConfirmDialog(null, "El total es de " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
+                            if (decision == JOptionPane.YES_OPTION) {
+                                JOptionPane.showMessageDialog(null, "Reserva realizada.");
+                                int cantActual = aux.getDato().getPaxPriClase() - espacios;
+                                aux.getDato().setPaxPriClase(cantActual);
+                                return total;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Reserva cancelada.");
+                                total = 0;
+                                return total;
+                            }
+                        } else {
+                            int cantActual = aux.getDato().getPaxPriClase() - espacios;
+                            aux.getDato().setPaxPriClase(cantActual);
+                            return total;
+                        }
                     } else {
                         JOptionPane.showMessageDialog(null, "No hay espacios suficientes.");
+                        break;
                     }
                 } else if (categoria.equals("economica")) {
                     if (aux.getDato().getPaxEcon() >= espacios) {
-                        int cantActual = aux.getDato().getPaxEcon() - espacios;
-                        aux.getDato().setPaxEcon(cantActual);
                         total = aux.getDato().getCostoPaxEcon() * espacios;
+                        if (tipo == true) {
+                            int decision = JOptionPane.showConfirmDialog(null, "El total es de " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
+                            if (decision == JOptionPane.YES_OPTION) {
+                                JOptionPane.showMessageDialog(null, "Reserva realizada.");
+                                int cantActual = aux.getDato().getPaxEcon() - espacios;
+                                aux.getDato().setPaxEcon(cantActual);
+                                return total;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Reserva cancelada.");
+                                total = 0;
+                                return total;
+                            }
+                        } else {
+                            int cantActual = aux.getDato().getPaxEcon() - espacios;
+                            aux.getDato().setPaxEcon(cantActual);
+                            return total;
+                        }
                     }
                 }
             }

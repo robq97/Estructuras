@@ -59,6 +59,16 @@ public class ColaVueloPrivado {
             aux = aux.getAtras();
         }
     }
+    
+    public void cambiarPrecio (String id, double nuevoPrecio) {
+        NodoVueloPrivado aux = frente;
+        while (aux != null) {
+            if (id.equals(aux.getDato().getIdVuelo())) {
+                aux.getDato().setCosto(nuevoPrecio);
+            }
+            aux = aux.getAtras();
+        }
+    }
 
     public double calcTotal(int fechaSalida, int fechaLlegada) {
         double precioPorDia = 2500;

@@ -78,4 +78,8 @@ public class ArbolAdmin {
             imprimeNivel(i);
         }
     }
+    
+    public void cambiarContrasena(String usuario, String password, String nuevaPassword) {
+        
+    }
 }
