@@ -78,19 +78,19 @@ public class Handler {
     }
 
     public void addClientesExistentes() {//nombre, cel, email, clase, # de asientos, cedula, id de vuelo, costo por medio del metodo              
-        cliente.insertar(new Cliente("Daniela", "8712-6443", "daniela@gmail.com", "primera", 1, 116840022, "240", pub.reservaVueloPublico("primera", 1, "240", false)));
-        cliente.insertar(new Cliente("Bryan", "5643-6566", "bryan@ulacit.com", "economica", 10, 113443443, "245", pub.reservaVueloPublico("economica", 10, "245", false)));
-        cliente.insertar(new Cliente("Irene", "6654-1128", "irene@yahoo.com", "economica", 8, 13328422, "240", pub.reservaVueloPublico("economica", 8, "240", false)));
-        cliente.insertar(new Cliente("Andres", "7832-0935", "andres@hotmail.com", "primera", 3, 198624434, "275", pub.reservaVueloPublico("primera", 3, "275", false)));
-        cliente.insertar(new Cliente("Marco", "7637-8834", "marco@gmail.com", "economica", 3, 116435342, "280", pub.reservaVueloPublico("economica", 3, "280", false)));
-        cliente.insertar(new Cliente("Sofia", "8276-7654", "sofia@outlook.com", "primera", 2, 119543444, "290", pub.reservaVueloPublico("primera", 2, "290", false)));
-        cliente.insertar(new Cliente("Alejandro", "5453-3223", "alejandro@destinos.com", "economica", 7, 116300734, "255", pub.reservaVueloPublico("economica", 7, "255", false)));
-        cliente.insertar(new Cliente("Gloriana", "2956-5543", "gloriana@hotmail.com", "economica", 4, 12309454, "295", pub.reservaVueloPublico("economica", 4, "295", false)));
-        cliente.insertar(new Cliente("Brandon", "4523-6575", "brandon@yahoo.com", "economica", 6, 112454695, "265", pub.reservaVueloPublico("economica", 6, "265", false)));
+        cliente.insertar(new Cliente("Daniela", "8712-6443", "daniela@gmail.com", "primera", 1, "1-1684-0022", "240", pub.reservaVueloPublico("primera", 1, "240", false)));
+        cliente.insertar(new Cliente("Bryan", "5643-6566", "bryan@ulacit.com", "economica", 10, "1-1344-3443", "245", pub.reservaVueloPublico("economica", 10, "245", false)));
+        cliente.insertar(new Cliente("Irene", "6654-1128", "irene@yahoo.com", "economica", 8, "1-3328-422", "240", pub.reservaVueloPublico("economica", 8, "240", false)));
+        cliente.insertar(new Cliente("Andres", "7832-0935", "andres@hotmail.com", "primera", 3, "1-9862-4434", "275", pub.reservaVueloPublico("primera", 3, "275", false)));
+        cliente.insertar(new Cliente("Marco", "7637-8834", "marco@gmail.com", "economica", 3, "1-1643-5342", "280", pub.reservaVueloPublico("economica", 3, "280", false)));
+        cliente.insertar(new Cliente("Sofia", "8276-7654", "sofia@outlook.com", "primera", 2, "1-1954-3444", "290", pub.reservaVueloPublico("primera", 2, "290", false)));
+        cliente.insertar(new Cliente("Alejandro", "5453-3223", "alejandro@destinos.com", "economica", 7, "1-1630-0734", "255", pub.reservaVueloPublico("economica", 7, "255", false)));
+        cliente.insertar(new Cliente("Gloriana", "2956-5543", "gloriana@hotmail.com", "economica", 4, "1-230-9454", "295", pub.reservaVueloPublico("economica", 4, "295", false)));
+        cliente.insertar(new Cliente("Brandon", "4523-6575", "brandon@yahoo.com", "economica", 6, "1-1245-4695", "265", pub.reservaVueloPublico("economica", 6, "265", false)));
 
     }
     //agrega nuevos clientes y crea la reservacion solo si el total devuelto por el metodo reservaVueloPublico() es igual o mayor a 1.
-    public void addNuevosClientesyReserva(String nombre, String telefono, String email, String categoria, int asientos, int cedula, String idVuelo) {
+    public void addNuevosClientesyReserva(String nombre, String telefono, String email, String categoria, int asientos, String cedula, String idVuelo) {
         if (pub.reservaVueloPublico(categoria, asientos, idVuelo, true) >= 1) {
             cliente.insertar(new Cliente(nombre, telefono, email, categoria, asientos, cedula, idVuelo, pub.reservaVueloPublico(categoria, asientos, idVuelo, false)));
         }

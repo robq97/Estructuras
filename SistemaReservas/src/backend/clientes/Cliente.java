@@ -11,11 +11,11 @@ package backend.clientes;
  */
 public class Cliente {
 
-    private String nombre, telefono, email, categoria, idVuelo;
-    private int espacios, cedula;
+    private String nombre, telefono, email, categoria, idVuelo, cedula;
+    private int espacios;
     private double total;
 
-    public Cliente(String nombre, String telefono, String email, String categoria, int espacios, int cedula, String idVuelo, double total) {
+    public Cliente(String nombre, String telefono, String email, String categoria, int espacios, String cedula, String idVuelo, double total) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
@@ -74,11 +74,11 @@ public class Cliente {
         this.total = total;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
