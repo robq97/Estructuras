@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/vuelopublico/CircDobleVueloPublico.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/clientes/ListaOrdenadaCliente.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/Handler.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/admin/Admin.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/clientes/Cliente.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/admin/ArbolAdmin.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/Main.java</file>
+            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/AdminHome.java</file>
+            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/NuevoVuelo.java</file>
+            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/EliminarVuelo.java</file>
+            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/NuevoPrivado.java</file>
+            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/EliminarPrivado.java</file>
         </group>
     </open-files>
 </project-private>
