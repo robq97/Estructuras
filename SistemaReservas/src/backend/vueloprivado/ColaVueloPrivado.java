@@ -5,6 +5,8 @@
  */
 package backend.vueloprivado;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author robq9
@@ -102,4 +104,16 @@ public class ColaVueloPrivado {
         dia = (dia / 10000);
         return dia;
     }
+    
+     public DefaultTableModel modeloPub(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        NodoVueloPrivado aux = frente;
+        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Salida"});
+        while (aux != null) {
+            //origen, destino, modelo, ID vuelo, fechaSalida, fechaEntrada, pax, precioTotal.
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino()});
+            aux = aux.getAtras();
+        }
+        return modelo;
+     }
 }

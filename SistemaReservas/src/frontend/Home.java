@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author robq9
  */
 public class Home extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form home
@@ -30,7 +34,6 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         btnReservaAsientos = new javax.swing.JButton();
-        btnReservaAviones = new javax.swing.JButton();
         btnAdmin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -43,14 +46,6 @@ public class Home extends javax.swing.JFrame {
         btnReservaAsientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaAsientosActionPerformed(evt);
-            }
-        });
-
-        btnReservaAviones.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnReservaAviones.setText("Reservar un vuelo privado");
-        btnReservaAviones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservaAvionesActionPerformed(evt);
             }
         });
 
@@ -70,17 +65,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        tblHome.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tblHome.setModel(handler.modeloPub());
         jScrollPane1.setViewportView(tblHome);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,7 +77,6 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReservaAsientos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReservaAviones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
@@ -107,12 +91,10 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReservaAsientos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnReservaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 72, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -125,13 +107,6 @@ public class Home extends javax.swing.JFrame {
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnReservaAsientosActionPerformed
-
-    private void btnReservaAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaAvionesActionPerformed
-        // TODO add your handling code here:
-        ReservaPrivados window = new ReservaPrivados();
-        window.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnReservaAvionesActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
@@ -184,7 +159,6 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnReservaAsientos;
-    private javax.swing.JButton btnReservaAviones;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblHome;
