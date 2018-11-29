@@ -110,11 +110,11 @@ public class Handler {
         Handler.admin.cambiarContrasena(usuario, passwordActual, passwordNueva);  //falta agregar codigo a este metodo.
     }
     public void test() { //metodo para pruebas, puede comentarse
-        System.out.println(cliente);
-        System.out.println(priv);
-        System.out.println(pub);
-        Handler.admin.imprimeTodos();
-        Handler.pub.toString();
+        //System.out.println(cliente);
+        System.out.println(Handler.priv);
+        //System.out.println(pub);
+        //Handler.admin.imprimeTodos();
+        //Handler.pub.toString();
     }
     
     public DefaultTableModel modeloPub(){
@@ -125,5 +125,9 @@ public class Handler {
     public DefaultTableModel modeloPriv(){
         DefaultTableModel modelo = Handler.pub.modeloPub();
         return modelo;
+    }
+    
+    public boolean iniciarSesion(String user, String pass){
+        return Handler.admin.iniciarSesion(user, pass);
     }
 }

@@ -16,6 +16,7 @@ public class ColaVueloPrivado {
     private NodoVueloPrivado frente, ultimo;
 
     public void encola(VueloPrivado v) {
+        
         if (frente == null) {
             frente = new NodoVueloPrivado(v);
             ultimo = frente;

@@ -163,14 +163,14 @@ public class AdminHome extends javax.swing.JFrame {
 
     private void btnVueloPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloPrivActionPerformed
         // TODO add your handling code here:
-        NuevoVuelo window = new NuevoVuelo();
+        NuevoPrivado window = new NuevoPrivado();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVueloPrivActionPerformed
 
     private void btnVueloPubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloPubActionPerformed
         // TODO add your handling code here:
-        NuevoPrivado window = new NuevoPrivado();
+        NuevoVuelo window = new NuevoVuelo();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVueloPubActionPerformed
