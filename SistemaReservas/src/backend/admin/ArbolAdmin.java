@@ -22,6 +22,8 @@ public class ArbolAdmin {
             insertaRec(a, raiz);                                                //De lo contrario se llama al metodo recursivo para que lo posicione en lugar correcto.
         }
     }
+    
+    
 
     private void insertaRec(Admin a, NodoAdmin n) {                             //Se decide si se posiciona a la izquiera o derecha en caso de que ya exista una raiz.
         if (a.getNivelAcceso() <= n.getDato().getNivelAcceso()) {               //izq.         su posicion dependera del valor (menor o igual a la izquierda, mayor a la derecha)
@@ -81,5 +83,25 @@ public class ArbolAdmin {
     
     public void cambiarContrasena(String usuario, String password, String nuevaPassword) {
         
+    }
+    boolean acceso = false;
+    public boolean iniciarSesion (String user, String pass){
+        acceso = false;
+        if (raiz != null){
+            acceso = inOrdenRec(raiz, user, pass);
+        }
+        return acceso;
+    }
+    
+    private boolean inOrdenRec(NodoAdmin n, String user, String pass){
+        if (n != null){
+            inOrdenRec(n.getHijoIzq(), user, pass);
+            if(n.getDato().getNombre().equals(user) && n.getDato().getPassword().equals(pass)){
+                this.acceso = true;
+                return true;
+            }
+            inOrdenRec(n.getHijoDer(), user, pass);
+        }
+        return acceso;
     }
 }

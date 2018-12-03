@@ -5,6 +5,7 @@
  */
 package frontend;
 
+import backend.Handler;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +13,8 @@ import javax.swing.JOptionPane;
  * @author ulacit
  */
 public class InicioSesion extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form InicioSesion
@@ -112,7 +115,7 @@ public class InicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
         String contrasena = txtContrasena.getText();
-        if (usuario.equals(contrasena)){
+        if (handler.iniciarSesion(usuario, contrasena)){
             AdminHome window = new AdminHome();
             window.setVisible(true);
             dispose();

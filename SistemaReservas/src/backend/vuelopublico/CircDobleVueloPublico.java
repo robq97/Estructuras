@@ -6,6 +6,7 @@
 package backend.vuelopublico;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -57,6 +58,7 @@ public class CircDobleVueloPublico {
                 aux = aux.getNext();
             }
         }
+        System.out.println(msj);
         return msj;
     }
 
@@ -159,5 +161,29 @@ public class CircDobleVueloPublico {
             }
         }
         return total;
+    }
+    
+    
+    
+    
+    
+    
+    
+    public DefaultTableModel modeloPub(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        NodoVueloPublico aux = cabeza;
+        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"});
+        if (aux != null) {
+            //, , modelo, , tipo, estado, , paxPrimeraClase, paxEconomico, .
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(), 
+                aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
+            aux = aux.getNext();
+            while (aux != cabeza) {
+                modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(), 
+                aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
+                aux = aux.getNext();
+            }
+        }
+        return modelo;
     }
 }
