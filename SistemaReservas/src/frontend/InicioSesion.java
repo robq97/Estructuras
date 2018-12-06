@@ -15,7 +15,15 @@ import javax.swing.JOptionPane;
 public class InicioSesion extends javax.swing.JFrame {
     
     Handler handler = new Handler();
+    private static String usuario;
 
+    public static String getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(String usuario) {
+        InicioSesion.usuario = usuario;
+    }
     /**
      * Creates new form InicioSesion
      */
@@ -116,6 +124,7 @@ public class InicioSesion extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contrasena = txtContrasena.getText();
         if (handler.iniciarSesion(usuario, contrasena)){
+            InicioSesion.usuario = usuario;
             AdminHome window = new AdminHome();
             window.setVisible(true);
             dispose();

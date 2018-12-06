@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author robq9
  */
 public class AdminHome extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form AdminHome
@@ -18,6 +22,36 @@ public class AdminHome extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        String usuario = InicioSesion.getUsuario();
+        int nivel = handler.obtenerNivel(usuario);
+        switch(nivel){
+            case 0:
+                // Todos los privilegios
+                break;
+            case 1:
+                btnEliminar.setEnabled(false);
+                btnEliminarPriv.setEnabled(false);
+                break;
+            case 2:
+                btnEliminar.setEnabled(false);
+                btnEliminarPriv.setEnabled(false);
+                btnVueloPriv.setEnabled(false);
+                btnVueloPub.setEnabled(false);
+                break;
+            case 3:
+                btnEliminar.setEnabled(false);
+                btnEliminarPriv.setEnabled(false);
+                btnVueloPriv.setEnabled(false);
+                btnVueloPub.setEnabled(false);
+                break;
+            case 4:
+                btnEliminar.setEnabled(false);
+                btnEliminarPriv.setEnabled(false);
+                btnVueloPriv.setEnabled(false);
+                btnVueloPub.setEnabled(false);
+                btnPrecios.setEnabled(false);
+                break;
+        }
     }
 
     /**
@@ -35,7 +69,7 @@ public class AdminHome extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnContrasena = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnEliminar1 = new javax.swing.JButton();
+        btnEliminarPriv = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,11 +121,11 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
-        btnEliminar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEliminar1.setText("Eliminar vuelo privado");
-        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarPriv.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminarPriv.setText("Eliminar vuelo privado");
+        btnEliminarPriv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminar1ActionPerformed(evt);
+                btnEliminarPrivActionPerformed(evt);
             }
         });
 
@@ -104,7 +138,7 @@ public class AdminHome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarPriv, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
@@ -125,7 +159,7 @@ public class AdminHome extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminarPriv, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnVueloPriv, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -182,12 +216,12 @@ public class AdminHome extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+    private void btnEliminarPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrivActionPerformed
         // TODO add your handling code here:
         EliminarPrivado window = new EliminarPrivado();
         window.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnEliminar1ActionPerformed
+    }//GEN-LAST:event_btnEliminarPrivActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,7 +261,7 @@ public class AdminHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContrasena;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
+    private javax.swing.JButton btnEliminarPriv;
     private javax.swing.JButton btnPrecios;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVueloPriv;

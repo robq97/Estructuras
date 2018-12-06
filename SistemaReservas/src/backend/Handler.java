@@ -104,6 +104,11 @@ public class Handler {
         Handler.admin.inserta(new Admin("Mariana", "1234", -1));
         Handler.admin.inserta(new Admin("Daniel", "1234", 2));
         Handler.admin.inserta(new Admin("Gabriela", "1234", -2));
+        Handler.admin.inserta(new Admin("Josue", "1234", 3));
+        Handler.admin.inserta(new Admin("Andres", "1234", -3));
+        Handler.admin.inserta(new Admin("Juan", "1234", 4));
+        Handler.admin.inserta(new Admin("Pedro", "1234", -4));
+        
     }
     
     public void cambiarContrasena(String usuario, String passwordActual, String passwordNueva) {
@@ -129,5 +134,9 @@ public class Handler {
     
     public boolean iniciarSesion(String user, String pass){
         return Handler.admin.iniciarSesion(user, pass);
+    }
+    
+    public int obtenerNivel (String nombre){
+        return Handler.admin.getNivel(nombre);
     }
 }

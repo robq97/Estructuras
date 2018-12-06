@@ -13,6 +13,9 @@ public class Main {
         handler.addAdminsExistentes();
         handler.addVuelosPrivadosExistentes();
         handler.addVuelosSolicitudesExistentes();
+        String nombre = "Mariana";
+        int nivel = handler.obtenerNivel(nombre);
+        System.out.println(nivel);
 //        handler.test();
     Home window = new Home();
     window.setVisible(true);
