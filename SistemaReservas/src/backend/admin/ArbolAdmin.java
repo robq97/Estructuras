@@ -54,7 +54,7 @@ public class ArbolAdmin {
     }
 
     public void imprimeNivel(int n) {                                           //Imprime el valor encontrado en el metodo recursivo de nodos por nivel.
-        System.out.print("Adminstradores del nivel " + n + ":\n" + imprimeNivelRec(raiz, n));
+        System.out.print("Administradores del nivel " + n + ":\n" + imprimeNivelRec(raiz, n));
     }
 
     private int getAlturaRec(NodoAdmin n) {                                     //Metodo recursivo para obtener el numero de niveles o altura del arbol . 
@@ -103,5 +103,28 @@ public class ArbolAdmin {
             inOrdenRec(n.getHijoDer(), user, pass);
         }
         return acceso;
+    }
+    
+    // Imprime los nodos de un nivel específico
+    // Cuenta cada vez que el metodo recursivo realiza un conteo  y cuando el conteo es igual al nivel introducido imprime el valor
+    private int nivel;
+    public int getNivel(String nombre){
+        int nivelAct = -1;
+        this.nivel = 0;
+        if (raiz != null){
+            getNivelRec(raiz, nivelAct, nombre);
+        }
+        return nivel;
+    }
+    
+    private void getNivelRec(NodoAdmin nodo, int nivelAct, String nombre){
+        nivelAct++;
+        if (nodo != null){
+            getNivelRec(nodo.getHijoIzq(), nivelAct, nombre);
+            if(nodo.getDato().getNombre().equals(nombre)){ // Cuando el nombre coincide guarda el nivel en una variable
+                this.nivel = nivelAct;
+            }
+            getNivelRec(nodo.getHijoDer(), nivelAct, nombre);
+        }
     }
 }
