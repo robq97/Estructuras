@@ -6,6 +6,8 @@
 package frontend;
 
 import backend.Handler;
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +16,7 @@ import backend.Handler;
 public class ReservaAsientos extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form ReservaAsientos
      */
@@ -23,7 +25,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -183,30 +185,41 @@ public class ReservaAsientos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Home window = new Home();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
         try{
-        String cedula = txtCedula.getText();
-        String idVuelo = txtId.getText();
-        String nombre = txtNombre.getText();
-        String correo = txtCorreo.getText();
-        String telefono = txtTelefono.getText();
-        int espacios = Integer.parseInt(txtEspacios.getText());
-        String categoria = cmbCategoria.getSelectedItem().toString();
-        handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
-        }catch (Exception e){
-            
+            String cedula = txtCedula.getText();
+            String idVuelo = txtId.getText();
+            String nombre = txtNombre.getText();
+            String correo = txtCorreo.getText();
+            String telefono = txtTelefono.getText();
+            int espacios = Integer.parseInt(txtEspacios.getText());
+            String categoria = cmbCategoria.getSelectedItem().toString();
+            if (idVuelo.length() <= 0){
+                JOptionPane.showMessageDialog(null, "Debe selecionar un vuelo antes de dar click en reservar.", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+                if(espacios > 0 && espacios <= 5){
+                    handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Datos incorrectos.\n"
+                            + "La cantidad de espacios debe ser mayor que cero e igual o menor que cinco.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }catch (HeadlessException e){
+            System.out.println(e.getMessage());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "La cantidad de espacios debe ser introducida en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnReservarActionPerformed
-
+    
     private void tblPublicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPublicosMouseClicked
         // TODO add your handling code here:
         int linea = tblPublicos.getSelectedRow();

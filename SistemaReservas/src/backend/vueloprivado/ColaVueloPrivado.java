@@ -106,7 +106,7 @@ public class ColaVueloPrivado {
         return dia;
     }
     
-     public DefaultTableModel modeloPub(){
+     public DefaultTableModel modeloPriv(){
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPrivado aux = frente;
         modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Salida"});

@@ -54,6 +54,11 @@ public class CambiarContrasena extends javax.swing.JFrame {
         });
 
         btnCambiar.setText("Cambiar");
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +114,14 @@ public class CambiarContrasena extends javax.swing.JFrame {
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+        // TODO add your handling code here:
+        String usuario = txtUsuario.getText();
+        String contrAct = txtContrAct.getText();
+        String contrNue = txtContrNuev.getText();
+        
+    }//GEN-LAST:event_btnCambiarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author ulacit
  */
 public class ModificarPrecios extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form ModificarPrecios
@@ -32,7 +36,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnReservar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         txtPrecio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVuelos = new javax.swing.JTable();
@@ -51,24 +55,14 @@ public class ModificarPrecios extends javax.swing.JFrame {
 
         jLabel2.setText("Nuevo Precio");
 
-        btnReservar.setText("Reservar");
-        btnReservar.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservarActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
-        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tblVuelos.setModel(handler.modeloPub());
         tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblVuelosMouseClicked(evt);
@@ -96,7 +90,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReservar)))
+                        .addComponent(btnModificar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,7 +109,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReservar)
+                    .addComponent(btnModificar)
                     .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -130,15 +124,17 @@ public class ModificarPrecios extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         String nombre = txtPrecio.getText();
-    }//GEN-LAST:event_btnReservarActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
         int linea = tblVuelos.getSelectedRow();
-        txtPrecio.setText(tblVuelos.getValueAt(linea, 0).toString());
+        txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
+        int precio = Integer.parseInt(txtPrecio.getText());
+        
     }//GEN-LAST:event_tblVuelosMouseClicked
 
     /**
@@ -177,7 +173,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnReservar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

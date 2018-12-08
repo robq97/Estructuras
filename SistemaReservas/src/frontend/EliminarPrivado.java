@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author bcorrales
  */
 public class EliminarPrivado extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form EliminarPrivado
@@ -52,17 +56,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
             }
         });
 
-        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tblVuelos.setModel(handler.modeloPriv());
         tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblVuelosMouseClicked(evt);
@@ -104,7 +98,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReservar)
                     .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -126,6 +120,8 @@ public class EliminarPrivado extends javax.swing.JFrame {
 
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
+        int linea = tblVuelos.getSelectedRow();
+        txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblVuelosMouseClicked
 
     /**
