@@ -13,7 +13,6 @@ import backend.vueloprivado.ColaVueloPrivado;
 import backend.vueloprivado.VueloPrivado;
 import backend.vuelopublico.CircDobleVueloPublico;
 import backend.vuelopublico.VueloPublico;
-import frontend.ReservaAsientos;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -111,9 +110,6 @@ public class Handler {
         
     }
     
-    public void cambiarContrasena(String usuario, String passwordActual, String passwordNueva) {
-        Handler.admin.cambiarContrasena(usuario, passwordActual, passwordNueva);  //falta agregar codigo a este metodo.
-    }
     public void test() { //metodo para pruebas, puede comentarse
         //System.out.println(cliente);
         System.out.println(Handler.priv);
@@ -138,5 +134,9 @@ public class Handler {
     
     public int obtenerNivel (String nombre){
         return Handler.admin.getNivel(nombre);
+    }
+    
+    public void cambiarContrasena(String usuario, String contrAct, String contrNue){
+        Handler.admin.cambiarContrasena(usuario, contrAct, contrNue);
     }
 }

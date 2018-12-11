@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author bcorrales
  */
 public class CambiarContrasena extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form CambiarContrasena
@@ -120,7 +124,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contrAct = txtContrAct.getText();
         String contrNue = txtContrNuev.getText();
-        
+        handler.cambiarContrasena(usuario, contrAct, contrNue);
     }//GEN-LAST:event_btnCambiarActionPerformed
 
     /**
