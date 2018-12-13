@@ -139,4 +139,12 @@ public class Handler {
     public void cambiarContrasena(String usuario, String contrAct, String contrNue){
         Handler.admin.cambiarContrasena(usuario, contrAct, contrNue);
     }
+    
+    public void modificarPrecioPrimera(String id, double costo){
+        Handler.pub.modificarPrecioPrimera(id, costo);
+    }
+    
+    public void modificarPrecioEconomica(String id, double costo){
+        Handler.pub.modificarPrecioEconomica(id, costo);
+    }
 }

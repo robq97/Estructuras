@@ -163,7 +163,25 @@ public class CircDobleVueloPublico {
         return total;
     }
     
+    public void modificarPrecioPrimera(String id, double costo){
+        NodoVueloPublico aux = cabeza;
+        while(aux != null){
+            if(aux.getDato().getIdVuelo().equals(id)){
+                aux.getDato().setCostoPaxPriClase(costo);
+            }
+            aux = aux.getNext();
+        }
+    }
     
+    public void modificarPrecioEconomica(String id, double costo){
+        NodoVueloPublico aux = cabeza;
+        while(aux != null){
+            if(aux.getDato().getIdVuelo().equals(id)){
+                aux.getDato().setCostoPaxEcon(costo);
+            }
+            aux = aux.getNext();
+        }
+    }
     
     
     
