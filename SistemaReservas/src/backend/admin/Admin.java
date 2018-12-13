@@ -11,16 +11,16 @@ package backend.admin;
  */
 public class Admin {
 
-    private String nombre, password;
+    private String nombre, password;                 //instancias que comparten todos los admins.
     private int nivelAcceso;
 
-    public Admin(String nombre, String password, int nivelAcceso) {
+    public Admin(String nombre, String password, int nivelAcceso) {   //Constructor para todos los admins.
         this.nombre = nombre;
         this.password = password;
         this.nivelAcceso = nivelAcceso;
     }
 
-    public String getNombre() {
+    public String getNombre() {     //Respectivos setters, getters y toString.
         return nombre;
     }
 

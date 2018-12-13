@@ -17,16 +17,14 @@ public class ArbolAdmin {
     private String msjHojas = "";
     private String msjNiveles = "";
 
-    public void inserta(Admin a) {                                              //Metodo para insertar ints al arbol.
-        if (raiz == null) {                                                     //En caso de que la raiz sea nula, se asigna el valor ingresado como nueva raiz.
+    public void inserta(Admin a) {                                              //Metodo para insertar admins al arbol.
+        if (raiz == null) {                                                     //En caso de que la raiz sea nula, se asigna el admin ingresado como nueva raiz.
             raiz = new NodoAdmin(a);
         } else {
             insertaRec(a, raiz);                                                //De lo contrario se llama al metodo recursivo para que lo posicione en lugar correcto.
         }
     }
     
-    
-
     private void insertaRec(Admin a, NodoAdmin n) {                             //Se decide si se posiciona a la izquiera o derecha en caso de que ya exista una raiz.
         if (a.getNivelAcceso() <= n.getDato().getNivelAcceso()) {               //izq.         su posicion dependera del valor (menor o igual a la izquierda, mayor a la derecha)
             if (n.getHijoIzq() == null) {                                       //Tengo campo.
@@ -42,72 +40,31 @@ public class ArbolAdmin {
             }
         }
     }
-
-    private String imprimeNivelRec(NodoAdmin aux, int n) {                      //Metodo recursivo que almacena los nodos por nivel.
-        if (aux != null) {                                                      //Siempre y cuando el nodo ingresado por parametro no sea nulo, se va almacenando en la variable msjNiveles
-            if (n == 0) {
-                msjNiveles += " " + aux.getDato().toString();
-            } else if (n >= 1) {
-                imprimeNivelRec(aux.getHijoIzq(), n - 1);                       //Se llama al metodo recursivo y restandole 1 al numero de nivel ingresado para eventualmente llegar al nivel 0 y conseguir sus respectivos datos del nivel.
-                imprimeNivelRec(aux.getHijoDer(), n - 1);
-            }
-        }
-        return msjNiveles;
-    }
-
-    public void imprimeNivel(int n) {                                           //Imprime el valor encontrado en el metodo recursivo de nodos por nivel.
-        System.out.print("Administradores del nivel " + n + ":\n" + imprimeNivelRec(raiz, n));
-    }
-
-    private int getAlturaRec(NodoAdmin n) {                                     //Metodo recursivo para obtener el numero de niveles o altura del arbol . 
-        int total = -1;                                                         //El nivel 0 es el primero, por eso al final se le resta 1, de lo contrario los niveles comenzarian desde el 1.
-        if (n != null) {
-            int ladoIzqTotal = getAlturaRec(n.getHijoIzq());                    //A ambos lados (izquierdo y derecho) se les asigna un numero
-            int ladoDerTotal = getAlturaRec(n.getHijoDer());
-            if (ladoIzqTotal > ladoDerTotal) {
-                return ladoIzqTotal + 1;                                        //Dependiendo de cual sea mayor, es el que se va a retornar, y se le suma 1 cada vez que se retorno un nodo  
-            } else {                                                            //y asi poder llevar la cuenta del numero de niveles recorridos.
-                return ladoDerTotal + 1;
-            }
-        }
-        return total;
-    }
-
-    public void getAltura() {                                                   //Imprime el valor encontrado en el metodo recursivo para mostrar la altura del arbol.
-        System.out.println("\nLa altura es de " + getAlturaRec(raiz) + " niveles. (Contando el 0 como primer nivel)");
-    }
-
-    public void imprimeTodos() {
-        for (int i = 0; i <= getAlturaRec(raiz); i++) {
-            imprimeNivel(i);
-        }
-    }
     
     boolean acceso = false;
-    public boolean iniciarSesion (String user, String pass){
-        acceso = false;
+    public boolean iniciarSesion (String user, String pass){  //Metodo para el inicio de sesion, se llama al metodo recursivo inOrdenRec para 
+        acceso = false;                                       //verificar si existe o no algun match a los parametros del metodo.
         if (raiz != null){
             acceso = inOrdenRec(raiz, user, pass);
         }
         return acceso;
     }
     
-    private boolean inOrdenRec(NodoAdmin n, String user, String pass){
-        if (n != null){
+    private boolean inOrdenRec(NodoAdmin n, String user, String pass){          //Metodo recursivo que recorre al arbol en orden de menor a mayor.
+        if (n != null){                                                         //y ayuda al metodo de iniciar sesion porque recorre todo el arbol.
             inOrdenRec(n.getHijoIzq(), user, pass);
             if(n.getDato().getNombre().equals(user) && n.getDato().getPassword().equals(pass)){
-                this.acceso = true;
-                return true;
+                this.acceso = true;                                             //En caso de encontrar un match con los parametros del metodo iniciarSesion, 
+                return true;                                                    //el booleano acceso se vuelve verdadero, dando asi acceso al admin.
             }
             inOrdenRec(n.getHijoDer(), user, pass);
         }
         return acceso;
     }
     
-    // Obtener el nivel de un usuario por su nombre
     private int nivel;
-    public int getNivel(String nombre){
-        int nivelAct = -1;
+    public int getNivel(String nombre){          //Metodo para obtener el nivel de un usuario por su nombre
+        int nivelAct = -1;                       
         this.nivel = 0;
         if (raiz != null){
             getNivelRec(raiz, nivelAct, nombre);
@@ -115,27 +72,27 @@ public class ArbolAdmin {
         return nivel;
     }
     
-    private void getNivelRec(NodoAdmin nodo, int nivelAct, String nombre){
+    private void getNivelRec(NodoAdmin nodo, int nivelAct, String nombre){      //Metodo recursivo de getNivel.
         nivelAct++;
         if (nodo != null){
             getNivelRec(nodo.getHijoIzq(), nivelAct, nombre);
-            if(nodo.getDato().getNombre().equals(nombre)){ // Cuando el nombre coincide guarda el nivel en una variable
+            if(nodo.getDato().getNombre().equals(nombre)){                      // Cuando el nombre coincide guarda el nivel en una variable
                 this.nivel = nivelAct;
             }
             getNivelRec(nodo.getHijoDer(), nivelAct, nombre);
         }
     }
     
-    public void cambiarContrasena(String usuario, String contrAct, String contrNue){
+    public void cambiarContrasena(String usuario, String contrAct, String contrNue){ //Metodo para el cambio de contrasena de admins.
         if (raiz != null){
-            cambiarContrasenaRec(raiz, usuario, contrAct, contrNue);
+            cambiarContrasenaRec(raiz, usuario, contrAct, contrNue);             //Llamado al metodo recursivo.
         }
     }
     
     private void cambiarContrasenaRec(NodoAdmin nodo, String usuario, String contrAct, String contrNue){
         if (nodo != null){
-            cambiarContrasenaRec(nodo.getHijoIzq(), usuario, contrAct, contrNue);
-            if(nodo.getDato().getNombre().equals(usuario)){
+            cambiarContrasenaRec(nodo.getHijoIzq(), usuario, contrAct, contrNue); //Va a revisar todo el arbol, en caso de que encuentre el mismo nombre y contrasena actual
+            if(nodo.getDato().getNombre().equals(usuario)){                       //se podra cambiar por la nueva.
                 if (nodo.getDato().getPassword().equals(contrAct)){
                     nodo.getDato().setPassword(contrNue);
                     JOptionPane.showMessageDialog(null, "Contrase;a actualizada correctamente.", "Exito", JOptionPane.INFORMATION_MESSAGE);

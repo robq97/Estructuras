@@ -12,7 +12,7 @@ package backend.admin;
  */
 public class NodoAdmin {
 
-    private Admin dato;              //Variables e instancias propias de los nodos de la estructura de arbol.
+    private Admin dato;                 //Variables e instancias propias de los nodos de la estructura de arbol.
     private NodoAdmin hijoIzq, hijoDer;
 
     public NodoAdmin(Admin dato) {

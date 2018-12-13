@@ -20,14 +20,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author robq9
  */
-public class Handler {
+public class Handler {                                                          //En este clase estan los metodos relacionados al manejo de datos de todas las diferentes estucturas de datos. 
 
-    public static CircDobleVueloPublico pub = new CircDobleVueloPublico();
+    public static CircDobleVueloPublico pub = new CircDobleVueloPublico();      //Instancias estaticas para poder manejar las estructuras de datos en diferentes clases.
     public static ColaVueloPrivado priv = new ColaVueloPrivado();
     public static ArbolAdmin admin = new ArbolAdmin();
     public static ListaOrdenadaCliente cliente = new ListaOrdenadaCliente();
 
-    public void addVuelosFijosExistentes() {//origen, destino, modelo, id, tipo, estado, fechaSalida, fechaLlegada, paxPrimeraClase, paxEconomico, precioPrimeraClase, precioEconomico.
+    public void addVuelosFijosExistentes() {//Metodo que agrega vuelos pre-hechos a la estructura de datos para que los clientes tengan opciones de vuelos.
+        //Las variables son: origen, destino, modelo, id, tipo, estado, fechaSalida, fechaLlegada, paxPrimeraClase, paxEconomico, precioPrimeraClase, precioEconomico.
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "B737-800", "240", "fijo", "disponible", 1810050230, 1810060500, 40, 120, 750, 380));
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Los Angeles, USA", "B757-200", "245", "fijo", "disponible", 1810060330, 1810090500, 50, 200, 845, 582));
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Nueva York, USA", "A320", "250", "fijo", "disponible", 1810070400, 1810100500, 45, 140, 990, 620));
@@ -42,7 +43,7 @@ public class Handler {
         Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Bogota, Colombia", "B787", "295", "fijo", "disponible", 1810301735, 1811052000, 40, 200, 640, 300));
     }
 
-    public void addVuelosSolicitudesExistentes() {
+    public void addVuelosSolicitudesExistentes() {//Metodo que agrega solicitudes a la estructura de datos, de nuevo, para que los clientes tengan opciones. (Utiliza los mismos parametros de vuelos fijos).
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "305", "solicitud", "disponible", 1810032230, 1810052300, 3, 10, 515, 265));
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "A320", "310", "solicitud", "disponible", 1810070100, 1810120100, 0, 7, 770, 400));
         Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "315", "solicitud", "disponible", 1811040830, 1811090830, 3, 8, 520, 285));
@@ -50,16 +51,16 @@ public class Handler {
         Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Miami, USA", "B737-800", "325", "solicitud", "disponible", 1812061900, 1812151900, 0, 12, 820, 410));
     }
 
-    public boolean isLleno(String idVuelo) { //Para saber si un vuelo no privado, esta lleno o no. Si esta lleno devuelve True.
+    public boolean isLleno(String idVuelo) { //Para saber si un vuelo publico, esta lleno o no. Si esta lleno devuelve True.
         return Handler.pub.isLleno(idVuelo);
     }
 
-    public void addNuevoVueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado,
-            int fechaSalida, int fechaLlegada, int paxPrimeraClase, int paxEconomico, int precioPrimeraClase, int precioEconomico) {
+    public void addNuevoVueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado,   //Metodo para agregar un nuevo vuelo a la estructura de datos.
+            int fechaSalida, int fechaLlegada, int paxPrimeraClase, int paxEconomico, int precioPrimeraClase, int precioEconomico) { 
         Handler.pub.insertar(new VueloPublico(origen, destino, modeloAvion, idVuelo, tipo, estado, fechaSalida, fechaLlegada, paxPrimeraClase, paxEconomico, precioPrimeraClase, precioEconomico));
     }
     
-    public void eliminarVueloPublico(String idVuelo) {
+    public void eliminarVueloPublico(String idVuelo) { //Metodo para eliminar un vuelo publico por ID.
         Handler.pub.elimina(idVuelo);
     }
 
@@ -71,26 +72,27 @@ public class Handler {
         Handler.priv.encola(new VueloPrivado("Ciudad de Panama, Panama", "Moscu, Russia", "G650", "VP140", 1812021115, 1812081445, 7, Handler.priv.calcTotal(1812021115, 1812081445)));
     }
 
-    public void addNuevoVueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax) {
+    public void addNuevoVueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax) { //Metodo para agregar un nuevo vuelo privado (solo los admins pueden hacerlo).
         int respuesta = JOptionPane.showConfirmDialog(null, "El total para este vuelo es de: " + Handler.priv.calcTotal(fechaSalida, fechaEntrada) + "\n¿Desea realizar la reserva?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-        if (respuesta == JOptionPane.YES_OPTION){
+        if (respuesta == JOptionPane.YES_OPTION){                               //Se le da el total y la opcion de reservar o no el vuelo.
             Handler.priv.encola(new VueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax, Handler.priv.calcTotal(fechaSalida, fechaEntrada)));
             JOptionPane.showMessageDialog(null, "El vuelo con destino ha sido reservadado satisfactoriamente.");
         }
         else {
-            JOptionPane.showMessageDialog(null, "El vuelo NO ha sido reservado.");
+            JOptionPane.showMessageDialog(null, "El vuelo no fue reservado.");
         }
     }
     
-    public void modicaPrecioVueloPrivado(String idVuevlo, double nuevoPrecio) {
-        Handler.priv.cambiarPrecio(idVuevlo, nuevoPrecio);
+    public void modicaPrecioVueloPrivado(String idVuelo, double nuevoPrecio) { //Metodo para modificar el precio de un vuelo privado por ID de vuelo.
+        Handler.priv.cambiarPrecio(idVuelo, nuevoPrecio);
     }
     
-    public void eliminaVueloPrivado(String id) {
+    public void eliminaVueloPrivado(String id) { //Metodo para eliminar un vuelo privado por ID.
         Handler.priv.eliminarVuelo(id);
     }
 
-    public void addClientesExistentes() {//nombre, cel, email, clase, # de asientos, cedula, id de vuelo, costo por medio del metodo              
+    public void addClientesExistentes() {  //Se encarga de agregar clientes y crea reservaciones para cada uno. 
+                          // Tiene como parametros: nombre, cel, email, clase, # de asientos, cedula, id de vuelo, y el metodo de reserva.              
         Handler.cliente.insertar(new Cliente("Daniela", "8712-6443", "daniela@gmail.com", "primera", 1, "1-1684-0022", "240", Handler.pub.reservaVueloPublico("primera", 1, "240", false)));
         Handler.cliente.insertar(new Cliente("Bryan", "5643-6566", "bryan@ulacit.com", "economica", 10, "1-1344-3443", "245", Handler.pub.reservaVueloPublico("economica", 10, "245", false)));
         Handler.cliente.insertar(new Cliente("Irene", "6654-1128", "irene@yahoo.com", "economica", 8, "1-3328-422", "240", Handler.pub.reservaVueloPublico("economica", 8, "240", false)));
@@ -102,14 +104,15 @@ public class Handler {
         Handler.cliente.insertar(new Cliente("Brandon", "4523-6575", "brandon@yahoo.com", "economica", 6, "1-1245-4695", "265", Handler.pub.reservaVueloPublico("economica", 6, "265", false)));
 
     }
-    //agrega nuevos clientes y crea la reservacion solo si el total devuelto por el metodo reservaVueloPublico() es igual o mayor a 1.
+    //Agrega nuevos clientes y crea la reservacion solo si el total devuelto por el metodo reservaVueloPublico() es igual o mayor a 1.
     public void addNuevosClientesyReserva(String nombre, String telefono, String email, String categoria, int asientos, String cedula, String idVuelo) {
         if (Handler.pub.reservaVueloPublico(categoria, asientos, idVuelo, true) >= 1) {
             cliente.insertar(new Cliente(nombre, telefono, email, categoria, asientos, cedula, idVuelo, Handler.pub.reservaVueloPublico(categoria, asientos, idVuelo, false)));
         }
     }
 
-    public void addAdminsExistentes() { //Usuario, password, privilegios (0 tiene todos los privilegios)
+    public void addAdminsExistentes() { //Agrega los admins al arbol.
+        //Usuario, password, privilegios (0 tiene todos los privilegios, 1 tiene menos privilegios, 2 menos, y asi sucesivamente).
         Handler.admin.inserta(new Admin("Roberto", "1234", 0));
         Handler.admin.inserta(new Admin("Bryan", "1234", 1));
         Handler.admin.inserta(new Admin("Mariana", "1234", -1));
@@ -132,7 +135,35 @@ public class Handler {
         //Handler.pub.toString();
     }
     
-    public DefaultTableModel modeloPub(){
+    public boolean iniciarSesion(String user, String pass){ //Metodo para el inicio de sesion.
+        return Handler.admin.iniciarSesion(user, pass);
+    }
+    
+    public int obtenerNivel (String nombre){ //Metodo que por medio del nombre de usuario devuelve el tipo de acceso por medio de un int (0 tiene todos los permisos).
+        return Handler.admin.getNivel(nombre);
+    }
+    
+    public void cambiarContrasena(String usuario, String contrAct, String contrNue){ //Metodo para el cambio de contrasena de admins.
+        Handler.admin.cambiarContrasena(usuario, contrAct, contrNue);
+    }
+    
+    public void modificarPrecioPrimera(String id, double costo){ //Metodo para modificar el precio de primera clase (en vuelos publicos).
+        Handler.pub.modificarPrecioPrimera(id, costo);
+    }
+    
+    public void modificarPrecioEconomica(String id, double costo){ //Metodo para modificar el precio de clase economica (en vuelos publicos).
+        Handler.pub.modificarPrecioEconomica(id, costo);
+    }
+    
+    public boolean verificarDuplicadosPub(String id){ //Metodo para verificar si existen vuelos publicos duplicados antes de agregar uno nuevo.
+        return Handler.pub.verificarDuplicados(id);
+    }
+    
+    public boolean verificarDuplicadosPriv(String id){ //Metodo para verificar si existen vuelos privados duplicados antes de agregar uno nuevo.
+        return Handler.priv.verificarDuplicados(id);
+    }
+    
+    public DefaultTableModel modeloPub(){ //Creacion de los diferentes modelos de tablas para ser visualizados en la UI facilmente.
         DefaultTableModel modelo = Handler.pub.modeloPub();
         return modelo;
     }
@@ -142,31 +173,5 @@ public class Handler {
         return modelo;
     }
     
-    public boolean iniciarSesion(String user, String pass){
-        return Handler.admin.iniciarSesion(user, pass);
-    }
     
-    public int obtenerNivel (String nombre){
-        return Handler.admin.getNivel(nombre);
-    }
-    
-    public void cambiarContrasena(String usuario, String contrAct, String contrNue){
-        Handler.admin.cambiarContrasena(usuario, contrAct, contrNue);
-    }
-    
-    public void modificarPrecioPrimera(String id, double costo){
-        Handler.pub.modificarPrecioPrimera(id, costo);
-    }
-    
-    public void modificarPrecioEconomica(String id, double costo){
-        Handler.pub.modificarPrecioEconomica(id, costo);
-    }
-    
-    public boolean verificarDuplicadosPub(String id){
-        return Handler.pub.verificarDuplicados(id);
-    }
-    
-    public boolean verificarDuplicadosPriv(String id){
-        return Handler.priv.verificarDuplicados(id);
-    }
 }
