@@ -147,4 +147,12 @@ public class Handler {
     public void modificarPrecioEconomica(String id, double costo){
         Handler.pub.modificarPrecioEconomica(id, costo);
     }
+    
+    public boolean verificarDuplicadosPub(String id){
+        return Handler.pub.verificarDuplicados(id);
+    }
+    
+    public boolean verificarDuplicadosPriv(String id){
+        return Handler.priv.verificarDuplicados(id);
+    }
 }

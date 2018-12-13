@@ -106,6 +106,18 @@ public class ColaVueloPrivado {
         return dia;
     }
     
+    public boolean verificarDuplicados(String id){
+        NodoVueloPrivado aux = frente;
+        boolean existe = false;
+        while(aux != null){
+            if(aux.getDato().getIdVuelo().equals(id)){
+                existe = true;
+            }
+            aux = aux.getAtras();
+        }
+        return existe;
+    }
+    
      public DefaultTableModel modeloPriv(){
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPrivado aux = frente;

@@ -45,8 +45,10 @@ public class CircDobleVueloPublico {
         }
         ultimo.setNext(cabeza); //se crea puntero para senalar hacia el siguiente
         cabeza.setBack(ultimo); //se crea puntero para senalar el de atras
+        
     }
 
+    @Override
     public String toString() {
         NodoVueloPublico aux = cabeza;
         String msj = "Lista: \n";
@@ -191,7 +193,20 @@ public class CircDobleVueloPublico {
         }
     }
     
-    
+    public boolean verificarDuplicados(String id){
+        NodoVueloPublico aux = cabeza;
+        boolean existe = false;
+        while(aux != null){
+            if(aux.getDato().getIdVuelo().equals(id)){
+                existe = true;
+            }
+            aux = aux.getNext();
+            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+                break;
+            }
+        }
+        return existe;
+    }
     
     
     

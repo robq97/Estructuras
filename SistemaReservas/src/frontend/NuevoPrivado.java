@@ -183,22 +183,25 @@ public class NuevoPrivado extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        // String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax
-        String origen = txtOrigen.getText();
-        String destino = txtDestino.getText();
-        String modeloAvion = txtModelo.getText();
-        String idVuelo = txtId.getText();
         try{
-        int fechaSalida = Integer.parseInt(txtSalida.getText());
-        int fechaEntrada = Integer.parseInt(txtLlegada.getText());
-        int pax = Integer.parseInt(txtPasajeros.getText());
-        handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
+            // String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax
+            String origen = txtOrigen.getText();
+            String destino = txtDestino.getText();
+            String modeloAvion = txtModelo.getText();
+            String idVuelo = txtId.getText();
+            int fechaSalida = Integer.parseInt(txtSalida.getText());
+            int fechaEntrada = Integer.parseInt(txtLlegada.getText());
+            int pax = Integer.parseInt(txtPasajeros.getText());
+            if(handler.verificarDuplicadosPriv(idVuelo)){
+                JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+            handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
+            }
         }catch (NumberFormatException e ){
             JOptionPane.showMessageDialog(null, "Verifique los datos ingresados y reintente", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        handler.test();
     }//GEN-LAST:event_btnAgregarActionPerformed
-
+    
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDestinoActionPerformed

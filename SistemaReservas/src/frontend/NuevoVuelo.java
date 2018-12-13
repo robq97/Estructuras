@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -236,32 +237,37 @@ public class NuevoVuelo extends javax.swing.JFrame {
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_txtVolverActionPerformed
-
+    
     private void txtAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgregarActionPerformed
         // TODO add your handling code here:
-        //origen, destino, modelo, id, tipo, estado, fechaSalida, fechaLlegada, paxPrimeraClase, paxEconomico, precioPrimeraClase, precioEconomico.
-        String idVuelo = txtId.getText();
-        String tipo = txtTipo.getText();
-        String estado = txtEstado.getText();
-        String modelo = txtModelo.getText();
-        String origen = txtOrigen.getText();
-        String destino = txtDestino.getText();
         try{
+            String idVuelo = txtId.getText();
+            String tipo = txtTipo.getText();
+            String estado = txtEstado.getText();
+            String modelo = txtModelo.getText();
+            String origen = txtOrigen.getText();
+            String destino = txtDestino.getText();
             int fechaSalida = Integer.parseInt(txtSalida.getText());
             int fechaLlegada = Integer.parseInt(txtLlegada.getText());
             int dispPrimera = Integer.parseInt(txtDispPrimera.getText());
             int costoPrimera = Integer.parseInt(txtCostoPrimera.getText());
             int dispEconomica = Integer.parseInt(txtDispEconomica.getText());
             int costoEconomica = Integer.parseInt(txtCostoEconomica.getText());
-            handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
+            if(handler.verificarDuplicadosPub(idVuelo)){
+                JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+                try{
+                    handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
+                    JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                }catch(Exception e){
+                    
+                }
+            }
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Los campos de fechas, asientos y costo deben ser introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-        
     }//GEN-LAST:event_txtAgregarActionPerformed
-
+    
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDestinoActionPerformed
