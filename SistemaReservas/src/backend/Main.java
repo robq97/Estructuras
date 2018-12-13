@@ -12,7 +12,7 @@ public class Main {
         handler.addVuelosPrivadosExistentes();
         handler.addVuelosSolicitudesExistentes();
         //codigo para prubas
-        //handler.test();
+        handler.test();
         Home window = new Home();
         window.setVisible(true);
     }

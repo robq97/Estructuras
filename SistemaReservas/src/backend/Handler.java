@@ -13,6 +13,7 @@ import backend.vueloprivado.ColaVueloPrivado;
 import backend.vueloprivado.VueloPrivado;
 import backend.vuelopublico.CircDobleVueloPublico;
 import backend.vuelopublico.VueloPublico;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -71,11 +72,22 @@ public class Handler {
     }
 
     public void addNuevoVueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax) {
-        Handler.priv.encola(new VueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax, Handler.priv.calcTotal(fechaSalida, fechaEntrada)));
+        int respuesta = JOptionPane.showConfirmDialog(null, "El total para este vuelo es de: " + Handler.priv.calcTotal(fechaSalida, fechaEntrada) + "\n¿Desea realizar la reserva?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION){
+            Handler.priv.encola(new VueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax, Handler.priv.calcTotal(fechaSalida, fechaEntrada)));
+            JOptionPane.showMessageDialog(null, "El vuelo con destino ha sido reservadado satisfactoriamente.");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "El vuelo NO ha sido reservado.");
+        }
     }
     
     public void modicaPrecioVueloPrivado(String idVuevlo, double nuevoPrecio) {
         Handler.priv.cambiarPrecio(idVuevlo, nuevoPrecio);
+    }
+    
+    public void eliminaVueloPrivado(String id) {
+        Handler.priv.eliminarVuelo(id);
     }
 
     public void addClientesExistentes() {//nombre, cel, email, clase, # de asientos, cedula, id de vuelo, costo por medio del metodo              
@@ -112,7 +124,9 @@ public class Handler {
     
     public void test() { //metodo para pruebas, puede comentarse
         //System.out.println(cliente);
-        System.out.println(Handler.priv);
+//        System.out.println(Handler.pub);
+//        eliminarVueloPublico("310");
+//        System.out.println(Handler.pub);
         //System.out.println(pub);
         //Handler.admin.imprimeTodos();
         //Handler.pub.toString();

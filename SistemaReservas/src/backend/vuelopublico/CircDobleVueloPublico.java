@@ -5,6 +5,7 @@
  */
 package backend.vuelopublico;
 
+import backend.vueloprivado.NodoVueloPrivado;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,7 +46,7 @@ public class CircDobleVueloPublico {
         }
         ultimo.setNext(cabeza); //se crea puntero para senalar hacia el siguiente
         cabeza.setBack(ultimo); //se crea puntero para senalar el de atras
-        
+
     }
 
     @Override
@@ -65,19 +66,21 @@ public class CircDobleVueloPublico {
     }
 
     public void elimina(String id) {
-        NodoVueloPublico aux = cabeza;                                          //Se crea una copia del nodo cabeza.
-        NodoVueloPublico temp = aux;                                            //Se crea una copia del nodo aux (cabeza).
+        NodoVueloPublico aux = cabeza;
+        NodoVueloPublico temp = aux;
 
-        while (true) {                                                          //Ciclo que con la ayuda de aux = aux.getNext(), nos permite recorrer todos los datos de la lista. 
-            if (aux.getDato().getIdVuelo().equals(id)) {                        //Se busca en el dato auxiliar actual el nombre para compararlo con el ingresado por parametro. 
-                temp.setNext(aux.getNext());                                    //Se brinca el dato con el match de aux y se le asigna como dato siguiente al nodo temp.
-                System.out.println(toString());                                 //Imprime la lista para ver los cambios.
-                String msj = aux.getDato().toString();                          //Se guarda la serie que tuvo un match con el parametro ingresado en el metodo.
-                JOptionPane.showMessageDialog(null, "El vuelo elimando fue: \n " + msj);
+        while (aux != null) { // condiciones para recorrer la lista                   
+            if (aux.getDato().getIdVuelo().equals(id)) { // condicion de busqueda
+                if (aux == cabeza) {
+                    cabeza = cabeza.getNext(); // si el valor de busqueda esta en el primer nodo se reasigna el valor de ese nodo por el nodo siguiente
+                } else {
+                    temp.setNext(aux.getNext()); // si el valor del nodo aux corresponde el que se busca y no es el primero del nodo lo que hace es saltarse el nodo usando el auxiliar
+                }
+                JOptionPane.showMessageDialog(null, "El vuelo " + aux.getDato().getIdVuelo() + " ha sido eliminado exitosamente.");; // mensaje para yo saber que el ciclo estaba en uso
             }
-            temp = aux;                                                         //Se guarda temporalmente el dato actual de aux antes de pasar al siguiente de aux.
-            aux = aux.getNext();                                                //Nos permite pasar al siguiente dato de la lista.
-            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+            temp = aux; // se guarda un valor de referencia del nodo anterior
+            aux = aux.getNext(); // se asigna valor a aux para continuar el ciclo
+            if (aux == cabeza) {
                 break;
             }
         }
@@ -114,7 +117,8 @@ public class CircDobleVueloPublico {
                     if (aux.getDato().getPaxPriClase() >= espacios) {
                         total = aux.getDato().getCostoPaxPriClase() * espacios;
                         if (tipo == true) {
-                            int decision = JOptionPane.showConfirmDialog(null, "El total es de " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
+                            int decision = JOptionPane.showConfirmDialog(null,
+                                    "El total para el vuelo " + idVuelo + ", con " + espacios + " espacios de " + categoria + " clase es de: " + total + "\n¿Desea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
                             if (decision == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 int cantActual = aux.getDato().getPaxPriClase() - espacios;
@@ -138,7 +142,8 @@ public class CircDobleVueloPublico {
                     if (aux.getDato().getPaxEcon() >= espacios) {
                         total = aux.getDato().getCostoPaxEcon() * espacios;
                         if (tipo == true) {
-                            int decision = JOptionPane.showConfirmDialog(null, "El total es de " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
+                            int decision = JOptionPane.showConfirmDialog(null,
+                                    "El total para el vuelo " + idVuelo + ", con " + espacios + " espacios de " + categoria + " clase es de: " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
                             if (decision == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 int cantActual = aux.getDato().getPaxEcon() - espacios;
@@ -154,6 +159,9 @@ public class CircDobleVueloPublico {
                             aux.getDato().setPaxEcon(cantActual);
                             return total;
                         }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay espacios suficientes.");
+                        break;
                     }
                 }
             }
@@ -164,11 +172,11 @@ public class CircDobleVueloPublico {
         }
         return total;
     }
-    
-    public void modificarPrecioPrimera(String id, double costo){
+
+    public void modificarPrecioPrimera(String id, double costo) {
         NodoVueloPublico aux = cabeza;
-        while(aux != null){
-            if(aux.getDato().getIdVuelo().equals(id)){
+        while (aux != null) {
+            if (aux.getDato().getIdVuelo().equals(id)) {
                 aux.getDato().setCostoPaxPriClase(costo);
                 JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -178,11 +186,11 @@ public class CircDobleVueloPublico {
             }
         }
     }
-    
-    public void modificarPrecioEconomica(String id, double costo){
+
+    public void modificarPrecioEconomica(String id, double costo) {
         NodoVueloPublico aux = cabeza;
-        while(aux != null){
-            if(aux.getDato().getIdVuelo().equals(id)){
+        while (aux != null) {
+            if (aux.getDato().getIdVuelo().equals(id)) {
                 aux.getDato().setCostoPaxEcon(costo);
                 JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -192,12 +200,12 @@ public class CircDobleVueloPublico {
             }
         }
     }
-    
-    public boolean verificarDuplicados(String id){
+
+    public boolean verificarDuplicados(String id) {
         NodoVueloPublico aux = cabeza;
         boolean existe = false;
-        while(aux != null){
-            if(aux.getDato().getIdVuelo().equals(id)){
+        while (aux != null) {
+            if (aux.getDato().getIdVuelo().equals(id)) {
                 existe = true;
             }
             aux = aux.getNext();
@@ -207,21 +215,19 @@ public class CircDobleVueloPublico {
         }
         return existe;
     }
-    
-    
-    
-    public DefaultTableModel modeloPub(){
+
+    public DefaultTableModel modeloPub() {
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPublico aux = cabeza;
         modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"});
         if (aux != null) {
             //, , modelo, , tipo, estado, , paxPrimeraClase, paxEconomico, .
-            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(), 
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(),
                 aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
             aux = aux.getNext();
             while (aux != cabeza) {
-                modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(), 
-                aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
+                modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(),
+                    aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
                 aux = aux.getNext();
             }
         }

@@ -5,6 +5,7 @@
  */
 package backend.vueloprivado;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +17,7 @@ public class ColaVueloPrivado {
     private NodoVueloPrivado frente, ultimo;
 
     public void encola(VueloPrivado v) {
-        
+
         if (frente == null) {
             frente = new NodoVueloPrivado(v);
             ultimo = frente;
@@ -52,18 +53,25 @@ public class ColaVueloPrivado {
     }
 
     public void eliminarVuelo(String id) {
-        NodoVueloPrivado aux = frente;                                          //Se crea una copia del nodo frente, para no alterar el original.
-        NodoVueloPrivado temp = aux;                                            //Se crea una copia del nodo aux (frente), nos ayudara a eliminar el dato que necesitemos.
-        while (aux != null) {                                                   //Ciclo que con la ayuda de aux = aux.getAtras(), nos permite recorrer todos los datos de la estructura. 
-            if (id.contains(aux.getDato().getIdVuelo())) {                      //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
-                temp.setAtras(aux.getAtras());                                  //Se brinca el dato con el match de aux y se le asigna como dato siguiente al nodo temp.
-            }
-            temp = aux;                                                         //Se guarda temporalmente el dato actual de aux antes de pasar al siguiente de aux.
-            aux = aux.getAtras();
-        }
+        
+        NodoVueloPrivado aux = frente;
+        NodoVueloPrivado temp = aux;
+
+                while (aux != null) { // condiciones para recorrer la lista                   
+                    if (aux.getDato().getIdVuelo().equals(id)) { // condicion de busqueda
+                        if (aux == frente) {
+                            frente = frente.getAtras(); // si el valor de busqueda esta en el primer nodo se reasigna el valor de ese nodo por el nodo siguiente
+                        } else {
+                            temp.setAtras(aux.getAtras()); // si el valor del nodo aux corresponde el que se busca y no es el primero del nodo lo que hace es saltarse el nodo usando el auxiliar
+                        }
+                        JOptionPane.showMessageDialog(null, "El vuelo " + aux.getDato().getIdVuelo() + " ha sido eliminado exitosamente."); // mensaje para yo saber que el ciclo estaba en uso
+                    }
+                    temp = aux; // se guarda un valor de referencia del nodo anterior
+                    aux = aux.getAtras(); // se asigna valor a aux para continuar el ciclo
+                }
     }
-    
-    public void cambiarPrecio (String id, double nuevoPrecio) {
+
+    public void cambiarPrecio(String id, double nuevoPrecio) {
         NodoVueloPrivado aux = frente;
         while (aux != null) {
             if (id.equals(aux.getDato().getIdVuelo())) {
@@ -105,20 +113,20 @@ public class ColaVueloPrivado {
         dia = (dia / 10000);
         return dia;
     }
-    
-    public boolean verificarDuplicados(String id){
+
+    public boolean verificarDuplicados(String id) {
         NodoVueloPrivado aux = frente;
         boolean existe = false;
-        while(aux != null){
-            if(aux.getDato().getIdVuelo().equals(id)){
+        while (aux != null) {
+            if (aux.getDato().getIdVuelo().equals(id)) {
                 existe = true;
             }
             aux = aux.getAtras();
         }
         return existe;
     }
-    
-     public DefaultTableModel modeloPriv(){
+
+    public DefaultTableModel modeloPriv() {
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPrivado aux = frente;
         modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Salida"});
@@ -128,5 +136,5 @@ public class ColaVueloPrivado {
             aux = aux.getAtras();
         }
         return modelo;
-     }
+    }
 }
