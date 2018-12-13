@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,11 +17,11 @@ public class InicioSesion extends javax.swing.JFrame {
     
     Handler handler = new Handler();
     private static String usuario;
-
+    
     public static String getUsuario() {
         return usuario;
     }
-
+    
     public static void setUsuario(String usuario) {
         InicioSesion.usuario = usuario;
     }
@@ -32,7 +33,7 @@ public class InicioSesion extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +55,12 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel1.setText("Nombre de Usuario:");
 
         jLabel2.setText("Contraseña:");
+
+        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContrasenaKeyPressed(evt);
+            }
+        });
 
         btnEntrar.setText("<html>Iniciar<br>Sesión</html>");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,14 +118,14 @@ public class InicioSesion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         Home window = new Home();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
-
+    
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
@@ -134,7 +141,25 @@ public class InicioSesion extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnEntrarActionPerformed
-
+    
+    private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            String usuario = txtUsuario.getText();
+            String contrasena = txtContrasena.getText();
+            if (handler.iniciarSesion(usuario, contrasena)){
+                InicioSesion.usuario = usuario;
+                AdminHome window = new AdminHome();
+                window.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta.\nVerifique y reintente.", "Error", 0);
+                txtContrasena.setText(null);
+            }
+        }
+        
+    }//GEN-LAST:event_txtContrasenaKeyPressed
+    
     /**
      * @param args the command line arguments
      */

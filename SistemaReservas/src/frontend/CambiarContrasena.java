@@ -5,11 +5,15 @@
  */
 package frontend;
 
+import backend.Handler;
+
 /**
  *
  * @author bcorrales
  */
 public class CambiarContrasena extends javax.swing.JFrame {
+    
+    Handler handler = new Handler();
 
     /**
      * Creates new form CambiarContrasena
@@ -54,6 +58,11 @@ public class CambiarContrasena extends javax.swing.JFrame {
         });
 
         btnCambiar.setText("Cambiar");
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +119,14 @@ public class CambiarContrasena extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+        // TODO add your handling code here:
+        String usuario = txtUsuario.getText();
+        String contrAct = txtContrAct.getText();
+        String contrNue = txtContrNuev.getText();
+        handler.cambiarContrasena(usuario, contrAct, contrNue);
+    }//GEN-LAST:event_btnCambiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -126,22 +143,16 @@ public class CambiarContrasena extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CambiarContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CambiarContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CambiarContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CambiarContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CambiarContrasena().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CambiarContrasena().setVisible(true);
         });
     }
 

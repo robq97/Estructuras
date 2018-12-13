@@ -5,6 +5,8 @@
  */
 package backend.admin;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ulacit
@@ -81,9 +83,6 @@ public class ArbolAdmin {
         }
     }
     
-    public void cambiarContrasena(String usuario, String password, String nuevaPassword) {
-        
-    }
     boolean acceso = false;
     public boolean iniciarSesion (String user, String pass){
         acceso = false;
@@ -105,8 +104,7 @@ public class ArbolAdmin {
         return acceso;
     }
     
-    // Imprime los nodos de un nivel específico
-    // Cuenta cada vez que el metodo recursivo realiza un conteo  y cuando el conteo es igual al nivel introducido imprime el valor
+    // Obtener el nivel de un usuario por su nombre
     private int nivel;
     public int getNivel(String nombre){
         int nivelAct = -1;
@@ -125,6 +123,27 @@ public class ArbolAdmin {
                 this.nivel = nivelAct;
             }
             getNivelRec(nodo.getHijoDer(), nivelAct, nombre);
+        }
+    }
+    
+    public void cambiarContrasena(String usuario, String contrAct, String contrNue){
+        if (raiz != null){
+            cambiarContrasenaRec(raiz, usuario, contrAct, contrNue);
+        }
+    }
+    
+    private void cambiarContrasenaRec(NodoAdmin nodo, String usuario, String contrAct, String contrNue){
+        if (nodo != null){
+            cambiarContrasenaRec(nodo.getHijoIzq(), usuario, contrAct, contrNue);
+            if(nodo.getDato().getNombre().equals(usuario)){
+                if (nodo.getDato().getPassword().equals(contrAct)){
+                    nodo.getDato().setPassword(contrNue);
+                    JOptionPane.showMessageDialog(null, "Contrase;a actualizada correctamente.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null, "La contrase;a actual no coincide.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            cambiarContrasenaRec(nodo.getHijoDer(), usuario, contrAct, contrNue);
         }
     }
 }
