@@ -168,8 +168,12 @@ public class CircDobleVueloPublico {
         while(aux != null){
             if(aux.getDato().getIdVuelo().equals(id)){
                 aux.getDato().setCostoPaxPriClase(costo);
+                JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
             aux = aux.getNext();
+            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+                break;
+            }
         }
     }
     
@@ -178,8 +182,12 @@ public class CircDobleVueloPublico {
         while(aux != null){
             if(aux.getDato().getIdVuelo().equals(id)){
                 aux.getDato().setCostoPaxEcon(costo);
+                JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
             aux = aux.getNext();
+            if (aux == cabeza) {                                                //Si el auxiliar equivale a cabeza, el ciclo se termina.
+                break;
+            }
         }
     }
     

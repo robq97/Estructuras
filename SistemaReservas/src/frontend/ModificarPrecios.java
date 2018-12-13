@@ -1,11 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import backend.Handler;
 public class ModificarPrecios extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form ModificarPrecios
      */
@@ -23,7 +24,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +35,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
     private void initComponents() {
 
         txtId = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnModificar = new javax.swing.JButton();
         txtPrecio = new javax.swing.JTextField();
@@ -47,10 +48,10 @@ public class ModificarPrecios extends javax.swing.JFrame {
 
         txtId.setEditable(false);
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -92,7 +93,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModificar)))
                 .addContainerGap())
@@ -116,33 +117,51 @@ public class ModificarPrecios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar)
-                    .addComponent(jButton1))
+                    .addComponent(btnVolver))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }//GEN-LAST:event_btnVolverActionPerformed
+    
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
-        String id = txtId.getText();
-        double costo = Double.parseDouble(txtPrecio.getText());
-        String tipo = cmbTipo.getSelectedItem().toString();
-        switch (tipo){
-            case "Económica":
-                handler.modificarPrecioEconomica(id, costo);
+        int op = JOptionPane.showConfirmDialog(null, "¿Está seguro de relizar esta modificación?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        switch(op){
+            case JOptionPane.YES_OPTION:
+                try{
+                    if(txtId.getText().length() <= 0){
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar un vuelo antes de hacer click en modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        String tipo = cmbTipo.getSelectedItem().toString();
+                        String id = txtId.getText();
+                        double costo = Double.parseDouble(txtPrecio.getText());
+                        switch (tipo){
+                            case "Económica":
+                                handler.modificarPrecioEconomica(id, costo);
+                                break;
+                            case "Primera":
+                                handler.modificarPrecioPrimera(id, costo);
+                                break;
+                        }
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "Los precios deben ser introducidos en números.\n"
+                            + "Verifique y reintente.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 break;
-            case "Primera":
-                handler.modificarPrecioPrimera(id, costo);
+            case JOptionPane.NO_OPTION:
+                JOptionPane.showMessageDialog(null, "Modificación cancelada.", "Cancelación", JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
@@ -188,8 +207,8 @@ public class ModificarPrecios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbTipo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
