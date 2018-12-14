@@ -5,7 +5,10 @@
  */
 package backend.vuelopublico;
 
-import backend.vueloprivado.NodoVueloPrivado;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -216,17 +219,52 @@ public class CircDobleVueloPublico {
         return existe;
     }
 
-    public DefaultTableModel modeloPub() {
+    public DefaultTableModel modeloPub() throws ParseException {
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPublico aux = cabeza;
         modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"});
         if (aux != null) {
             //, , modelo, , tipo, estado, , paxPrimeraClase, paxEconomico, .
-            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(),
+            
+            
+            
+//            String salida = Integer.toString(aux.getDato().getFechaSalida());
+//            System.err.println(salida);
+//            String yy = salida.substring(0, 2);
+//            String MM = salida.substring(2, 4);
+//            String dd = salida.substring(4, 6);
+//            String HH = salida.substring(6, 8);
+//            String mm = salida.substring(8, 10);
+//            
+            //System.out.println(yy + "/" + MM + "/" + dd + " " + HH + ":" + mm);
+            
+            SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");
+            SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            
+            
+            int fechaSalidaOrig = aux.getDato().getFechaSalida();
+            Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
+            String fechaSalidaNueva = newFormat.format(dateSalida);
+            
+            int fechaLlegadaOrig = aux.getDato().getFechaEntrada();
+            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
+            String fechaLlegadaNueva = newFormat.format(dateLlegada);
+            
+            
+            
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
                 aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
             aux = aux.getNext();
             while (aux != cabeza) {
-                modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), aux.getDato().getFechaSalida(), aux.getDato().getFechaEntrada(),
+                fechaSalidaOrig = aux.getDato().getFechaSalida();
+            dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
+            fechaSalidaNueva = newFormat.format(dateSalida);
+            
+            fechaLlegadaOrig = aux.getDato().getFechaEntrada();
+            dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
+            fechaLlegadaNueva = newFormat.format(dateLlegada);
+                
+                modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
                     aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
                 aux = aux.getNext();
             }

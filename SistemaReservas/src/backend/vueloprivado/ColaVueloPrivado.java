@@ -5,6 +5,10 @@
  */
 package backend.vueloprivado;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -126,13 +130,26 @@ public class ColaVueloPrivado {
         return existe;
     }
 
-    public DefaultTableModel modeloPriv() {
+    public DefaultTableModel modeloPriv() throws ParseException {
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPrivado aux = frente;
-        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Salida"});
+        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha Salida", "Fecha Llegada"});
         while (aux != null) {
+            SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");
+            SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            
+            
+            int fechaSalidaOrig = aux.getDato().getFechaSalida();
+            Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
+            String fechaSalidaNueva = newFormat.format(dateSalida);
+            
+            int fechaLlegadaOrig = aux.getDato().getFechaLlegada();
+            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
+            String fechaLlegadaNueva = newFormat.format(dateLlegada);
+            
+            
             //origen, destino, modelo, ID vuelo, fechaSalida, fechaEntrada, pax, precioTotal.
-            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino()});
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva});
             aux = aux.getAtras();
         }
         return modelo;
