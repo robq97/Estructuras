@@ -11,10 +11,10 @@ package backend.clientes;
  */
 public class Cliente {
 
-    private String nombre, telefono, email, categoria, idVuelo, cedula;
+    private String nombre, telefono, email, categoria, idVuelo, cedula;         //Variables de cada cliente.
     private int espacios;
     private double total;
-
+                                                                                //Constructor de cada cliente.
     public Cliente(String nombre, String telefono, String email, String categoria, int espacios, String cedula, String idVuelo, double total) {
         this.nombre = nombre;
         this.telefono = telefono;
@@ -23,9 +23,9 @@ public class Cliente {
         this.espacios = espacios;
         this.total = total;
         this.cedula = cedula;
-        this.idVuelo = idVuelo;
+        this.idVuelo = idVuelo;                                      
     }
-
+                                    //Respectivos setters, getters & toString.
     public String getNombre() {
         return nombre;
     }

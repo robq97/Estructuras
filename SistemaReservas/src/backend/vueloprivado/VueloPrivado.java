@@ -11,10 +11,10 @@ package backend.vueloprivado;
  */
 public class VueloPrivado {
 
-    private String modeloAvion, origen, destino, idVuelo;
+    private String modeloAvion, origen, destino, idVuelo;                       //Variables de cada vuelo privado.
     private int fechaSalida, fechaLlegada, pax;
     private double costo;
-
+                                                                                //Constructor para cada vuelo privado. 
     public VueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaLlegada, int pax, double costo) {
         this.modeloAvion = modeloAvion;
         this.origen = origen;
@@ -26,8 +26,8 @@ public class VueloPrivado {
         this.costo = costo;
     }
 
-    public String getModeloAvion() {
-        return modeloAvion;
+    public String getModeloAvion() {                                            //Respectivos setters, getters, y toString.
+        return modeloAvion; 
     }
 
     public void setModeloAvion(String modeloAvion) {

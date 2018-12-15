@@ -11,7 +11,7 @@ package backend.vueloprivado;
  */
 public class NodoVueloPrivado {
 
-    private VueloPrivado dato;
+    private VueloPrivado dato;                   //Nodos para el correcto funcionamiento de la estructura de datos.
     private NodoVueloPrivado atras;
 
     public NodoVueloPrivado(VueloPrivado dato) {

@@ -12,7 +12,7 @@ package backend.vuelopublico;
  */
 public class NodoVueloPublico {
 
-    private NodoVueloPublico next, back;
+    private NodoVueloPublico next, back;                                        //Nodos con su respectivo contructor, setters y getters para el correcto funcionamiento de la estructura.
     private VueloPublico dato;
 
     public NodoVueloPublico(VueloPublico dato) {

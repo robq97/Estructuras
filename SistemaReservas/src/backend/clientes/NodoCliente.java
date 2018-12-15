@@ -9,7 +9,7 @@ package backend.clientes;
  *
  * @author robq9
  */
-public class NodoCliente {
+public class NodoCliente {    //Respesctivos nodos para la correcta funcion de la estructura.
 
     private Cliente dato;
     private NodoCliente next;

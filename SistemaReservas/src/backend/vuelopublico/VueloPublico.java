@@ -11,10 +11,10 @@ package backend.vuelopublico;
  */
 public class VueloPublico {
 
-    private String origen, destino, modeloAvion, idVuelo, tipo, estado;
+    private String origen, destino, modeloAvion, idVuelo, tipo, estado;         //Variables de cada vuelo publico.
     private int fechaSalida, fechaEntrada, disponiblePriClase, disponibleEcon;
     private double costoPaxPriClase, costoPaxEcon;
-
+                                                                                //Constructor con todas las variables.
     public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado, int fechaSalida, int fechaEntrada, int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
         this.origen = origen;
         this.destino = destino;
@@ -30,7 +30,7 @@ public class VueloPublico {
         this.costoPaxEcon = costoPaxEcon;
     }
 
-    public String getOrigen() {
+    public String getOrigen() {                                                 //Respectivos setters, getters y toString.
         return origen;
     }
 

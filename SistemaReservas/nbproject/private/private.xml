@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/admin/ArbolAdmin.java</file>
-            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/vueloprivado/ColaVueloPrivado.java</file>
-=======
-            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/backend/Handler.java</file>
-            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/Home.java</file>
-            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/EliminarVuelo.java</file>
-            <file>file:/E:/Bryan%20Corrales/OneDrive%20-%20ULACIT/Carpetas%20de%20Usuario/Documents/GitHub/Estructuras/SistemaReservas/src/frontend/EliminarPrivado.java</file>
->>>>>>> ff7e28f3a42b774e9b67a65c126c286f6708f52b
+            <file>file:/C:/Users/robq9/Documents/proyecto/Estructuras/SistemaReservas/src/backend/vuelopublico/CircDobleVueloPublico.java</file>
         </group>
     </open-files>
 </project-private>

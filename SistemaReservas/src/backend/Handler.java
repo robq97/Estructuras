@@ -13,6 +13,7 @@ import backend.vueloprivado.ColaVueloPrivado;
 import backend.vueloprivado.VueloPrivado;
 import backend.vuelopublico.CircDobleVueloPublico;
 import backend.vuelopublico.VueloPublico;
+import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -163,12 +164,12 @@ public class Handler {                                                          
         return Handler.priv.verificarDuplicados(id);
     }
     
-    public DefaultTableModel modeloPub(){ //Creacion de los diferentes modelos de tablas para ser visualizados en la UI facilmente.
+    public DefaultTableModel modeloPub() throws ParseException{ //Creacion de los diferentes modelos de tablas para ser visualizados en la UI facilmente.
         DefaultTableModel modelo = Handler.pub.modeloPub();
         return modelo;
     }
     
-    public DefaultTableModel modeloPriv(){
+    public DefaultTableModel modeloPriv() throws ParseException{
         DefaultTableModel modelo = Handler.priv.modeloPriv();
         return modelo;
     }
