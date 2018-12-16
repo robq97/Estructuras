@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 
 /**
  *
@@ -20,6 +21,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
      */
     public CambiarContrasena() {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -50,6 +52,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
 
         jLabel3.setText("Nueva Contraseña:");
 
+        btnVolver.setBackground(Info.getBtnBackground());
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +60,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
             }
         });
 
+        btnCambiar.setBackground(Info.getBtnBackground());
         btnCambiar.setText("Cambiar");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

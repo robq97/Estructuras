@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
@@ -22,6 +23,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
      */
     public NuevoVuelo() {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -40,9 +42,9 @@ public class NuevoVuelo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtDispEconomica = new javax.swing.JTextField();
-        txtVolver = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         txtLlegada = new javax.swing.JTextField();
-        txtAgregar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtCostoEconomica = new javax.swing.JTextField();
@@ -68,17 +70,19 @@ public class NuevoVuelo extends javax.swing.JFrame {
 
         jLabel4.setText("Disponibles Economica");
 
-        txtVolver.setText("Volver");
-        txtVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(Info.getBtnBackground());
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVolverActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
-        txtAgregar.setText("Agregar");
-        txtAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(Info.getBtnBackground());
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -122,9 +126,9 @@ public class NuevoVuelo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtVolver)
+                        .addComponent(btnVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAgregar))
+                        .addComponent(btnAgregar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -223,22 +227,22 @@ public class NuevoVuelo extends javax.swing.JFrame {
                     .addComponent(txtCostoEconomica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtVolver)
-                    .addComponent(txtAgregar))
+                    .addComponent(btnVolver)
+                    .addComponent(btnAgregar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVolverActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
-    }//GEN-LAST:event_txtVolverActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
     
-    private void txtAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         try{
             String idVuelo = txtId.getText();
@@ -266,7 +270,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Los campos de fechas, asientos y costo deben ser introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtAgregarActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
     
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
@@ -312,6 +316,8 @@ public class NuevoVuelo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -324,7 +330,6 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton txtAgregar;
     private javax.swing.JTextField txtCostoEconomica;
     private javax.swing.JTextField txtCostoPrimera;
     private javax.swing.JTextField txtDestino;
@@ -337,6 +342,5 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private javax.swing.JTextField txtOrigen;
     private javax.swing.JTextField txtSalida;
     private javax.swing.JTextField txtTipo;
-    private javax.swing.JButton txtVolver;
     // End of variables declaration//GEN-END:variables
 }

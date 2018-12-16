@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
      */
     public NuevoPrivado() {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -55,6 +57,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
 
         jLabel1.setText("Id de vuelo");
 
+        jButton1.setBackground(Info.getBtnBackground());
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
             }
         });
 
+        btnAgregar.setBackground(Info.getBtnBackground());
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

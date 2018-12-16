@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import javax.swing.JOptionPane;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -24,6 +25,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
      */
     public ModificarPrecios() throws ParseException {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -51,6 +53,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
 
         txtId.setEditable(false);
 
+        btnVolver.setBackground(Info.getBtnBackground());
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +63,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
 
         jLabel2.setText("Nuevo Precio");
 
+        btnModificar.setBackground(Info.getBtnBackground());
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

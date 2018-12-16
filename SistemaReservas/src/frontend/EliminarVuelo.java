@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +35,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws ParseException {
+    private void initComponents() throws ParseException{
 
         jLabel1 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
@@ -49,6 +50,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
 
         txtId.setEditable(false);
 
+        jButton1.setBackground(Info.getBtnBackground());
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +58,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
             }
         });
 
+        btnReservar.setBackground(Info.getBtnBackground());
         btnReservar.setText("Eliminar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

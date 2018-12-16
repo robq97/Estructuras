@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
      */
     public EliminarPrivado() throws ParseException {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -35,7 +37,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws ParseException {
+    private void initComponents() throws ParseException{
 
         jButton1 = new javax.swing.JButton();
         btnReservar = new javax.swing.JButton();
@@ -46,6 +48,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(Info.getBtnBackground());
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +56,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
             }
         });
 
+        btnReservar.setBackground(Info.getBtnBackground());
         btnReservar.setText("Eliminar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

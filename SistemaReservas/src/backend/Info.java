@@ -13,8 +13,8 @@ import java.awt.Color;
  */
 public class Info {
     
-    private static Color frameBackground = new Color(128, 128, 128);
-    private static Color btnBackground = new Color(77, 77, 77);
+    private static Color frameBackground = new Color(166, 166, 166);
+    private static Color btnBackground = new Color(128, 128, 128);
 
     public static Color getFrameBackground() {
         return frameBackground;

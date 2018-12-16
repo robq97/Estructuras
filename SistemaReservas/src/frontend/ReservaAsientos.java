@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.awt.HeadlessException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -25,6 +26,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
      */
     public ReservaAsientos() throws ParseException {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -73,6 +75,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
 
         jLabel6.setText("Categoría");
 
+        jButton1.setBackground(Info.getBtnBackground());
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +83,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
             }
         });
 
+        btnReservar.setBackground(Info.getBtnBackground());
         btnReservar.setText("Reservar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

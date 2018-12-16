@@ -86,6 +86,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreciosActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnPrecios.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnVueloPub">
       <Properties>
@@ -97,6 +100,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVueloPubActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnVueloPub.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnVueloPriv">
       <Properties>
@@ -108,6 +114,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVueloPrivActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnVueloPriv.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
@@ -119,6 +128,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnEliminar.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnContrasena">
       <Properties>
@@ -130,6 +142,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnContrasenaActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnContrasena.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnVolver">
       <Properties>
@@ -141,6 +156,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnVolver.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarPriv">
       <Properties>
@@ -152,6 +170,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPrivActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnEliminarPriv.setBackground(Info.getBtnBackground());"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

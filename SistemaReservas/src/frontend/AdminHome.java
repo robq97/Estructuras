@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class AdminHome extends javax.swing.JFrame {
     public AdminHome() {
         
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
         String usuario = InicioSesion.getUsuario();
@@ -78,6 +80,7 @@ public class AdminHome extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        btnPrecios.setBackground(Info.getBtnBackground());
         btnPrecios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPrecios.setText("Modificar Precios");
         btnPrecios.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +89,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnVueloPub.setBackground(Info.getBtnBackground());
         btnVueloPub.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVueloPub.setText("Agregar un vuelo");
         btnVueloPub.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +98,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnVueloPriv.setBackground(Info.getBtnBackground());
         btnVueloPriv.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVueloPriv.setText("Agregar vuelo privado");
         btnVueloPriv.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +107,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setBackground(Info.getBtnBackground());
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar un vuelo");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +116,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnContrasena.setBackground(Info.getBtnBackground());
         btnContrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnContrasena.setText("Cambiar contraseña");
         btnContrasena.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +125,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(Info.getBtnBackground());
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +134,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarPriv.setBackground(Info.getBtnBackground());
         btnEliminarPriv.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminarPriv.setText("Eliminar vuelo privado");
         btnEliminarPriv.addActionListener(new java.awt.event.ActionListener() {

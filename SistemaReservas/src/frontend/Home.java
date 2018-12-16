@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Handler;
+import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() throws ParseException {
         initComponents();
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -45,6 +47,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnReservaAsientos.setBackground(Info.getBtnBackground());
         btnReservaAsientos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReservaAsientos.setText("Reservar un asiento");
         btnReservaAsientos.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +56,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnAdmin.setBackground(Info.getBtnBackground());
         btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdmin.setText("Entrar como administrador");
         btnAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +65,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnSalir.setBackground(Info.getBtnBackground());
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
