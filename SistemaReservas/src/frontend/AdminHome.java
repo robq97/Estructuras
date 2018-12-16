@@ -6,6 +6,9 @@
 package frontend;
 
 import backend.Handler;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -210,17 +213,25 @@ public class AdminHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVueloPubActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        EliminarVuelo window = new EliminarVuelo();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            EliminarVuelo window = new EliminarVuelo();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEliminarPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrivActionPerformed
-        // TODO add your handling code here:
-        EliminarPrivado window = new EliminarPrivado();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            EliminarPrivado window = new EliminarPrivado();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEliminarPrivActionPerformed
 
     /**

@@ -7,6 +7,9 @@ package frontend;
 
 import backend.Handler;
 import java.awt.HeadlessException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +23,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
     /**
      * Creates new form ReservaAsientos
      */
-    public ReservaAsientos() {
+    public ReservaAsientos() throws ParseException {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -33,7 +36,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws ParseException {
 
         jLabel1 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
@@ -187,10 +190,14 @@ public class ReservaAsientos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Home window = new Home();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            Home window = new Home();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(ReservaAsientos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
@@ -256,7 +263,11 @@ public class ReservaAsientos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReservaAsientos().setVisible(true);
+                try {
+                    new ReservaAsientos().setVisible(true);
+                } catch (ParseException ex) {
+                    Logger.getLogger(ReservaAsientos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

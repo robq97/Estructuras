@@ -7,6 +7,9 @@ package frontend;
 
 import backend.Handler;
 import javax.swing.JOptionPane;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +22,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
     /**
      * Creates new form ModificarPrecios
      */
-    public ModificarPrecios() {
+    public ModificarPrecios() throws ParseException {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -32,7 +35,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws ParseException {
 
         txtId = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
@@ -200,7 +203,11 @@ public class ModificarPrecios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificarPrecios().setVisible(true);
+                try {
+                    new ModificarPrecios().setVisible(true);
+                } catch (ParseException ex) {
+                    Logger.getLogger(ModificarPrecios.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

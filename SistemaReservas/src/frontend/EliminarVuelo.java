@@ -41,7 +41,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnReservar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblHome = new javax.swing.JTable();
+        tblVuelos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,8 +63,13 @@ public class EliminarVuelo extends javax.swing.JFrame {
             }
         });
 
-        tblHome.setModel(handler.modeloPub());
-        jScrollPane1.setViewportView(tblHome);
+        tblVuelos.setModel(handler.modeloPub());
+        tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblVuelosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblVuelos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +126,12 @@ public class EliminarVuelo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnReservarActionPerformed
 
+    private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
+        // TODO add your handling code here:
+        int linea = tblVuelos.getSelectedRow();
+        txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
+    }//GEN-LAST:event_tblVuelosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -165,7 +176,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblHome;
+    private javax.swing.JTable tblVuelos;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

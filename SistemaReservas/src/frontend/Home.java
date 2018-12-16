@@ -6,6 +6,9 @@
 package frontend;
 
 import backend.Handler;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +21,7 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form home
      */
-    public Home() {
+    public Home() throws ParseException {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -31,7 +34,7 @@ public class Home extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws ParseException {
 
         btnReservaAsientos = new javax.swing.JButton();
         btnAdmin = new javax.swing.JButton();
@@ -151,7 +154,11 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                try {
+                    new Home().setVisible(true);
+                } catch (ParseException ex) {
+                    Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

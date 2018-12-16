@@ -20,6 +20,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
 
     /**
      * Creates new form EliminarPrivado
+     * @throws java.text.ParseException
      */
     public EliminarPrivado() throws ParseException {
         initComponents();
@@ -64,6 +65,11 @@ public class EliminarPrivado extends javax.swing.JFrame {
         txtId.setEditable(false);
 
         tblVuelos.setModel(handler.modeloPriv());
+        tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblVuelosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblVuelos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,7 +126,15 @@ public class EliminarPrivado extends javax.swing.JFrame {
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
+        String idVuelo = txtId.getText();
+        handler.eliminaVueloPrivado(idVuelo);
     }//GEN-LAST:event_btnReservarActionPerformed
+
+    private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
+        // TODO add your handling code here:
+        int linea = tblVuelos.getSelectedRow();
+        txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
+    }//GEN-LAST:event_tblVuelosMouseClicked
 
     /**
      * @param args the command line arguments
