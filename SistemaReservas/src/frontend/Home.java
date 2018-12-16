@@ -20,6 +20,7 @@ public class Home extends javax.swing.JFrame {
 
     /**
      * Creates new form home
+     * @throws java.text.ParseException
      */
     public Home() throws ParseException {
         initComponents();
@@ -105,10 +106,14 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReservaAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaAsientosActionPerformed
-        // TODO add your handling code here:
-        ReservaAsientos window = new ReservaAsientos();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            ReservaAsientos window = new ReservaAsientos();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReservaAsientosActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed

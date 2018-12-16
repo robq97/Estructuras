@@ -7,6 +7,9 @@ package frontend;
 
 import backend.Handler;
 import com.sun.glass.events.KeyEvent;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -120,10 +123,14 @@ public class InicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-        Home window = new Home();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            Home window = new Home();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnVolverActionPerformed
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed

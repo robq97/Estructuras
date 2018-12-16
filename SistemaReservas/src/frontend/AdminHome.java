@@ -22,6 +22,7 @@ public class AdminHome extends javax.swing.JFrame {
      * Creates new form AdminHome
      */
     public AdminHome() {
+        
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -75,6 +76,7 @@ public class AdminHome extends javax.swing.JFrame {
         btnEliminarPriv = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         btnPrecios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPrecios.setText("Modificar Precios");
@@ -178,17 +180,25 @@ public class AdminHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-        Home window = new Home();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            Home window = new Home();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreciosActionPerformed
-        // TODO add your handling code here:
-        ModificarPrecios window = new ModificarPrecios();
-        window.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            ModificarPrecios window = new ModificarPrecios();
+            window.setVisible(true);
+            dispose();
+        } catch (ParseException ex) {
+            Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPreciosActionPerformed
 
     private void btnContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContrasenaActionPerformed
