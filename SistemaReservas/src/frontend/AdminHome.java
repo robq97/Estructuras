@@ -25,6 +25,7 @@ public class AdminHome extends javax.swing.JFrame {
     public AdminHome() {
         
         initComponents();
+        setTitle("Acceso Administrador");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);

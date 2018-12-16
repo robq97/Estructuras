@@ -23,6 +23,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
      */
     public NuevoVuelo() {
         initComponents();
+        setTitle("Agregar Vuelo Púnlico");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -66,11 +67,20 @@ public class NuevoVuelo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtSalida.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Id de vuelo");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Disponibles Economica");
 
+        txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtDispEconomica.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
         btnVolver.setBackground(Info.getBtnBackground());
+        btnVolver.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +89,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
         });
 
         btnAgregar.setBackground(Info.getBtnBackground());
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,36 +97,60 @@ public class NuevoVuelo extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Costo Económica");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Origen");
 
+        txtCostoEconomica.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtCostoEconomica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCostoEconomicaActionPerformed(evt);
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Destino");
 
+        txtDestino.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDestinoActionPerformed(evt);
             }
         });
 
+        txtOrigen.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Fecha de llegada");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Modelo");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Fecha de Salida");
 
+        txtModelo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Estado");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Disponibles Primera Clase");
 
+        txtDispPrimera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Costo Primera Clase");
 
+        txtCostoPrimera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Tipo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,7 +187,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                         .addGap(127, 127, 127)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCostoEconomica)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -167,7 +202,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtLlegada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtLlegada, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtCostoPrimera)
                             .addComponent(txtDestino, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
@@ -263,7 +298,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                 try{
                     handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
                     JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                }catch(Exception e){
+                }catch(HeadlessException e){
                     
                 }
             }

@@ -25,6 +25,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
      */
     public EliminarPrivado() throws ParseException {
         initComponents();
+        setTitle("Eliminar Vuelo Privado");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -37,7 +38,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws ParseException{
+    private void initComponents() throws ParseException {
 
         jButton1 = new javax.swing.JButton();
         btnReservar = new javax.swing.JButton();
@@ -49,6 +50,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setBackground(Info.getBtnBackground());
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +59,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
         });
 
         btnReservar.setBackground(Info.getBtnBackground());
+        btnReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReservar.setText("Eliminar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,9 +67,11 @@ public class EliminarPrivado extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Id de vuelo");
 
         txtId.setEditable(false);
+        txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         tblVuelos.setModel(handler.modeloPriv());
         tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,7 +90,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 407, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
                         .addComponent(btnReservar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +111,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnReservar))

@@ -23,9 +23,11 @@ public class ReservaAsientos extends javax.swing.JFrame {
     
     /**
      * Creates new form ReservaAsientos
+     * @throws java.text.ParseException
      */
     public ReservaAsientos() throws ParseException {
         initComponents();
+        setTitle("Reservar Espacios");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -61,21 +63,37 @@ public class ReservaAsientos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Id de vuelo");
 
         txtId.setEditable(false);
+        txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nombre Completo");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Teléfono");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Correo Electrónico");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Cantidad de Espacios");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Categoría");
 
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtEspacios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
         jButton1.setBackground(Info.getBtnBackground());
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +102,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
         });
 
         btnReservar.setBackground(Info.getBtnBackground());
+        btnReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReservar.setText("Reservar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +110,10 @@ public class ReservaAsientos extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Número de Cédula");
+
+        txtCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         tblPublicos.setModel(handler.modeloPub());
         tblPublicos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,6 +123,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblPublicos);
 
+        cmbCategoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "primera", "economica" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

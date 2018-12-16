@@ -21,9 +21,12 @@ public class EliminarVuelo extends javax.swing.JFrame {
 
     /**
      * Creates new form EliminarVuelo
+     * @throws java.text.ParseException
      */
     public EliminarVuelo() throws ParseException {
         initComponents();
+        setTitle("Eliminar Vuelo Público");
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -35,7 +38,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws ParseException{
+    private void initComponents() throws ParseException {
 
         jLabel1 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
@@ -46,11 +49,14 @@ public class EliminarVuelo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Id de vuelo");
 
         txtId.setEditable(false);
+        txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jButton1.setBackground(Info.getBtnBackground());
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +65,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
         });
 
         btnReservar.setBackground(Info.getBtnBackground());
+        btnReservar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReservar.setText("Eliminar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

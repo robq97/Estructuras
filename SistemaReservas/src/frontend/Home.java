@@ -25,6 +25,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() throws ParseException {
         initComponents();
+        setTitle("Menú Principal");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);

@@ -22,9 +22,11 @@ public class ModificarPrecios extends javax.swing.JFrame {
     
     /**
      * Creates new form ModificarPrecios
+     * @throws java.text.ParseException
      */
     public ModificarPrecios() throws ParseException {
         initComponents();
+        setTitle("Modificar Precios");
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -52,8 +54,10 @@ public class ModificarPrecios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtId.setEditable(false);
+        txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnVolver.setBackground(Info.getBtnBackground());
+        btnVolver.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,15 +65,19 @@ public class ModificarPrecios extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nuevo Precio");
 
         btnModificar.setBackground(Info.getBtnBackground());
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
             }
         });
+
+        txtPrecio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         tblVuelos.setModel(handler.modeloPub());
         tblVuelos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,8 +87,10 @@ public class ModificarPrecios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblVuelos);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Id de vuelo");
 
+        cmbTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Económica", "Primera" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
