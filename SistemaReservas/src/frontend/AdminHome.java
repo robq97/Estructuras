@@ -50,13 +50,24 @@ public class AdminHome extends javax.swing.JFrame {
                 btnEliminarPriv.setEnabled(false);
                 btnVueloPriv.setEnabled(false);
                 btnVueloPub.setEnabled(false);
+                btnPrecios.setEnabled(false);
                 break;
             case 4:
                 btnEliminar.setEnabled(false);
                 btnEliminarPriv.setEnabled(false);
                 btnVueloPriv.setEnabled(false);
                 btnVueloPub.setEnabled(false);
+                btnCrear.setEnabled(false);
                 btnPrecios.setEnabled(false);
+                break;
+            default:
+                btnEliminar.setEnabled(false);
+                btnEliminarPriv.setEnabled(false);
+                btnVueloPriv.setEnabled(false);
+                btnVueloPub.setEnabled(false);
+                btnCrear.setEnabled(false);
+                btnPrecios.setEnabled(false);
+                btnContrasena.setEnabled(false);
                 break;
         }
     }
@@ -77,6 +88,7 @@ public class AdminHome extends javax.swing.JFrame {
         btnContrasena = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnEliminarPriv = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -144,6 +156,15 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        btnCrear.setBackground(Info.getBtnBackground());
+        btnCrear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCrear.setText("Crear nuevo administrador");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +182,8 @@ public class AdminHome extends javax.swing.JFrame {
                             .addComponent(btnVueloPriv)
                             .addComponent(btnVueloPub, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -181,9 +203,11 @@ public class AdminHome extends javax.swing.JFrame {
                         .addComponent(btnVueloPub, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -254,6 +278,13 @@ public class AdminHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarPrivActionPerformed
 
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        // TODO add your handling code here:
+        NuevoUsuario window = new NuevoUsuario();
+        window.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCrearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,6 +322,7 @@ public class AdminHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContrasena;
+    private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarPriv;
     private javax.swing.JButton btnPrecios;

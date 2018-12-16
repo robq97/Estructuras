@@ -121,9 +121,9 @@ public class Handler {                                                          
         Handler.admin.inserta(new Admin("Gabriela", "1234", -2));
         Handler.admin.inserta(new Admin("Josue", "1234", 3));
         Handler.admin.inserta(new Admin("Andres", "1234", -3));
-        Handler.admin.inserta(new Admin("Juan", "1234", 4));
-        Handler.admin.inserta(new Admin("Pedro", "1234", -4));
-        
+    }
+    public void agregarAdmin(String nombre, String contrasena, int grado){
+        Handler.admin.inserta(new Admin(nombre, contrasena, grado));
     }
     
     public void test() { //metodo para pruebas, puede comentarse
