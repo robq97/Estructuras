@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import com.sun.glass.events.KeyEvent;
 import java.text.ParseException;
 import java.util.logging.Level;

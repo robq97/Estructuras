@@ -57,8 +57,8 @@ public class CircDobleVueloPublico {
         NodoVueloPublico aux = cabeza;
         String msj = "Lista: \n";
         if (aux != null) {
-            msj += aux;
-            aux = aux.getNext();
+            msj += aux;                                                         //Se comienza con un String vacio, se recorre toda la cola por medio de un ciclo, y se van agregando
+            aux = aux.getNext();                                                //todos los datos como strings a la variable "msj".
             while (aux != cabeza) {
                 msj += aux;
                 aux = aux.getNext();
@@ -72,33 +72,33 @@ public class CircDobleVueloPublico {
         NodoVueloPublico aux = cabeza;
         NodoVueloPublico temp = aux;
         
-        while (aux != null) { // condiciones para recorrer la lista
-            if (aux.getDato().getIdVuelo().equals(id)) { // condicion de busqueda
+        while (aux != null) {                                                   // Ciclo para pasar por cada dato
+            if (aux.getDato().getIdVuelo().equals(id)) {                        // si un dato hace match al parametro ingresado
                 if (aux == cabeza) {
-                    cabeza = cabeza.getNext(); // si el valor de busqueda esta en el primer nodo se reasigna el valor de ese nodo por el nodo siguiente
+                    cabeza = cabeza.getNext();                                  //En caso de que haya un match, y el nodo con el match sea el de frente, el frente se convierte en el dato trasero, para asi ser eliminado.
                 } else {
-                    temp.setNext(aux.getNext()); // si el valor del nodo aux corresponde el que se busca y no es el primero del nodo lo que hace es saltarse el nodo usando el auxiliar
+                    temp.setNext(aux.getNext());                                //En caso que el nodo con el match no sea Frente, se usa la variable temp, para obtener el siguiente dato, eliminando el actual.
                 }
                 JOptionPane.showMessageDialog(null, "El vuelo " + aux.getDato().getIdVuelo() + " ha sido eliminado exitosamente.");; // mensaje para yo saber que el ciclo estaba en uso
             }
-            temp = aux; // se guarda un valor de referencia del nodo anterior
-            aux = aux.getNext(); // se asigna valor a aux para continuar el ciclo
-            if (aux == cabeza) {
+            temp = aux;                                                         //Finalmente se iguala el nodo aux al temp, para que la eliminacion se de (en caso de que hubiera match).
+            aux = aux.getNext();                                                //Se utiliza para poder recorrer con ayuda del while, toda la estructura.
+            if (aux == cabeza) {                                                //Condicion para terminar el ciclo.
                 break;
             }
         }
     }
     
-    private int conseguirHora(int fecha) {
-        int hora = (fecha % 10000);
+    private int conseguirHora(int fecha) {                                      //Metodo para extraer la hora del int con toda la fecha.
+        int hora = (fecha % 10000);                                             //Se utiliza la operacion de remanente, para obtener los ultimos 4 ints correspodientes a la hora. 
         return hora;
     }
     
-    public boolean isLleno(String idVuelo) {
+    public boolean isLleno(String idVuelo) {                                    //Metodo para saber si un vuelo esta lleno o no.
         NodoVueloPublico aux = cabeza;
         boolean status = false;
         while (true) {
-            if (aux.getDato().getIdVuelo().equals(idVuelo)) {
+            if (aux.getDato().getIdVuelo().equals(idVuelo)) {                   //En caso de que el vuelo le queden 5 o menos espacios en cada clase, se considera lleno.
                 if (aux.getDato().getPaxPriClase() <= 5 && aux.getDato().getPaxEcon() <= 5) {
                     status = true;
                 }
@@ -108,21 +108,21 @@ public class CircDobleVueloPublico {
                 break;
             }
         }
-        return status;
+        return status;                                                          //Se devuelve un booleano dependiendo de si esta lleno o no.
     }
     
     public double reservaVueloPublico(String categoria, int espacios, String idVuelo, boolean tipo) { //el booblean para clientes no existentes tiene que ser TRUE.
-        NodoVueloPublico aux = cabeza;
+        NodoVueloPublico aux = cabeza;                                          //Metodo para hacer la reserva en un vuelo.
         double total = 0;
         while (true) {
-            if (aux.getDato().getIdVuelo().equals(idVuelo)) {
-                if (categoria.equals("primera")) {
-                    if (aux.getDato().getPaxPriClase() >= espacios) {
-                        total = aux.getDato().getCostoPaxPriClase() * espacios;
+            if (aux.getDato().getIdVuelo().equals(idVuelo)) {                   //Primero se busca por id el vuelo que se quiere reservar.
+                if (categoria.equals("primera")) {                              //Si el cliente escogio primera clase, se busca que existan suficientes espacios.
+                    if (aux.getDato().getPaxPriClase() >= espacios) {           
+                        total = aux.getDato().getCostoPaxPriClase() * espacios; 
                         if (tipo == true) {
-                            int decision = JOptionPane.showConfirmDialog(null,
+                            int decision = JOptionPane.showConfirmDialog(null,  //Si existieran suficientes espacios, se le muestra al cliente el id del vuelo, numero de espacios, categoria y total.
                                     "El total para el vuelo " + idVuelo + ", con " + espacios + " espacios de " + categoria + " clase es de: " + total + "\n¿Desea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
-                            if (decision == JOptionPane.YES_OPTION) {
+                            if (decision == JOptionPane.YES_OPTION) {           //Si elige realizar la reserva se actualizan el numero de asientos disponibles del vuelo.
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 int cantActual = aux.getDato().getPaxPriClase() - espacios;
                                 aux.getDato().setPaxPriClase(cantActual);
@@ -133,15 +133,15 @@ public class CircDobleVueloPublico {
                                 return total;
                             }
                         } else {
-                            int cantActual = aux.getDato().getPaxPriClase() - espacios;
+                            int cantActual = aux.getDato().getPaxPriClase() - espacios; //Esto es para agregar los clientes ya pre-creados por nosotros, se agregan sin necesidad de confirmar nada.
                             aux.getDato().setPaxPriClase(cantActual);
                             return total;
                         }
-                    } else {
+                    } else {                                                    //Se muestra en caso de que no existan campos suficientes.
                         JOptionPane.showMessageDialog(null, "No hay espacios suficientes.");
                         break;
                     }
-                } else if (categoria.equals("economica")) {
+                } else if (categoria.equals("economica")) {                     //Exactamente el mismo funcionamiento de la "Primera Clase", solo que el esto se corre cuando se eliga "clase economica", puesto que los campos y precios disponibles son diferentes.
                     if (aux.getDato().getPaxEcon() >= espacios) {
                         total = aux.getDato().getCostoPaxEcon() * espacios;
                         if (tipo == true) {
@@ -176,10 +176,10 @@ public class CircDobleVueloPublico {
         return total;
     }
     
-    public void modificarPrecioPrimera(String id, double costo) {
+    public void modificarPrecioPrimera(String id, double costo) {               //Metodo para que los admins puedan modificar el precio de primera clase.
         NodoVueloPublico aux = cabeza;
         while (aux != null) {
-            if (aux.getDato().getIdVuelo().equals(id)) {
+            if (aux.getDato().getIdVuelo().equals(id)) {                        //Se buscan matches al ID ingresado por parametro, y en caso de econtrarse se le asigna el nuevo precio.
                 aux.getDato().setCostoPaxPriClase(costo);
                 JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -190,10 +190,10 @@ public class CircDobleVueloPublico {
         }
     }
     
-    public void modificarPrecioEconomica(String id, double costo) {
+    public void modificarPrecioEconomica(String id, double costo) {             //Metodo para que los admins puedan modificar el precio de la clase economica.
         NodoVueloPublico aux = cabeza;
         while (aux != null) {
-            if (aux.getDato().getIdVuelo().equals(id)) {
+            if (aux.getDato().getIdVuelo().equals(id)) {                        //Se buscan matches al ID ingresado por parametro, y en caso de econtrarse se le asigna el nuevo precio.
                 aux.getDato().setCostoPaxEcon(costo);
                 JOptionPane.showMessageDialog(null, "Éxito al modificar el precio.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -204,10 +204,10 @@ public class CircDobleVueloPublico {
         }
     }
     
-    public boolean verificarDuplicados(String id) {
+    public boolean verificarDuplicados(String id) {                             //Metodo para buscar si ya existe un vuelo con el mismo id antes de agregarse.
         NodoVueloPublico aux = cabeza;
         boolean existe = false;
-        while (aux != null) {
+        while (aux != null) {                                                   //Se buscan matches al parametro ingresado por el metodo, en caso de encontrarlo, vuelve el booleano verdadero.
             if (aux.getDato().getIdVuelo().equals(id)) {
                 existe = true;
             }
@@ -219,20 +219,20 @@ public class CircDobleVueloPublico {
         return existe;
     }
     
-    public DefaultTableModel modeloPub() throws ParseException {
+    public DefaultTableModel modeloPub() throws ParseException {                //Creacion de tabla de modelo, para la ser usada por la UI.
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPublico aux = cabeza;
-        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"});
+        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"}); //Creacion del modelo con los parametros que van a ser mostrados.
         if (aux != null) {
-            SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");
+            SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
             SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             
             int fechaSalidaOrig = aux.getDato().getFechaSalida();
-            Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
+            Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
             String fechaSalidaNueva = newFormat.format(dateSalida);
             
             int fechaLlegadaOrig = aux.getDato().getFechaEntrada();
-            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
+            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
             String fechaLlegadaNueva = newFormat.format(dateLlegada);
             
             modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
@@ -249,7 +249,7 @@ public class CircDobleVueloPublico {
                 
                 modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
                     aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
-                aux = aux.getNext();
+                aux = aux.getNext(); //Se agrega a la tabla los datos ya convertidos al formato nuevo.
             }
         }
         return modelo;

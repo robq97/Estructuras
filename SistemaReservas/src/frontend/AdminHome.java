@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ public class AdminHome extends javax.swing.JFrame {
     public AdminHome() {
         
         initComponents();
-        setTitle("Acceso Administrador");
+        setTitle("Acceso Administrador");                                       //Titulo, posicion, y redimensionable de la ventana de admins
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);

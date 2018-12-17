@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import javax.swing.JOptionPane;
 import java.text.ParseException;
 import java.util.logging.Level;
