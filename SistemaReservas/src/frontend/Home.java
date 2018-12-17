@@ -45,6 +45,9 @@ public class Home extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHome = new javax.swing.JTable();
+        lblReservar = new javax.swing.JLabel();
+        lblAdministrador = new javax.swing.JLabel();
+        lblSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +57,14 @@ public class Home extends javax.swing.JFrame {
         btnReservaAsientos.setBorder(null);
         btnReservaAsientos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReservaAsientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/reservar60px.png"))); // NOI18N
+        btnReservaAsientos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReservaAsientosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReservaAsientosMouseExited(evt);
+            }
+        });
         btnReservaAsientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaAsientosActionPerformed(evt);
@@ -66,6 +77,14 @@ public class Home extends javax.swing.JFrame {
         btnAdmin.setBorder(null);
         btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/admin60px.png"))); // NOI18N
+        btnAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdminMouseExited(evt);
+            }
+        });
         btnAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminActionPerformed(evt);
@@ -78,6 +97,14 @@ public class Home extends javax.swing.JFrame {
         btnSalir.setBorder(null);
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/salir60px.png"))); // NOI18N
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -86,6 +113,18 @@ public class Home extends javax.swing.JFrame {
 
         tblHome.setModel(handler.modeloPub());
         jScrollPane1.setViewportView(tblHome);
+
+        lblReservar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblReservar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblReservar.setText(" ");
+
+        lblAdministrador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblAdministrador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdministrador.setText(" ");
+
+        lblSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalir.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +135,10 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReservaAsientos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(lblReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
@@ -109,10 +151,16 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReservaAsientos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblReservar)
                         .addGap(18, 18, 18)
                         .addComponent(btnAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAdministrador)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSalir)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -142,6 +190,36 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnReservaAsientosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaAsientosMouseEntered
+        // TODO add your handling code here:
+        lblReservar.setText("Reservar Espacios");
+    }//GEN-LAST:event_btnReservaAsientosMouseEntered
+
+    private void btnReservaAsientosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaAsientosMouseExited
+        // TODO add your handling code here:
+        lblReservar.setText(" ");
+    }//GEN-LAST:event_btnReservaAsientosMouseExited
+
+    private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
+        // TODO add your handling code here:
+        lblAdministrador.setText("Entrar Como Administrador");
+    }//GEN-LAST:event_btnAdminMouseEntered
+
+    private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
+        // TODO add your handling code here:
+        lblAdministrador.setText(" ");
+    }//GEN-LAST:event_btnAdminMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        lblSalir.setText("Salir del Programa");
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        lblSalir.setText(" ");
+    }//GEN-LAST:event_btnSalirMouseExited
     
     /**
      * @param args the command line arguments
@@ -188,6 +266,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnReservaAsientos;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAdministrador;
+    private javax.swing.JLabel lblReservar;
+    private javax.swing.JLabel lblSalir;
     private javax.swing.JTable tblHome;
     // End of variables declaration//GEN-END:variables
 }

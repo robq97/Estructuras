@@ -33,15 +33,15 @@ public class Handler {                                                          
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "B737-800", "240", "fijo", "disponible", 1810050230, 1810060500, 40, 120, 750, 380));
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Los Angeles, USA", "B757-200", "245", "fijo", "disponible", 1810060330, 1810090500, 50, 200, 845, 582));
         Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Nueva York, USA", "A320", "250", "fijo", "disponible", 1810070400, 1810100500, 45, 140, 990, 620));
-        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "San Jose, Costa Rica", "B767-300", "255", "fijo", "disponible", 1810141230, 1810050030, 80, 250, 1760, 1020));
-        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Managua, Nicaragua", "B787", "260", "fijo", "disponible", 1810091430, 1814050645, 60, 180, 2100, 1190));
-        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Bogota, Colombia", "B787", "265", "fijo", "disponible", 1810121645, 1817051830, 60, 180, 2100, 1190));
+        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "San Jose, Costa Rica", "B767-300", "255", "fijo", "disponible", 1810141230, 1810050030, 80, 250, 320, 280));
+        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Managua, Nicaragua", "B787", "260", "fijo", "disponible", 1810091430, 1814050645, 60, 180, 450, 365));
+        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Bogota, Colombia", "B787", "265", "fijo", "disponible", 1810121645, 1817051830, 60, 180, 500, 410));
         Handler.pub.insertar(new VueloPublico("Managua, Nicaragua", "San Jose, Costa Rica", "B737-800", "270", "fijo", "disponible", 1810151100, 1810200500, 30, 110, 478, 290));
-        Handler.pub.insertar(new VueloPublico("Managua, Nicaragua", "Ciudad de Panama, Panama", "B787", "275", "fijo", "disponible", 1810172315, 1810230500, 60, 180, 566, 310));
-        Handler.pub.insertar(new VueloPublico("Managua, Nicaragua", "Bogota, Colombia", "B737-800", "280", "fijo", "disponible", 1810200725, 1810270500, 30, 130, 750, 447));
-        Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "285", "fijo", "disponible", 1810251440, 1810270500, 40, 130, 515, 260));
-        Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Managua, Nicaragua", "B737-800", "290", "fijo", "disponible", 1810271600, 1810300500, 40, 120, 470, 225));
-        Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Bogota, Colombia", "B787", "295", "fijo", "disponible", 1810301735, 1811052000, 40, 200, 640, 300));
+        Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Berna, Suiza", "B787", "275", "fijo", "disponible", 1810172315, 1810230500, 60, 180, 1200, 785));
+        Handler.pub.insertar(new VueloPublico("Managua, Nicaragua", "Bogota, Colombia", "B737-800", "280", "fijo", "disponible", 1810200725, 1810270500, 30, 130, 580, 447));
+        Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Bruselas, Bélgica", "B737-800", "285", "fijo", "disponible", 1810251440, 1810270500, 40, 130, 1250, 800));
+        Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Londres, Inglaterra", "B737-800", "290", "fijo", "disponible", 1810271600, 1810300500, 40, 120, 1000, 720));
+        Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Bogota, Colombia", "B787", "295", "fijo", "disponible", 1810301735, 1811052000, 40, 200, 640, 300));
     }
     
     public void addVuelosSolicitudesExistentes() {//Metodo que agrega solicitudes a la estructura de datos, de nuevo, para que los clientes tengan opciones. (Utiliza los mismos parametros de vuelos fijos).
@@ -114,7 +114,6 @@ public class Handler {                                                          
     
     public void addAdminsExistentes() { //Agrega los admins al arbol.
         //Usuario, password, privilegios (0 tiene todos los privilegios, 1 tiene menos privilegios, 2 menos, y asi sucesivamente).
-        Handler.admin.inserta(new Admin("", "", 0));
         Handler.admin.inserta(new Admin("Roberto", "1234", 0));
         Handler.admin.inserta(new Admin("Bryan", "1234", 1));
         Handler.admin.inserta(new Admin("Mariana", "1234", -1));
@@ -125,16 +124,6 @@ public class Handler {                                                          
     }
     public void agregarAdmin(String nombre, String contrasena, int grado){
         Handler.admin.inserta(new Admin(nombre, contrasena, grado));
-    }
-    
-    public void test() { //metodo para pruebas, puede comentarse
-        //System.out.println(cliente);
-//        System.out.println(Handler.pub);
-//        eliminarVueloPublico("310");
-//        System.out.println(Handler.pub);
-//System.out.println(pub);
-//Handler.admin.imprimeTodos();
-//Handler.pub.toString();
     }
     
     public boolean iniciarSesion(String user, String pass){ //Metodo para el inicio de sesion.
