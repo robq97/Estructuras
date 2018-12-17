@@ -114,6 +114,7 @@ public class Handler {                                                          
     
     public void addAdminsExistentes() { //Agrega los admins al arbol.
         //Usuario, password, privilegios (0 tiene todos los privilegios, 1 tiene menos privilegios, 2 menos, y asi sucesivamente).
+        Handler.admin.inserta(new Admin("", "", 0));
         Handler.admin.inserta(new Admin("Roberto", "1234", 0));
         Handler.admin.inserta(new Admin("Bryan", "1234", 1));
         Handler.admin.inserta(new Admin("Mariana", "1234", -1));

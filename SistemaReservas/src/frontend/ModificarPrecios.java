@@ -168,6 +168,8 @@ public class ModificarPrecios extends javax.swing.JFrame {
                                 handler.modificarPrecioPrimera(id, costo);
                                 break;
                         }
+                        txtId.setText("");
+                        txtPrecio.setText("");
                     }
                 }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Los precios deben ser introducidos en números.\n"

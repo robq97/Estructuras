@@ -246,6 +246,13 @@ public class NuevoPrivado extends javax.swing.JFrame {
             }else{
                 if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){
                     handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
+                    txtId.setText("");
+                    txtModelo.setText("");
+                    txtOrigen.setText("");
+                    txtDestino.setText("");
+                    txtSalida.setText("");
+                    txtLlegada.setText("");
+                    txtPasajeros.setText("");
                 }else{
                     JOptionPane.showMessageDialog(null, "Debe seguir el formato de fecha establecido.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

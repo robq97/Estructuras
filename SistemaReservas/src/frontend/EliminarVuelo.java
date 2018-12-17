@@ -10,6 +10,7 @@ import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -132,8 +133,17 @@ public class EliminarVuelo extends javax.swing.JFrame {
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
         String idVuelo = txtId.getText();
-        handler.eliminarVueloPublico(idVuelo);
-        
+        if (idVuelo.length() <= 0){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un vuelo antes de hacer click.", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            try {
+                handler.eliminarVueloPublico(idVuelo);
+                tblVuelos.setModel(handler.modeloPub());
+                txtId.setText("");
+            } catch (ParseException ex) {
+                Logger.getLogger(EliminarVuelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnReservarActionPerformed
     
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked

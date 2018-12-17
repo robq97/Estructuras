@@ -143,6 +143,9 @@ public class CambiarContrasena extends javax.swing.JFrame {
         String contrNue = txtContrNuev.getText();
         if(handler.existeAdmin(usuario)){
             handler.cambiarContrasena(usuario, contrAct, contrNue);
+            txtUsuario.setText("");
+            txtContrAct.setText("");
+            txtContrNuev.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "El usuario introducido no existe.", "Error", JOptionPane.ERROR_MESSAGE);
         }

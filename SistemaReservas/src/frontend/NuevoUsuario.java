@@ -151,6 +151,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 int nivel = handler.obtenerNivel(nombre);
                 JOptionPane.showMessageDialog(null, "Usuario creado con éxito.\n"
                         + "El nivel de usuario es " + nivel + ".", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                txtNombre.setText("");
+                txtContrasena.setText("");
+                txtGrado.setText("");
             }else{
                 JOptionPane.showMessageDialog(null, "Debe llenar todos los campos primero.", "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -48,27 +48,36 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnReservaAsientos.setBackground(Info.getBtnBackground());
+        btnReservaAsientos.setContentAreaFilled(false);
+        btnReservaAsientos.setFocusPainted(false);
+        btnReservaAsientos.setOpaque(false);
+        btnReservaAsientos.setBorder(null);
         btnReservaAsientos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnReservaAsientos.setText("Reservar un asiento");
+        btnReservaAsientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/reservar60px.png"))); // NOI18N
         btnReservaAsientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaAsientosActionPerformed(evt);
             }
         });
 
-        btnAdmin.setBackground(Info.getBtnBackground());
+        btnAdmin.setContentAreaFilled(false);
+        btnAdmin.setFocusPainted(false);
+        btnAdmin.setOpaque(false);
+        btnAdmin.setBorder(null);
         btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAdmin.setText("Entrar como administrador");
+        btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/admin60px.png"))); // NOI18N
         btnAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminActionPerformed(evt);
             }
         });
 
-        btnSalir.setBackground(Info.getBtnBackground());
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setFocusPainted(false);
+        btnSalir.setOpaque(false);
+        btnSalir.setBorder(null);
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/salir60px.png"))); // NOI18N
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -99,12 +108,12 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnReservaAsientos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReservaAsientos)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdmin)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 72, Short.MAX_VALUE)))
+                        .addComponent(btnSalir)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
