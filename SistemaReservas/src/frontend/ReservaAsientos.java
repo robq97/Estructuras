@@ -241,7 +241,11 @@ public class ReservaAsientos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Debe selecionar un vuelo antes de dar click en reservar.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
                 if(espacios > 0 && espacios <= 5){
+                    if (nombre.length() == 0 || cedula.length() == 0 || telefono.length() == 0 || correo.length() == 0){
+                        JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios antes de realizar la reserva.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }else{
                     handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "Datos incorrectos.\n"
                             + "La cantidad de espacios debe ser mayor que cero e igual o menor que cinco.", "Error", JOptionPane.ERROR_MESSAGE);
