@@ -180,13 +180,13 @@ public class ModificarPrecios extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnModificarActionPerformed
-
+    
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
         int linea = tblVuelos.getSelectedRow();
         txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblVuelosMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -194,8 +194,8 @@ public class ModificarPrecios extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -213,7 +213,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ModificarPrecios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -225,7 +225,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnVolver;

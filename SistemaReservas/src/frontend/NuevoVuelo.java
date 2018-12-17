@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class NuevoVuelo extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form NuevoVuelo
      */
@@ -28,7 +28,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,6 +64,8 @@ public class NuevoVuelo extends javax.swing.JFrame {
         txtCostoPrimera = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        btnAyuda1 = new javax.swing.JButton();
+        btnAyuda2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,6 +155,20 @@ public class NuevoVuelo extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Tipo");
 
+        btnAyuda1.setContentAreaFilled(false);
+        btnAyuda1.setFocusPainted(false);
+        btnAyuda1.setOpaque(false);
+        btnAyuda1.setBorder(null);
+        btnAyuda1.setToolTipText("<html>Debe introducirlo en el siguiente formato : aaMMddHHmm<br>Ej: 1812170806</html>");
+        btnAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/help.png"))); // NOI18N
+
+        btnAyuda2.setContentAreaFilled(false);
+        btnAyuda2.setFocusPainted(false);
+        btnAyuda2.setOpaque(false);
+        btnAyuda2.setBorder(null);
+        btnAyuda2.setToolTipText("<html>Debe introducirlo en el siguiente formato : aaMMddHHmm<br>Ej: 1812170806</html>");
+        btnAyuda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/media/help.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +183,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -194,10 +210,15 @@ public class NuevoVuelo extends javax.swing.JFrame {
                                 .addComponent(txtDispPrimera)
                                 .addComponent(txtSalida, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                 .addComponent(txtOrigen))
-                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAyuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAyuda2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -212,12 +233,12 @@ public class NuevoVuelo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel8))
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,10 +257,12 @@ public class NuevoVuelo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAyuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnAyuda2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +292,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
@@ -295,12 +318,17 @@ public class NuevoVuelo extends javax.swing.JFrame {
             if(handler.verificarDuplicadosPub(idVuelo)){
                 JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
-                try{
-                    handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
-                    JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                }catch(HeadlessException e){
-                    
+                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){
+                    try{
+                        handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
+                        JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    }catch(HeadlessException e){
+                        
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe seguir el formato de fecha establecido.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                
             }
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Los campos de fechas, asientos y costo deben ser introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -310,11 +338,11 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDestinoActionPerformed
-
+    
     private void txtCostoEconomicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoEconomicaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCostoEconomicaActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -322,8 +350,8 @@ public class NuevoVuelo extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -341,7 +369,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NuevoVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -349,9 +377,11 @@ public class NuevoVuelo extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnAyuda1;
+    private javax.swing.JButton btnAyuda2;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

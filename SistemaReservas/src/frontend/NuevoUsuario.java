@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class NuevoUsuario extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form NuevoUsuario
      */
@@ -27,7 +27,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,42 +123,42 @@ public class NuevoUsuario extends javax.swing.JFrame {
                             .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver)
-                    .addComponent(btnCrear))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrear)
+                    .addComponent(btnVolver))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
-
+    
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         try{
-        String nombre = txtNombre.getText();
-        String contrasena = txtContrasena.getText();
-        String txtgrado = txtGrado.getText();
-        if (nombre.length() > 0 && contrasena.length() > 0 && txtgrado.length() > 0){
-            int grado = Integer.parseInt(txtgrado);
-            handler.agregarAdmin(nombre, contrasena, grado);
-            int nivel = handler.obtenerNivel(nombre);
-            JOptionPane.showMessageDialog(null, "Usuario creado con éxito.\n"
-                    + "El nivel de usuario es " + nivel + ".", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos primero.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+            String nombre = txtNombre.getText();
+            String contrasena = txtContrasena.getText();
+            String txtgrado = txtGrado.getText();
+            if (nombre.length() > 0 && contrasena.length() > 0 && txtgrado.length() > 0){
+                int grado = Integer.parseInt(txtgrado);
+                handler.agregarAdmin(nombre, contrasena, grado);
+                int nivel = handler.obtenerNivel(nombre);
+                JOptionPane.showMessageDialog(null, "Usuario creado con éxito.\n"
+                        + "El nivel de usuario es " + nivel + ".", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Debe llenar todos los campos primero.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }catch (NumberFormatException e){
             
         }
     }//GEN-LAST:event_btnCrearActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -166,8 +166,8 @@ public class NuevoUsuario extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -185,7 +185,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NuevoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -193,7 +193,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnVolver;

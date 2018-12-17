@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class NuevoPrivado extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form NuevoPrivado
      */
@@ -27,7 +27,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,14 +222,14 @@ public class NuevoPrivado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         try{
@@ -244,17 +244,21 @@ public class NuevoPrivado extends javax.swing.JFrame {
             if(handler.verificarDuplicadosPriv(idVuelo)){
                 JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
-            handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
+                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){
+                    handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe seguir el formato de fecha establecido.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }catch (NumberFormatException e ){
-            JOptionPane.showMessageDialog(null, "Verifique los datos ingresados y reintente", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Verifique que los datos de fechas y pasajeros sean introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
     
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDestinoActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -262,8 +266,8 @@ public class NuevoPrivado extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -281,7 +285,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NuevoPrivado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -289,7 +293,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAyuda1;

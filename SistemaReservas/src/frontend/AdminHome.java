@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class AdminHome extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form AdminHome
      */
@@ -71,7 +71,7 @@ public class AdminHome extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -212,7 +212,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         try {
             // TODO add your handling code here:
@@ -223,7 +223,7 @@ public class AdminHome extends javax.swing.JFrame {
             Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnVolverActionPerformed
-
+    
     private void btnPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreciosActionPerformed
         try {
             // TODO add your handling code here:
@@ -234,28 +234,28 @@ public class AdminHome extends javax.swing.JFrame {
             Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPreciosActionPerformed
-
+    
     private void btnContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContrasenaActionPerformed
         // TODO add your handling code here:
         CambiarContrasena window = new CambiarContrasena();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnContrasenaActionPerformed
-
+    
     private void btnVueloPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloPrivActionPerformed
         // TODO add your handling code here:
         NuevoPrivado window = new NuevoPrivado();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVueloPrivActionPerformed
-
+    
     private void btnVueloPubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloPubActionPerformed
         // TODO add your handling code here:
         NuevoVuelo window = new NuevoVuelo();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVueloPubActionPerformed
-
+    
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
             // TODO add your handling code here:
@@ -266,7 +266,7 @@ public class AdminHome extends javax.swing.JFrame {
             Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    
     private void btnEliminarPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrivActionPerformed
         try {
             // TODO add your handling code here:
@@ -277,14 +277,14 @@ public class AdminHome extends javax.swing.JFrame {
             Logger.getLogger(AdminHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliminarPrivActionPerformed
-
+    
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         NuevoUsuario window = new NuevoUsuario();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCrearActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -292,8 +292,8 @@ public class AdminHome extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -311,7 +311,7 @@ public class AdminHome extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AdminHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -319,7 +319,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContrasena;
     private javax.swing.JButton btnCrear;

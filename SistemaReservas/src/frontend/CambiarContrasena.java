@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -15,7 +15,7 @@ import backend.Info;
 public class CambiarContrasena extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form CambiarContrasena
      */
@@ -26,7 +26,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,14 +127,14 @@ public class CambiarContrasena extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
-
+    
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         // TODO add your handling code here:
         String usuario = txtUsuario.getText();
@@ -142,7 +142,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
         String contrNue = txtContrNuev.getText();
         handler.cambiarContrasena(usuario, contrAct, contrNue);
     }//GEN-LAST:event_btnCambiarActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -150,8 +150,8 @@ public class CambiarContrasena extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -165,13 +165,13 @@ public class CambiarContrasena extends javax.swing.JFrame {
         //</editor-fold>
         
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new CambiarContrasena().setVisible(true);
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiar;
     private javax.swing.JButton btnVolver;

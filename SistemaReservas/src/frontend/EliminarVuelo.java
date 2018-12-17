@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package frontend;
 
 import backend.Handler;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class EliminarVuelo extends javax.swing.JFrame {
     
     Handler handler = new Handler();
-
+    
     /**
      * Creates new form EliminarVuelo
      * @throws java.text.ParseException
@@ -30,7 +30,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,27 +121,27 @@ public class EliminarVuelo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdminHome window = new AdminHome();
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
         String idVuelo = txtId.getText();
         handler.eliminarVueloPublico(idVuelo);
         
     }//GEN-LAST:event_btnReservarActionPerformed
-
+    
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
         int linea = tblVuelos.getSelectedRow();
         txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblVuelosMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -149,8 +149,8 @@ public class EliminarVuelo extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -168,7 +168,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EliminarVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -180,7 +180,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReservar;
     private javax.swing.JButton jButton1;
