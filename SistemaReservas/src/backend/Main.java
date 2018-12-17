@@ -4,7 +4,7 @@ import frontend.Home;
 import java.text.ParseException;
 
 public class Main {
-
+    
     public static void main(String[] args) throws ParseException {
         Handler handler = new Handler();         //Creacion del objeto handler y se agregan todos los datos pre-existentes a las estructuras.
         handler.addVuelosFijosExistentes();
@@ -13,7 +13,7 @@ public class Main {
         handler.addVuelosPrivadosExistentes();
         handler.addVuelosSolicitudesExistentes();
         //handler.test();
-        Home window = new Home();                 
+        Home window = new Home();
         window.setVisible(true);                //El UI se vuelve visible.
     }
 }

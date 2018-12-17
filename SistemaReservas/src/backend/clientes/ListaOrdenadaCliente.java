@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package backend.clientes;
 
 /**
@@ -10,9 +10,9 @@ package backend.clientes;
  * @author robq9
  */
 public class ListaOrdenadaCliente {
-
+    
     private NodoCliente cabeza;
-
+    
     public void insertar(Cliente c) {                                           //Metodo para agregar clientes
         if (cabeza == null) {                                                   //En caso de que la cabeza sea nula, el dato sera el primero de la lista.
             cabeza = new NodoCliente(c);
@@ -36,7 +36,7 @@ public class ListaOrdenadaCliente {
             }
         }
     }
-
+    
     @Override
     public String toString() {                                                  //Metodo para poder imprimir cada dato del cliente.
         String s = "";                                                          //Comienza con un string vacio, y se le va a agregando cada cliente por medio de un ciclo.
@@ -47,12 +47,12 @@ public class ListaOrdenadaCliente {
         }
         return s;
     }
-
+    
     public void eliminarCliente(String cedula) {
         NodoCliente aux = cabeza;                                               //Se crea una copia del nodo frente, para no alterar el original.
         NodoCliente temp = aux;                                                 //Se crea una copia del nodo aux, nos ayudara a eliminar el dato que necesitemos.
-        while (aux != null) {                                                   //Ciclo que con la ayuda de aux = aux.getAtras(), nos permite recorrer todos los datos de la estructura. 
-            if (aux.getDato().getCedula().replaceAll("\\D", "").equals(cedula.replaceAll("\\D", ""))) {                                  //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro. 
+        while (aux != null) {                                                   //Ciclo que con la ayuda de aux = aux.getAtras(), nos permite recorrer todos los datos de la estructura.
+            if (aux.getDato().getCedula().replaceAll("\\D", "").equals(cedula.replaceAll("\\D", ""))) {                                  //Se busca en el dato auxiliar actual el destino para compararlo con el ingresado por parametro.
                 temp.setNext(aux.getNext());                                    //Se brinca el dato con el match de aux y se le asigna como dato siguiente al nodo temp.
             }
             temp = aux;                                                         //Se guarda temporalmente el dato actual de aux antes de pasar al siguiente de aux.

@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package backend.vuelopublico;
 
 import java.text.DateFormat;
@@ -17,10 +17,10 @@ import javax.swing.table.DefaultTableModel;
  * @author robq9
  */
 public class CircDobleVueloPublico {
-
+    
     private NodoVueloPublico cabeza, ultimo;
-
-    public void insertar(VueloPublico v) {         //Metodo para insertar datos a la lista. 
+    
+    public void insertar(VueloPublico v) {         //Metodo para insertar datos a la lista.
         if (cabeza == null) {                      //En caso de que la cabeza sea nula, el dato ingresado va a ser la nueva cabeza y ultimo dato.
             cabeza = new NodoVueloPublico(v);
             ultimo = cabeza;
@@ -49,9 +49,9 @@ public class CircDobleVueloPublico {
         }
         ultimo.setNext(cabeza); //se crea puntero para senalar hacia el siguiente
         cabeza.setBack(ultimo); //se crea puntero para senalar el de atras
-
+        
     }
-
+    
     @Override
     public String toString() {
         NodoVueloPublico aux = cabeza;
@@ -67,12 +67,12 @@ public class CircDobleVueloPublico {
         System.out.println(msj);
         return msj;
     }
-
+    
     public void elimina(String id) {
         NodoVueloPublico aux = cabeza;
         NodoVueloPublico temp = aux;
-
-        while (aux != null) { // condiciones para recorrer la lista                   
+        
+        while (aux != null) { // condiciones para recorrer la lista
             if (aux.getDato().getIdVuelo().equals(id)) { // condicion de busqueda
                 if (aux == cabeza) {
                     cabeza = cabeza.getNext(); // si el valor de busqueda esta en el primer nodo se reasigna el valor de ese nodo por el nodo siguiente
@@ -88,12 +88,12 @@ public class CircDobleVueloPublico {
             }
         }
     }
-
+    
     private int conseguirHora(int fecha) {
         int hora = (fecha % 10000);
         return hora;
     }
-
+    
     public boolean isLleno(String idVuelo) {
         NodoVueloPublico aux = cabeza;
         boolean status = false;
@@ -110,7 +110,7 @@ public class CircDobleVueloPublico {
         }
         return status;
     }
-
+    
     public double reservaVueloPublico(String categoria, int espacios, String idVuelo, boolean tipo) { //el booblean para clientes no existentes tiene que ser TRUE.
         NodoVueloPublico aux = cabeza;
         double total = 0;
@@ -175,7 +175,7 @@ public class CircDobleVueloPublico {
         }
         return total;
     }
-
+    
     public void modificarPrecioPrimera(String id, double costo) {
         NodoVueloPublico aux = cabeza;
         while (aux != null) {
@@ -189,7 +189,7 @@ public class CircDobleVueloPublico {
             }
         }
     }
-
+    
     public void modificarPrecioEconomica(String id, double costo) {
         NodoVueloPublico aux = cabeza;
         while (aux != null) {
@@ -203,7 +203,7 @@ public class CircDobleVueloPublico {
             }
         }
     }
-
+    
     public boolean verificarDuplicados(String id) {
         NodoVueloPublico aux = cabeza;
         boolean existe = false;
@@ -218,29 +218,14 @@ public class CircDobleVueloPublico {
         }
         return existe;
     }
-
+    
     public DefaultTableModel modeloPub() throws ParseException {
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPublico aux = cabeza;
         modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"});
         if (aux != null) {
-            //, , modelo, , tipo, estado, , paxPrimeraClase, paxEconomico, .
-            
-            
-            
-//            String salida = Integer.toString(aux.getDato().getFechaSalida());
-//            System.err.println(salida);
-//            String yy = salida.substring(0, 2);
-//            String MM = salida.substring(2, 4);
-//            String dd = salida.substring(4, 6);
-//            String HH = salida.substring(6, 8);
-//            String mm = salida.substring(8, 10);
-//            
-            //System.out.println(yy + "/" + MM + "/" + dd + " " + HH + ":" + mm);
-            
             SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");
             SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            
             
             int fechaSalidaOrig = aux.getDato().getFechaSalida();
             Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
@@ -250,19 +235,17 @@ public class CircDobleVueloPublico {
             Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
             String fechaLlegadaNueva = newFormat.format(dateLlegada);
             
-            
-            
             modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
                 aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
             aux = aux.getNext();
             while (aux != cabeza) {
                 fechaSalidaOrig = aux.getDato().getFechaSalida();
-            dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
-            fechaSalidaNueva = newFormat.format(dateSalida);
-            
-            fechaLlegadaOrig = aux.getDato().getFechaEntrada();
-            dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
-            fechaLlegadaNueva = newFormat.format(dateLlegada);
+                dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig));
+                fechaSalidaNueva = newFormat.format(dateSalida);
+                
+                fechaLlegadaOrig = aux.getDato().getFechaEntrada();
+                dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
+                fechaLlegadaNueva = newFormat.format(dateLlegada);
                 
                 modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
                     aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});

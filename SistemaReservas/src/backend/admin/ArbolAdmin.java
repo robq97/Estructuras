@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package backend.admin;
 
 import javax.swing.JOptionPane;
@@ -12,11 +12,11 @@ import javax.swing.JOptionPane;
  * @author ulacit
  */
 public class ArbolAdmin {
-
+    
     private NodoAdmin raiz;
     private String msjHojas = "";
     private String msjNiveles = "";
-
+    
     public void inserta(Admin a) {                                              //Metodo para insertar admins al arbol.
         if (raiz == null) {                                                     //En caso de que la raiz sea nula, se asigna el admin ingresado como nueva raiz.
             raiz = new NodoAdmin(a);
@@ -42,7 +42,7 @@ public class ArbolAdmin {
     }
     
     boolean acceso = false;
-    public boolean iniciarSesion (String user, String pass){  //Metodo para el inicio de sesion, se llama al metodo recursivo inOrdenRec para 
+    public boolean iniciarSesion (String user, String pass){  //Metodo para el inicio de sesion, se llama al metodo recursivo inOrdenRec para
         acceso = false;                                       //verificar si existe o no algun match a los parametros del metodo.
         if (raiz != null){
             acceso = inOrdenRec(raiz, user, pass);
@@ -54,7 +54,7 @@ public class ArbolAdmin {
         if (n != null){                                                         //y ayuda al metodo de iniciar sesion porque recorre todo el arbol.
             inOrdenRec(n.getHijoIzq(), user, pass);
             if(n.getDato().getNombre().equals(user) && n.getDato().getPassword().equals(pass)){
-                this.acceso = true;                                             //En caso de encontrar un match con los parametros del metodo iniciarSesion, 
+                this.acceso = true;                                             //En caso de encontrar un match con los parametros del metodo iniciarSesion,
                 return true;                                                    //el booleano acceso se vuelve verdadero, dando asi acceso al admin.
             }
             inOrdenRec(n.getHijoDer(), user, pass);
@@ -64,7 +64,7 @@ public class ArbolAdmin {
     
     private int nivel;
     public int getNivel(String nombre){          //Metodo para obtener el nivel de un usuario por su nombre
-        int nivelAct = -1;                       
+        int nivelAct = -1;
         this.nivel = 0;
         if (raiz != null){
             getNivelRec(raiz, nivelAct, nombre);
@@ -95,12 +95,30 @@ public class ArbolAdmin {
             if(nodo.getDato().getNombre().equals(usuario)){                       //se podra cambiar por la nueva.
                 if (nodo.getDato().getPassword().equals(contrAct)){
                     nodo.getDato().setPassword(contrNue);
-                    JOptionPane.showMessageDialog(null, "Contrase;a actualizada correctamente.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Contraseña actualizada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 }else{
-                    JOptionPane.showMessageDialog(null, "La contrase;a actual no coincide.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "La contraseña actual no coincide.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
             cambiarContrasenaRec(nodo.getHijoDer(), usuario, contrAct, contrNue);
+        }
+    }
+    private boolean existe;
+    public boolean existe(String usuario){
+        existe = false;
+        if (raiz != null){
+            existeRec(raiz, usuario);
+        }
+        return existe;
+    }
+    
+    private void existeRec(NodoAdmin n, String usuario){
+        if (n != null){
+            existeRec(n.getHijoIzq(), usuario);
+            if (n.getDato().getNombre().equals(usuario)){
+                this.existe = true;
+            }
+            existeRec(n.getHijoDer(), usuario);
         }
     }
 }

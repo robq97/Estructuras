@@ -7,6 +7,7 @@ package frontend;
 
 import backend.Handler;
 import backend.Info;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -140,7 +141,12 @@ public class CambiarContrasena extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contrAct = txtContrAct.getText();
         String contrNue = txtContrNuev.getText();
-        handler.cambiarContrasena(usuario, contrAct, contrNue);
+        if(handler.existeAdmin(usuario)){
+            handler.cambiarContrasena(usuario, contrAct, contrNue);
+        }else{
+            JOptionPane.showMessageDialog(null, "El usuario introducido no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnCambiarActionPerformed
     
     /**
