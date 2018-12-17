@@ -222,7 +222,7 @@ public class CircDobleVueloPublico {
     public DefaultTableModel modeloPub() throws ParseException {                //Creacion de tabla de modelo, para la ser usada por la UI.
         DefaultTableModel modelo = new DefaultTableModel();
         NodoVueloPublico aux = cabeza;
-        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"}); //Creacion del modelo con los parametros que van a ser mostrados.
+        modelo.setColumnIdentifiers(new Object[]{"Id de Vuelo", "Origen", "Destino", "Fecha de Salida", "Fecha de Llegada", "Costo Economico", "Costo Primera Clase"}); //Creacion del modelo de las columnas con los parametros que van a ser mostrados.
         if (aux != null) {
             SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
             SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -235,7 +235,7 @@ public class CircDobleVueloPublico {
             Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
             String fechaLlegadaNueva = newFormat.format(dateLlegada);
             
-            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva,
+            modelo.addRow(new Object[]{aux.getDato().getIdVuelo(), aux.getDato().getOrigen(), aux.getDato().getDestino(), fechaSalidaNueva, fechaLlegadaNueva, //Creacion del modelo de las hileras con los datos que van a ser mostrados.
                 aux.getDato().getCostoPaxEcon(), aux.getDato().getCostoPaxPriClase()});
             aux = aux.getNext();
             while (aux != cabeza) {

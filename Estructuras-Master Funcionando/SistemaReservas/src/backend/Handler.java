@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package backend.handler;
+package backend;
 
 import backend.admin.Admin;
 import backend.admin.ArbolAdmin;
@@ -159,12 +159,12 @@ public class Handler {                                                          
         return modelo;
     }
     
-    public DefaultTableModel modeloPriv() throws ParseException{
+    public DefaultTableModel modeloPriv() throws ParseException{ 
         DefaultTableModel modelo = Handler.priv.modeloPriv();
         return modelo;
     }
     
-    public boolean existeAdmin(String usuario){ //Busca si existe un usuario antes de crearlo.
+    public boolean existeAdmin(String usuario){  //Busca si existe un usuario antes de crearlo.
         return Handler.admin.existe(usuario);
     }
     

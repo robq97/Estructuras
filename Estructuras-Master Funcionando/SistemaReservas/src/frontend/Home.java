@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.handler.Handler;
-import backend.handler.Info;
+import backend.Handler;
+import backend.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +26,7 @@ public class Home extends javax.swing.JFrame {
     public Home() throws ParseException {
         initComponents();
         setTitle("Menú Principal");
-        getContentPane().setBackground(Info.getFrameBackground());              //Titulo, posicion, y redimensionable de la ventana de admins
+        getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -38,7 +38,7 @@ public class Home extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws ParseException {
 
         btnReservaAsientos = new javax.swing.JButton();
         btnAdmin = new javax.swing.JButton();

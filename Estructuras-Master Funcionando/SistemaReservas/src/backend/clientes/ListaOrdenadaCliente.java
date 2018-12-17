@@ -2,10 +2,9 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
- */
+*/
 package backend.clientes;
 
-import backend.vueloprivado.NodoVueloPrivado;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +12,9 @@ import javax.swing.JOptionPane;
  * @author robq9
  */
 public class ListaOrdenadaCliente {
-
+    
     private NodoCliente cabeza;
-
+    
     public void insertar(Cliente c) {                                           //Metodo para agregar clientes
         if (cabeza == null) {                                                   //En caso de que la cabeza sea nula, el dato sera el primero de la lista.
             cabeza = new NodoCliente(c);
@@ -39,7 +38,7 @@ public class ListaOrdenadaCliente {
             }
         }
     }
-
+    
     @Override
     public String toString() {                                                  //Metodo para poder imprimir cada dato del cliente.
         String s = "";                                                          //Comienza con un string vacio, y se le va a agregando cada cliente por medio de un ciclo.
@@ -50,7 +49,7 @@ public class ListaOrdenadaCliente {
         }
         return s;
     }
-
+    
     public void eliminarCliente(String cedula) {
         NodoCliente aux = cabeza;
         NodoCliente temp = aux;

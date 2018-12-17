@@ -143,7 +143,7 @@ public class ColaVueloPrivado {
             String fechaSalidaNueva = newFormat.format(dateSalida);
             
             int fechaLlegadaOrig = aux.getDato().getFechaLlegada();
-            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
+            Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig));
             String fechaLlegadaNueva = newFormat.format(dateLlegada);
             
             

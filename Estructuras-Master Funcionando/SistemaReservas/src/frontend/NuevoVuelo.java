@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.handler.Handler;
-import backend.handler.Info;
+import backend.Handler;
+import backend.Info;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
