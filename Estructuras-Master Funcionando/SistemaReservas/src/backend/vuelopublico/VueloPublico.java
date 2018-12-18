@@ -11,17 +11,15 @@ package backend.vuelopublico;
  */
 public class VueloPublico {
     
-    private String origen, destino, modeloAvion, idVuelo, tipo, estado;         //Variables de cada vuelo publico.
+    private String origen, destino, modeloAvion, idVuelo;         //Variables de cada vuelo publico.
     private int fechaSalida, fechaEntrada, disponiblePriClase, disponibleEcon;
     private double costoPaxPriClase, costoPaxEcon;
     //Constructor con todas las variables.
-    public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, String tipo, String estado, int fechaSalida, int fechaEntrada, int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
+    public VueloPublico(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int paxPriClase, int paxEcon, double costoPaxPriClase, double costoPaxEcon) {
         this.origen = origen;
         this.destino = destino;
         this.modeloAvion = modeloAvion;
         this.idVuelo = idVuelo;
-        this.tipo = tipo;
-        this.estado = estado;
         this.fechaSalida = fechaSalida;
         this.fechaEntrada = fechaEntrada;
         this.disponiblePriClase = paxPriClase;
@@ -60,22 +58,6 @@ public class VueloPublico {
     
     public void setIdVuelo(String idVuelo) {
         this.idVuelo = idVuelo;
-    }
-    
-    public String getTipo() {
-        return tipo;
-    }
-    
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
-    public String getEstado() {
-        return estado;
-    }
-    
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
     
     public int getFechaSalida() {

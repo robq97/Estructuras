@@ -320,7 +320,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
             }else{
                 if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){ //Requisito para el ingreso de las fechas.
                     try{                                                        //Se meten los datos guardados en las variables como parametros al metodo que agrega vuelos publicos.
-                        handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
+                        handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
                         JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                         txtId.setText("");
                         txtTipo.setText("");
