@@ -42,14 +42,11 @@ public class Handler {                                                          
         Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Bruselas, Bélgica", "B737-800", "285", 1810251440, 1810270500, 40, 130, 1250, 800));
         Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Londres, Inglaterra", "B737-800", "290", 1810271600, 1810300500, 40, 120, 1000, 720));
         Handler.pub.insertar(new VueloPublico("San José, Costa Rica", "Bogota, Colombia", "B787", "295", 1810301735, 1811052000, 40, 200, 640, 300));
-    }
-    
-    public void addVuelosSolicitudesExistentes() {//Metodo que agrega solicitudes a la estructura de datos, de nuevo, para que los clientes tengan opciones. (Utiliza los mismos parametros de vuelos fijos).
-        Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "305", 1810032230, 1810052300, 3, 10, 515, 265));
-        Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "A320", "310", 1810070100, 1810120100, 0, 7, 770, 400));
-        Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "315", 1811040830, 1811090830, 3, 8, 520, 285));
-        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "San Jose, Costa Rica", "A320", "320", 1811030430, 1811070430, 7, 10, 500, 240));
-        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Miami, USA", "B737-800", "325", 1812061900, 1812151900, 0, 12, 820, 410));
+        Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "305", 1810032230, 1810052300, 30, 99, 515, 265));
+        Handler.pub.insertar(new VueloPublico("San Jose, Costa Rica", "Miami, USA", "A320", "310", 1810070100, 1810120100, 35, 99, 770, 400));
+        Handler.pub.insertar(new VueloPublico("Liberia, Costa Rica", "Ciudad de Panama, Panama", "B737-800", "315", 1811040830, 1811090830, 50, 105, 520, 285));
+        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "San Jose, Costa Rica", "A320", "320", 1811030430, 1811070430, 20, 140, 500, 240));
+        Handler.pub.insertar(new VueloPublico("Ciudad de Panama, Panama", "Miami, USA", "B737-800", "325", 1812061900, 1812151900, 25, 124, 820, 410));
     }
     
     public boolean isLleno(String idVuelo) { //Para saber si un vuelo publico, esta lleno o no. Si esta lleno devuelve True.
