@@ -323,9 +323,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                         handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
                         JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                         txtId.setText("");
-                        txtTipo.setText("");
                         txtOrigen.setText("");
-                        txtEstado.setText("");
                         txtModelo.setText("");
                         txtDestino.setText("");
                         txtSalida.setText("");
