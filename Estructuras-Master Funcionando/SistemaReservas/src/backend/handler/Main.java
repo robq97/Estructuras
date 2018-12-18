@@ -1,4 +1,4 @@
-package backend;
+package backend.handler;
 
 import frontend.Home;
 import java.text.ParseException;

@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import javax.swing.JOptionPane;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -27,7 +27,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
     public ModificarPrecios() throws ParseException {
         initComponents();
         setTitle("Modificar Precios");
-        getContentPane().setBackground(Info.getFrameBackground());
+        getContentPane().setBackground(Info.getFrameBackground());              //Titulo, fondo, redimensionable y ubicacion de la ventana.
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -153,14 +153,14 @@ public class ModificarPrecios extends javax.swing.JFrame {
         int op = JOptionPane.showConfirmDialog(null, "¿Está seguro de relizar esta modificación?", "Confirmación", JOptionPane.YES_NO_OPTION);
         switch(op){
             case JOptionPane.YES_OPTION:
-                try{
-                    if(txtId.getText().length() <= 0){
+                try{ 
+                    if(txtId.getText().length() <= 0){                          //La opcion al tener que ser mayor que 0, obliga al admin a escoger una.
                         JOptionPane.showMessageDialog(null, "Debe seleccionar un vuelo antes de hacer click en modificar.", "Error", JOptionPane.ERROR_MESSAGE);
                     }else{
-                        String tipo = cmbTipo.getSelectedItem().toString();
-                        String id = txtId.getText();
+                        String tipo = cmbTipo.getSelectedItem().toString();     //Se le dan al admin 2 opciones, economica o primera clase
+                        String id = txtId.getText();                            //Se guarda el id seleccionado, para luego ser ingresado como parametro en el metodo modificarPrecio.
                         double costo = Double.parseDouble(txtPrecio.getText());
-                        switch (tipo){
+                        switch (tipo){                                          //Dependiendo de la categoria seleccionada, se llamara al metodo que corresponda.
                             case "Económica":
                                 handler.modificarPrecioEconomica(id, costo);
                                 break;
@@ -171,7 +171,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
                         txtId.setText("");
                         txtPrecio.setText("");
                     }
-                }catch(NumberFormatException e){
+                }catch(NumberFormatException e){                                //Manejo de errores.
                     JOptionPane.showMessageDialog(null, "Los precios deben ser introducidos en números.\n"
                             + "Verifique y reintente.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -185,7 +185,7 @@ public class ModificarPrecios extends javax.swing.JFrame {
     
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
-        int linea = tblVuelos.getSelectedRow();
+        int linea = tblVuelos.getSelectedRow();                                 //Se obtiene el id del vuelo cuando se le hace clic a algun vuelo de la tabla.
         txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblVuelosMouseClicked
     

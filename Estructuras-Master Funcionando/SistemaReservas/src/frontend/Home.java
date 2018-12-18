@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() throws ParseException {
         initComponents();
-        setTitle("Menú Principal");
+        setTitle("Menú Principal");                                             //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -167,9 +167,9 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+                                                                                //Dependiendo del boton que se presione, se va a desplegar su respectiva ventana, y cerrar la actual.
     private void btnReservaAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaAsientosActionPerformed
-        try {
+        try {                                                                    
             // TODO add your handling code here:
             ReservaAsientos window = new ReservaAsientos();
             window.setVisible(true);
@@ -193,7 +193,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btnReservaAsientosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaAsientosMouseEntered
         // TODO add your handling code here:
-        lblReservar.setText("Reservar Espacios");
+        lblReservar.setText("Reservar Espacios");                               //Si el mouse se posiciona encima de una opcion, se va a mostrar en texto, su funcion.
     }//GEN-LAST:event_btnReservaAsientosMouseEntered
 
     private void btnReservaAsientosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaAsientosMouseExited

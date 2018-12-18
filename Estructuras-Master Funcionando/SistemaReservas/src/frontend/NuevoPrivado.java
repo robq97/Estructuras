@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +22,7 @@ public class NuevoPrivado extends javax.swing.JFrame {
      */
     public NuevoPrivado() {
         initComponents();
-        setTitle("Agregar Vuelo Privado");
+        setTitle("Agregar Vuelo Privado");                                      //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -234,17 +234,17 @@ public class NuevoPrivado extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             // String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax
-            String origen = txtOrigen.getText();
+            String origen = txtOrigen.getText();                                //Se guardan en variables la info ingresada por el admin.
             String destino = txtDestino.getText();
             String modeloAvion = txtModelo.getText();
             String idVuelo = txtId.getText();
-            int fechaSalida = Integer.parseInt(txtSalida.getText());
+            int fechaSalida = Integer.parseInt(txtSalida.getText());            //Todos los datos ingresados entran como Strings, por lo que hay que convertir algunos a ints.
             int fechaEntrada = Integer.parseInt(txtLlegada.getText());
             int pax = Integer.parseInt(txtPasajeros.getText());
             if(handler.verificarDuplicadosPriv(idVuelo)){
                 JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
-                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){
+                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){    //Se intenta meter los datos ingresados como parametro al metodo para la creacion de un nuevo vuelo privado.
                     handler.addNuevoVueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax);
                     txtId.setText("");
                     txtModelo.setText("");
@@ -253,11 +253,11 @@ public class NuevoPrivado extends javax.swing.JFrame {
                     txtSalida.setText("");
                     txtLlegada.setText("");
                     txtPasajeros.setText("");
-                }else{
+                }else{                                                          
                     JOptionPane.showMessageDialog(null, "Debe seguir el formato de fecha establecido.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }catch (NumberFormatException e ){
+        }catch (NumberFormatException e ){                                      //Manejo de errores.
             JOptionPane.showMessageDialog(null, "Verifique que los datos de fechas y pasajeros sean introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed

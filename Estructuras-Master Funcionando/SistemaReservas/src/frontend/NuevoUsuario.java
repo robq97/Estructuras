@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +22,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
      */
     public NuevoUsuario() {
         initComponents();
-        setTitle("Crear Usuario");
+        setTitle("Crear Usuario");                                              //Manejo de errores.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -140,15 +140,15 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
     
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
-        try{
+        // TODO add your handling code here:                           
+        try{                                                                    //La informacion puesta en los campos en blanco es guardada en variables para luego ser ingresada como parametro al metodo agregarAdmin.
             String nombre = txtNombre.getText();
             String contrasena = txtContrasena.getText();
             String txtgrado = txtGrado.getText();
-            if (nombre.length() > 0 && contrasena.length() > 0 && txtgrado.length() > 0){
-                int grado = Integer.parseInt(txtgrado);
-                handler.agregarAdmin(nombre, contrasena, grado);
-                int nivel = handler.obtenerNivel(nombre);
+            if (nombre.length() > 0 && contrasena.length() > 0 && txtgrado.length() > 0){ //Condiciones para agregar un admin.
+                int grado = Integer.parseInt(txtgrado);                         //Conversion de string a int para el grado de autorizacion.
+                handler.agregarAdmin(nombre, contrasena, grado);                //Se mete la info agregada en los campos en blanco al metodo agregarAdmin.
+                int nivel = handler.obtenerNivel(nombre);                       //Se devuelve el nivel, en caso de no haber campo disponible se busca un nivel que si lo tenga.
                 JOptionPane.showMessageDialog(null, "Usuario creado con éxito.\n"
                         + "El nivel de usuario es " + nivel + ".", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.setText("");
@@ -156,7 +156,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 txtGrado.setText("");
             }else{
                 JOptionPane.showMessageDialog(null, "Debe llenar todos los campos primero.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            }   //Manejo de errores.
         }catch (NumberFormatException e){
             
         }

@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ public class AdminHome extends javax.swing.JFrame {
     public AdminHome() {
         
         initComponents();
-        setTitle("Acceso Administrador");
+        setTitle("Acceso Administrador");                                       //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -33,7 +33,7 @@ public class AdminHome extends javax.swing.JFrame {
         int nivel = handler.obtenerNivel(usuario);
         switch(nivel){
             case 0:
-                // Todos los privilegios
+                                               // Todos los privilegios, y dependiendo del usuario asi van a ser accesibles las opciones.
                 break;
             case 1:
                 btnEliminar.setEnabled(false);
@@ -212,7 +212,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+                                                                                //Dependiendo del boton que se presione, se va a desplegar su respectiva ventana, y cerrar la actual.
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         try {
             // TODO add your handling code here:

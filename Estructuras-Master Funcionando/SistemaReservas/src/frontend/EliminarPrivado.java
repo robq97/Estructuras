@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +27,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
     public EliminarPrivado() throws ParseException {
         initComponents();
         setTitle("Eliminar Vuelo Privado");
-        getContentPane().setBackground(Info.getFrameBackground());
+        getContentPane().setBackground(Info.getFrameBackground());              //Titulo, fondo, redimensionable y ubicacion de la ventana.
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -137,12 +137,12 @@ public class EliminarPrivado extends javax.swing.JFrame {
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
         String idVuelo = txtId.getText();
-        if (idVuelo.length() <= 0){
+        if (idVuelo.length() <= 0){                                             //Obliga al admin a darle clic a cualquier vuelo.
             JOptionPane.showMessageDialog(null, "Debe seleccionar un vuelo antes de hacer click.", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             try {
                 handler.eliminaVueloPrivado(idVuelo);
-                tblVuelos.setModel(handler.modeloPriv());
+                tblVuelos.setModel(handler.modeloPriv());                       //Se ingresa el modelo de tabla con los datos de los vuelos privados.
                 txtId.setText("");
             } catch (ParseException ex) {
                 Logger.getLogger(EliminarPrivado.class.getName()).log(Level.SEVERE, null, ex);
@@ -153,7 +153,7 @@ public class EliminarPrivado extends javax.swing.JFrame {
     
     private void tblVuelosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVuelosMouseClicked
         // TODO add your handling code here:
-        int linea = tblVuelos.getSelectedRow();
+        int linea = tblVuelos.getSelectedRow();                                 //Cuando el usuario le de click a un vuelo, se muestra el ID del vuelo en la "ventana" y queda como el vuelo seleccionado.
         txtId.setText(tblVuelos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblVuelosMouseClicked
     

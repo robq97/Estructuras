@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.awt.HeadlessException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -28,7 +28,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
     public ReservaAsientos() throws ParseException {
         initComponents();
         setTitle("Reservar Espacios");
-        getContentPane().setBackground(Info.getFrameBackground());
+        getContentPane().setBackground(Info.getFrameBackground());              //Titulo, fondo, redimensionable y ubicacion de la ventana.
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -229,21 +229,21 @@ public class ReservaAsientos extends javax.swing.JFrame {
     
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
-        try{
-            String cedula = txtCedula.getText();
+        try{ 
+            String cedula = txtCedula.getText();                                //Se guardan todos los datos ingresados por el admin en variables.
             String idVuelo = txtId.getText();
             String nombre = txtNombre.getText();
             String correo = txtCorreo.getText();
             String telefono = txtTelefono.getText();
-            int espacios = Integer.parseInt(txtEspacios.getText());
-            String categoria = cmbCategoria.getSelectedItem().toString();
-            if (idVuelo.length() <= 0){
+            int espacios = Integer.parseInt(txtEspacios.getText());             //Conversion a int para los datos necesarios.
+            String categoria = cmbCategoria.getSelectedItem().toString();       //Se le dan las opciones al admin para escoger categoria.
+            if (idVuelo.length() <= 0){                                         //Condicion para reservar un vuelo.
                 JOptionPane.showMessageDialog(null, "Debe selecionar un vuelo antes de dar click en reservar.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
-                if(espacios > 0 && espacios <= 5){
+                if(espacios > 0 && espacios <= 5){                              //Mas condiciones para la reserva.
                     if (nombre.length() == 0 || cedula.length() == 0 || telefono.length() == 0 || correo.length() == 0){
                         JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios antes de realizar la reserva.", "Error", JOptionPane.ERROR_MESSAGE);
-                    }else{
+                    }else{                                                      //Si todas las condiciones se cumplen, se llama al metodo de agregar clientes y reservas para ingresarle los parametros ingresados por el ususario.
                         handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
                     }
                 }else{
@@ -251,7 +251,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
                             + "La cantidad de espacios debe ser mayor que cero e igual o menor que cinco.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }catch (HeadlessException e){
+        }catch (HeadlessException e){                                           //Manejo de errores.
             System.out.println(e.getMessage());
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "La cantidad de espacios debe ser introducida en números.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -260,7 +260,7 @@ public class ReservaAsientos extends javax.swing.JFrame {
     
     private void tblPublicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPublicosMouseClicked
         // TODO add your handling code here:
-        int linea = tblPublicos.getSelectedRow();
+        int linea = tblPublicos.getSelectedRow();                               //Consigue el id del vuelo especifico, cuando se hace clic a cualquier parte de la tabla de vuelos.
         txtId.setText(tblPublicos.getValueAt(linea, 0).toString());
     }//GEN-LAST:event_tblPublicosMouseClicked
     

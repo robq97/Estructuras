@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +22,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
      */
     public CambiarContrasena() {
         initComponents();
-        setTitle("Cambiar Contraseña");
+        setTitle("Cambiar Contraseña");                                         //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -135,10 +135,10 @@ public class CambiarContrasena extends javax.swing.JFrame {
         window.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
-    
+                                                                                
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
-        // TODO add your handling code here:
-        String usuario = txtUsuario.getText();
+        // TODO add your handling code here:                                    //Cuando se precione el boton, se le ingresan como parametros el usuario, contrasena actual, y nueva al metodo cambiarContrasena.
+        String usuario = txtUsuario.getText();                                  //En caso de que se encuentre un match, se hace el cambio de contrasena.
         String contrAct = txtContrAct.getText();
         String contrNue = txtContrNuev.getText();
         if(handler.existeAdmin(usuario)){

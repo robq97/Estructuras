@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
@@ -23,7 +23,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
      */
     public NuevoVuelo() {
         initComponents();
-        setTitle("Agregar Vuelo Púnlico");
+        setTitle("Agregar Vuelo Público");                                      //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -303,23 +303,23 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         try{
-            String idVuelo = txtId.getText();
+            String idVuelo = txtId.getText();                                   //Se guardan todos los datos ingresados por el admin en variables.
             String tipo = txtTipo.getText();
             String estado = txtEstado.getText();
             String modelo = txtModelo.getText();
             String origen = txtOrigen.getText();
             String destino = txtDestino.getText();
-            int fechaSalida = Integer.parseInt(txtSalida.getText());
+            int fechaSalida = Integer.parseInt(txtSalida.getText());            //Conversion a int para los datos necesarios.
             int fechaLlegada = Integer.parseInt(txtLlegada.getText());
             int dispPrimera = Integer.parseInt(txtDispPrimera.getText());
             int costoPrimera = Integer.parseInt(txtCostoPrimera.getText());
             int dispEconomica = Integer.parseInt(txtDispEconomica.getText());
             int costoEconomica = Integer.parseInt(txtCostoEconomica.getText());
-            if(handler.verificarDuplicadosPub(idVuelo)){
+            if(handler.verificarDuplicadosPub(idVuelo)){                        //Se busca en todos los vuelos publicos si ya existe un vuelo con el mismo ID, para notificar y no agregarlo.
                 JOptionPane.showMessageDialog(null, "Ya existe otro vuelo con ese id.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
-                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){
-                    try{
+                if (txtSalida.getText().length() == 10 && txtLlegada.getText().length() == 10){ //Requisito para el ingreso de las fechas.
+                    try{                                                        //Se meten los datos guardados en las variables como parametros al metodo que agrega vuelos publicos.
                         handler.addNuevoVueloPublico(origen, destino, modelo, idVuelo, tipo, estado, fechaSalida, fechaLlegada, dispPrimera, dispEconomica, costoPrimera, costoEconomica);
                         JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                         txtId.setText("");
@@ -342,7 +342,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                 }
                 
             }
-        }catch (NumberFormatException e){
+        }catch (NumberFormatException e){                                       //Manejo de errores.
             JOptionPane.showMessageDialog(null, "Los campos de fechas, asientos y costo deben ser introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed

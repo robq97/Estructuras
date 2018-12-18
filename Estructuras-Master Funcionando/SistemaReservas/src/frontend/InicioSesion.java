@@ -5,8 +5,8 @@
 */
 package frontend;
 
-import backend.Handler;
-import backend.Info;
+import backend.handler.Handler;
+import backend.handler.Info;
 import com.sun.glass.events.KeyEvent;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -34,7 +34,7 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
-        setTitle("Iniicar Sesión");
+        setTitle("Iniciar Sesión");                                             //Titulo, fondo, redimensionable y ubicacion de la ventana.
         getContentPane().setBackground(Info.getFrameBackground());
         setResizable(false);
         setLocationRelativeTo(null);
@@ -146,9 +146,9 @@ public class InicioSesion extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        String usuario = txtUsuario.getText();
+        String usuario = txtUsuario.getText();                                  //Se guarda la constrasena y usuario en 2 variables, que luego son ingresadas al metodo iniciarSesion.
         String contrasena = txtContrasena.getText();
-        if (handler.iniciarSesion(usuario, contrasena)){
+        if (handler.iniciarSesion(usuario, contrasena)){                        //En caso de que la info sea correcta, se despliega el frame con la opciones del Admin.
             InicioSesion.usuario = usuario;
             AdminHome window = new AdminHome();
             window.setVisible(true);
@@ -162,8 +162,8 @@ public class InicioSesion extends javax.swing.JFrame {
     
     private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String usuario = txtUsuario.getText();
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){                              //Muy similar al metodo btnEntrarActionPerformed de arriba, solo que este va a funcionar
+            String usuario = txtUsuario.getText();                              //cuando se presione la tecla enter, en lugar de presionar el boton en el frame de Entrar.
             String contrasena = txtContrasena.getText();
             if (handler.iniciarSesion(usuario, contrasena)){
                 InicioSesion.usuario = usuario;
