@@ -56,14 +56,10 @@ public class NuevoVuelo extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtModelo = new javax.swing.JTextField();
-        txtEstado = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtDispPrimera = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtCostoPrimera = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         btnAyuda1 = new javax.swing.JButton();
         btnAyuda2 = new javax.swing.JButton();
 
@@ -135,11 +131,6 @@ public class NuevoVuelo extends javax.swing.JFrame {
 
         txtModelo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Estado");
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Disponibles Primera Clase");
 
@@ -149,11 +140,6 @@ public class NuevoVuelo extends javax.swing.JFrame {
         jLabel11.setText("Costo Primera Clase");
 
         txtCostoPrimera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        txtTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setText("Tipo");
 
         btnAyuda1.setContentAreaFilled(false);
         btnAyuda1.setFocusPainted(false);
@@ -184,15 +170,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(179, 179, 179)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtModelo)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -239,16 +217,7 @@ public class NuevoVuelo extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -304,8 +273,6 @@ public class NuevoVuelo extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String idVuelo = txtId.getText();                                   //Se guardan todos los datos ingresados por el admin en variables.
-            String tipo = txtTipo.getText();
-            String estado = txtEstado.getText();
             String modelo = txtModelo.getText();
             String origen = txtOrigen.getText();
             String destino = txtDestino.getText();
@@ -396,7 +363,6 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -404,18 +370,15 @@ public class NuevoVuelo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtCostoEconomica;
     private javax.swing.JTextField txtCostoPrimera;
     private javax.swing.JTextField txtDestino;
     private javax.swing.JTextField txtDispEconomica;
     private javax.swing.JTextField txtDispPrimera;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLlegada;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtOrigen;
     private javax.swing.JTextField txtSalida;
-    private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }
