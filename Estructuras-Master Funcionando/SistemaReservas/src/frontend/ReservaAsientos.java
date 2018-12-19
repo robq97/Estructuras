@@ -250,6 +250,12 @@ public class ReservaAsientos extends javax.swing.JFrame {
                         Correo.setNombre(nombre);
                         Correo.setTelefono(telefono);
                         handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
+                        txtId.setText("");
+                        txtNombre.setText("");
+                        txtCedula.setText("");
+                        txtTelefono.setText("");
+                        txtCorreo.setText("");
+                        txtEspacios.setText("");
                     }
                 }else{
                     JOptionPane.showMessageDialog(null, "Datos incorrectos.\n"

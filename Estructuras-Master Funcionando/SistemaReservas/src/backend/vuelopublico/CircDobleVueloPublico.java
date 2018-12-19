@@ -9,6 +9,7 @@ import backend.handler.Correo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.mail.SendFailedException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -126,6 +127,7 @@ public class CircDobleVueloPublico {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 
                                 // Código para el envío de correo
+                                try{
                                 SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
                                 SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                                 
@@ -165,6 +167,9 @@ public class CircDobleVueloPublico {
                                         ;
                                 Correo.setMensaje(detalle); // Asigna la variable del mensaje al contenido del correo
                                 Correo.EnviarCorreo(); // Envía el correo
+                                }catch (RuntimeException e){
+                                    System.err.println("Error al enviar el correo.");
+                                }
                                 // Fin de código para el envío de correo
                                 
                                 int cantActual = aux.getDato().getPaxPriClase() - espacios;
@@ -194,6 +199,7 @@ public class CircDobleVueloPublico {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 
                                 // Código para el envío de correo
+                                try{
                                 SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
                                 SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                                 
@@ -233,6 +239,9 @@ public class CircDobleVueloPublico {
                                         ;
                                 Correo.setMensaje(detalle); // Asigna la variable del mensaje al contenido del correo
                                 Correo.EnviarCorreo(); // Envía el correo
+                                }catch (RuntimeException e){
+                                    System.err.println("Error al enviar el correo.");
+                                }
                                 // Fin de código para el envío de correo
                                 
                                 int cantActual = aux.getDato().getPaxEcon() - espacios;

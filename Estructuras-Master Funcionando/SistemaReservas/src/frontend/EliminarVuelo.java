@@ -57,7 +57,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
         txtId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jButton1.setBackground(Info.getBtnBackground());
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class EliminarVuelo extends javax.swing.JFrame {
         });
 
         btnReservar.setBackground(Info.getBtnBackground());
-        btnReservar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReservar.setText("Eliminar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
