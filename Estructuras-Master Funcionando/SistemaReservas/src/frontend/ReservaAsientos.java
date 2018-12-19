@@ -5,6 +5,7 @@
 */
 package frontend;
 
+import backend.handler.Correo;
 import backend.handler.Handler;
 import backend.handler.Info;
 import java.awt.HeadlessException;
@@ -244,6 +245,10 @@ public class ReservaAsientos extends javax.swing.JFrame {
                     if (nombre.length() == 0 || cedula.length() == 0 || telefono.length() == 0 || correo.length() == 0){
                         JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios antes de realizar la reserva.", "Error", JOptionPane.ERROR_MESSAGE);
                     }else{                                                      //Si todas las condiciones se cumplen, se llama al metodo de agregar clientes y reservas para ingresarle los parametros ingresados por el ususario.
+                        Correo.setPara(correo);
+                        Correo.setCédula(cedula);
+                        Correo.setNombre(nombre);
+                        Correo.setTelefono(telefono);
                         handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
                     }
                 }else{
@@ -255,6 +260,8 @@ public class ReservaAsientos extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "La cantidad de espacios debe ser introducida en números.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(ReservaAsientos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReservarActionPerformed
     

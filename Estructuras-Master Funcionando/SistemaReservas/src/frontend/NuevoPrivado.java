@@ -5,8 +5,12 @@
 */
 package frontend;
 
+import backend.handler.Correo;
 import backend.handler.Handler;
 import backend.handler.Info;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -259,6 +263,8 @@ public class NuevoPrivado extends javax.swing.JFrame {
             }
         }catch (NumberFormatException e ){                                      //Manejo de errores.
             JOptionPane.showMessageDialog(null, "Verifique que los datos de fechas y pasajeros sean introducidos en números.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(NuevoPrivado.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
     

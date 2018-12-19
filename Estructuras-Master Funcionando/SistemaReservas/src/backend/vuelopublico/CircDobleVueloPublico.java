@@ -5,7 +5,7 @@
 */
 package backend.vuelopublico;
 
-import java.text.DateFormat;
+import backend.handler.Correo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -90,7 +90,7 @@ public class CircDobleVueloPublico {
     }
     
     private int conseguirHora(int fecha) {                                      //Metodo para extraer la hora del int con toda la fecha.
-        int hora = (fecha % 10000);                                             //Se utiliza la operacion de remanente, para obtener los ultimos 4 ints correspodientes a la hora. 
+        int hora = (fecha % 10000);                                             //Se utiliza la operacion de remanente, para obtener los ultimos 4 ints correspodientes a la hora.
         return hora;
     }
     
@@ -111,19 +111,65 @@ public class CircDobleVueloPublico {
         return status;                                                          //Se devuelve un booleano dependiendo de si esta lleno o no.
     }
     
-    public double reservaVueloPublico(String categoria, int espacios, String idVuelo, boolean tipo) { //el booblean para clientes no existentes tiene que ser TRUE.
+    public double reservaVueloPublico(String categoria, int espacios, String idVuelo, boolean tipo) throws ParseException { //el booblean para clientes no existentes tiene que ser TRUE.
         NodoVueloPublico aux = cabeza;                                          //Metodo para hacer la reserva en un vuelo.
         double total = 0;
         while (true) {
             if (aux.getDato().getIdVuelo().equals(idVuelo)) {                   //Primero se busca por id el vuelo que se quiere reservar.
                 if (categoria.equals("primera")) {                              //Si el cliente escogio primera clase, se busca que existan suficientes espacios.
-                    if (aux.getDato().getPaxPriClase() >= espacios) {           
-                        total = aux.getDato().getCostoPaxPriClase() * espacios; 
+                    if (aux.getDato().getPaxPriClase() >= espacios) {
+                        total = aux.getDato().getCostoPaxPriClase() * espacios;
                         if (tipo == true) {
                             int decision = JOptionPane.showConfirmDialog(null,  //Si existieran suficientes espacios, se le muestra al cliente el id del vuelo, numero de espacios, categoria y total.
                                     "El total para el vuelo " + idVuelo + ", con " + espacios + " espacios de " + categoria + " clase es de: " + total + "\n¿Desea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
                             if (decision == JOptionPane.YES_OPTION) {           //Si elige realizar la reserva se actualizan el numero de asientos disponibles del vuelo.
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
+                                
+                                
+                                // Código para el envío de correo
+                                SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
+                                SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                                
+                                int fechaSalidaOrig = aux.getDato().getFechaSalida();
+                                Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
+                                String fechaSalidaNueva = newFormat.format(dateSalida);
+                                
+                                int fechaLlegadaOrig = aux.getDato().getFechaEntrada();
+                                Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
+                                String fechaLlegadaNueva = newFormat.format(dateLlegada);
+                                
+                                Correo.setAsunto("Reserva de Asientos"); // Asigna un nuevo asunto para el correo
+                                String detalle = "Se realizado satisfactoriamente una reserva a su nombre.\n" // Se crea un mensaje que va a ser enviado al cliente
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "Número de cédula: " + Correo.getCédula() + ".\n"
+                                        + "Nombre: " + Correo.getNombre() + ".\n"
+                                        + "Teléfono: " + Correo.getTelefono() + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Id de vuelo: " + idVuelo + ".\n"
+                                        + "Catidad de Espacios: " + espacios + ".\n"
+                                        + "Categoria: " + categoria + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Origen: " + aux.getDato().getOrigen() + ".\n"
+                                        + "Destino: " + aux.getDato().getDestino() + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Fecha de salida: " + fechaSalidaNueva + ".\n"
+                                        + "Fecha de llegada: " + fechaLlegadaNueva + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        ;
+                                Correo.setMensaje(detalle); // Asigna la variable del mensaje al contenido del correo
+                                Correo.EnviarCorreo(); // Envía el correo
+                                // Fin de código para el envío de correo
+                                
+                                
+                                
                                 int cantActual = aux.getDato().getPaxPriClase() - espacios;
                                 aux.getDato().setPaxPriClase(cantActual);
                                 return total;
@@ -149,6 +195,46 @@ public class CircDobleVueloPublico {
                                     "El total para el vuelo " + idVuelo + ", con " + espacios + " espacios de " + categoria + " clase es de: " + total + "\nDesea realizar la reserva?", "Reservacion", JOptionPane.YES_NO_OPTION);
                             if (decision == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
+                                
+                                
+                                // Código para el envío de correo
+                                SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
+                                SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                                
+                                int fechaSalidaOrig = aux.getDato().getFechaSalida();
+                                Date dateSalida = origFormat.parse(Integer.toString(fechaSalidaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
+                                String fechaSalidaNueva = newFormat.format(dateSalida);
+                                
+                                int fechaLlegadaOrig = aux.getDato().getFechaEntrada();
+                                Date dateLlegada = origFormat.parse(Integer.toString(fechaLlegadaOrig)); //Se pasa el int que contiene año, mes, dia y hora (todo pegado), a una fecha legible por el usuario.
+                                String fechaLlegadaNueva = newFormat.format(dateLlegada);
+                                
+                                Correo.setAsunto("Reserva de Asientos"); // Asigna un nuevo asunto para el correo
+                                String detalle = "Se realizado satisfactoriamente una reserva a su nombre.\n" // Se crea un mensaje que va a ser enviado al cliente
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Id de vuelo: " + idVuelo + ".\n"
+                                        + "Catidad de Espacios: " + espacios + ".\n"
+                                        + "Categoria: " + categoria + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Origen: " + aux.getDato().getOrigen() + ".\n"
+                                        + "Destino: " + aux.getDato().getDestino() + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "\n"
+                                        + "Fecha de salida: " + fechaSalidaNueva + ".\n"
+                                        + "Fecha de llegada: " + fechaLlegadaNueva + ".\n"
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        ;
+                                Correo.setMensaje(detalle); // Asigna la variable del mensaje al contenido del correo
+                                Correo.EnviarCorreo(); // Envía el correo
+                                // Fin de código para el envío de correo
+                                
+                                
                                 int cantActual = aux.getDato().getPaxEcon() - espacios;
                                 aux.getDato().setPaxEcon(cantActual);
                                 return total;

@@ -70,7 +70,7 @@ public class Handler {                                                          
         Handler.priv.encola(new VueloPrivado("Ciudad de Panama, Panama", "Moscu, Russia", "G650", "VP140", 1812021115, 1812081445, 7, Handler.priv.calcTotal(1812021115, 1812081445)));
     }
     
-    public void addNuevoVueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax) { //Metodo para agregar un nuevo vuelo privado (solo los admins pueden hacerlo).
+    public void addNuevoVueloPrivado(String origen, String destino, String modeloAvion, String idVuelo, int fechaSalida, int fechaEntrada, int pax) throws ParseException { //Metodo para agregar un nuevo vuelo privado (solo los admins pueden hacerlo).
         int respuesta = JOptionPane.showConfirmDialog(null, "El total para este vuelo es de: " + Handler.priv.calcTotal(fechaSalida, fechaEntrada) + "\n¿Desea realizar la reserva?", "Confirmacion", JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION){                               //Se le da el total y la opcion de reservar o no el vuelo.
             Handler.priv.encola(new VueloPrivado(origen, destino, modeloAvion, idVuelo, fechaSalida, fechaEntrada, pax, Handler.priv.calcTotal(fechaSalida, fechaEntrada)));
@@ -89,7 +89,7 @@ public class Handler {                                                          
         Handler.priv.eliminarVuelo(id);
     }
     
-    public void addClientesExistentes() {  //Se encarga de agregar clientes y crea reservaciones para cada uno.
+    public void addClientesExistentes() throws ParseException {  //Se encarga de agregar clientes y crea reservaciones para cada uno.
         // Tiene como parametros: nombre, cel, email, clase, # de asientos, cedula, id de vuelo, y el metodo de reserva.
         Handler.cliente.insertar(new Cliente("Daniela", "8712-6443", "daniela@gmail.com", "primera", 1, "1-1684-0022", "240", Handler.pub.reservaVueloPublico("primera", 1, "240", false)));
         Handler.cliente.insertar(new Cliente("Bryan", "5643-6566", "bryan@ulacit.com", "economica", 10, "1-1344-3443", "245", Handler.pub.reservaVueloPublico("economica", 10, "245", false)));
@@ -103,7 +103,7 @@ public class Handler {                                                          
         
     }
     //Agrega nuevos clientes y crea la reservacion solo si el total devuelto por el metodo reservaVueloPublico() es igual o mayor a 1.
-    public void addNuevosClientesyReserva(String nombre, String telefono, String email, String categoria, int asientos, String cedula, String idVuelo) {
+    public void addNuevosClientesyReserva(String nombre, String telefono, String email, String categoria, int asientos, String cedula, String idVuelo) throws ParseException {
         if (Handler.pub.reservaVueloPublico(categoria, asientos, idVuelo, true) >= 1) {
             cliente.insertar(new Cliente(nombre, telefono, email, categoria, asientos, cedula, idVuelo, Handler.pub.reservaVueloPublico(categoria, asientos, idVuelo, false)));
         }

@@ -11,7 +11,6 @@ public class Main {
         handler.addClientesExistentes();
         handler.addAdminsExistentes();
         handler.addVuelosPrivadosExistentes();
-        handler.addVuelosSolicitudesExistentes();
         Home window = new Home();
         window.setVisible(true);                //El UI se vuelve visible.
     }
