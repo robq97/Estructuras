@@ -245,8 +245,8 @@ public class ReservaAsientos extends javax.swing.JFrame {
                     if (nombre.length() == 0 || cedula.length() == 0 || telefono.length() == 0 || correo.length() == 0){
                         JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios antes de realizar la reserva.", "Error", JOptionPane.ERROR_MESSAGE);
                     }else{                                                      //Si todas las condiciones se cumplen, se llama al metodo de agregar clientes y reservas para ingresarle los parametros ingresados por el ususario.
-                        Correo.setPara(correo);
-                        Correo.setCédula(cedula);
+                        Correo.setPara(correo); // Asigna el remitente del correo
+                        Correo.setCédula(cedula); // Asigna informacion a variables globales para ser utilizadas desde otras clases
                         Correo.setNombre(nombre);
                         Correo.setTelefono(telefono);
                         handler.addNuevosClientesyReserva(nombre, telefono, correo, categoria, espacios, cedula, idVuelo);
