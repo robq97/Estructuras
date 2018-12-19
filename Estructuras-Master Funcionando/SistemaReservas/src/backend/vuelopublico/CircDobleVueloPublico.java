@@ -125,7 +125,6 @@ public class CircDobleVueloPublico {
                             if (decision == JOptionPane.YES_OPTION) {           //Si elige realizar la reserva se actualizan el numero de asientos disponibles del vuelo.
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 
-                                
                                 // Código para el envío de correo
                                 SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
                                 SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -168,8 +167,6 @@ public class CircDobleVueloPublico {
                                 Correo.EnviarCorreo(); // Envía el correo
                                 // Fin de código para el envío de correo
                                 
-                                
-                                
                                 int cantActual = aux.getDato().getPaxPriClase() - espacios;
                                 aux.getDato().setPaxPriClase(cantActual);
                                 return total;
@@ -196,7 +193,6 @@ public class CircDobleVueloPublico {
                             if (decision == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(null, "Reserva realizada.");
                                 
-                                
                                 // Código para el envío de correo
                                 SimpleDateFormat origFormat = new SimpleDateFormat("yyMMddHHmm");   //Se le da el formate de las fechas, y como queremos que se vean.
                                 SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -211,6 +207,11 @@ public class CircDobleVueloPublico {
                                 
                                 Correo.setAsunto("Reserva de Asientos"); // Asigna un nuevo asunto para el correo
                                 String detalle = "Se realizado satisfactoriamente una reserva a su nombre.\n" // Se crea un mensaje que va a ser enviado al cliente
+                                        + "\n"
+                                        + "----------------------------------------------------\n"
+                                        + "Número de cédula: " + Correo.getCédula() + ".\n"
+                                        + "Nombre: " + Correo.getNombre() + ".\n"
+                                        + "Teléfono: " + Correo.getTelefono() + ".\n"
                                         + "\n"
                                         + "----------------------------------------------------\n"
                                         + "\n"
@@ -233,7 +234,6 @@ public class CircDobleVueloPublico {
                                 Correo.setMensaje(detalle); // Asigna la variable del mensaje al contenido del correo
                                 Correo.EnviarCorreo(); // Envía el correo
                                 // Fin de código para el envío de correo
-                                
                                 
                                 int cantActual = aux.getDato().getPaxEcon() - espacios;
                                 aux.getDato().setPaxEcon(cantActual);
